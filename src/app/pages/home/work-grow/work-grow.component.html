@@ -1,0 +1,81 @@
+<!-- DARK HERO SECTION -->
+<section class="relative bg-[#050b14] overflow-hidden" style="min-height:80vh">
+
+  <!-- World map background -->
+  <div class="absolute inset-0 z-0">
+    <div class="sticky top-0 h-screen w-full overflow-hidden">
+      <!-- Dot grid overlay -->
+      <div class="absolute inset-0 z-10 opacity-30"
+        style="background-image:radial-gradient(#3b82f6 1px,transparent 1px);background-size:30px 30px"></div>
+      <!-- Dark gradient vignette -->
+      <div class="absolute inset-0 z-20 bg-gradient-to-b from-[#050b14] via-transparent to-[#050b14]"></div>
+      <!-- World map image -->
+      <img src="/images/bg/world_map.webp" alt="Global Operations Map"
+        class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-30 container mx-auto px-6 flex flex-col justify-center" style="min-height:80vh">
+    <div class="max-w-4xl pt-24 pb-16" data-aos="fade-up">
+
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight text-white mb-6">
+        Empowering Enterprise <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+          Digital Ecosystems
+        </span>
+      </h2>
+
+      <p class="text-gray-400 text-xl md:text-2xl max-w-2xl mb-10 leading-relaxed">
+        From LS Central retail management and Android mobile innovation to Power BI data intelligence.
+        We don't just provide ERP; we build the future of your business.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <button (click)="openModal()"
+          class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20 active:scale-95">
+          Request a Demo
+        </button>
+
+        <div class="flex items-center gap-4 px-6 py-4 border border-gray-700 rounded-xl bg-gray-900/50 backdrop-blur-md">
+          <span class="flex h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
+          <span class="text-gray-300 font-medium">Global Support 24/7</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="relative z-40 -mt-24">
+  <div class="container mx-auto px-6">
+    <div class="bg-white border border-gray-200 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] rounded-[3rem] p-10 md:p-16 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+      <div *ngFor="let stat of stats; let i = index"
+        [class.border-l]="i > 0" class="border-gray-100 space-y-2" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+        <h3 class="text-5xl font-black text-gray-900 tracking-tighter">{{ stat.value }}</h3>
+        <p class="text-blue-600 font-bold uppercase text-[10px] tracking-widest">{{ stat.label }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUEST DEMO MODAL -->
+<div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-md" (click)="closeModal()"></div>
+  <div class="relative w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden z-[101]">
+    <button (click)="closeModal()"
+      class="absolute right-8 top-8 z-10 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition-all hover:rotate-90">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="p-8 md:p-12">
+      <div class="mb-8">
+        <h2 class="text-4xl font-black text-slate-900 tracking-tight">Schedule a Demo</h2>
+        <p class="text-slate-500 mt-2 font-medium">See how our ecosystem can transform your business operations.</p>
+      </div>
+      <app-contact-form (success)="closeModal()"></app-contact-form>
+    </div>
+  </div>
+</div>

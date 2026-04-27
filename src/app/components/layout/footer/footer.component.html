@@ -1,0 +1,168 @@
+<footer class="w-full bg-[#111A3A] text-white font-sans">
+  <div class="container px-6 py-10 mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1.6fr_1fr_1.1fr] gap-12 lg:gap-16">
+
+      <!-- COL 1: LOGO & CONTACT -->
+      <div class="flex flex-col items-start">
+        <div class="mb-2">
+          <img src="/images/logo/nowara-logo-footer.svg" alt="Nowara Infotech" width="200" height="100" class="relative z-10" />
+        </div>
+
+        <p class="text-[15px] leading-relaxed mb-4 text-white font-medium max-w-sm">
+          Nowara Infotech is a certified Microsoft partner that provides the best ERP solutions for every industry regardless of the company size.
+        </p>
+
+        <div class="group/title w-fit mb-4">
+          <h4 class="text-sm font-bold tracking-widest uppercase pb-1 text-white">Connect Us</h4>
+          <div class="h-[2px] bg-cyan-500 w-0 group-hover/title:w-full transition-all duration-500 ease-out"></div>
+        </div>
+
+        <div class="space-y-4 mb-4">
+          <a *ngFor="let phone of phones" [href]="'tel:' + phone.number.replace(' ', '')"
+            class="flex items-center gap-4 group/contact cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/contact:bg-[#C5A358] group-hover/contact:text-white transition-all duration-500 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col text-gray-300">
+              <span class="text-[10px] uppercase tracking-tighter font-bold text-slate-500 group-hover/contact:text-cyan-400 transition-colors duration-300">{{ phone.label }}</span>
+              <span class="text-[14px] font-mono text-white group-hover/contact:text-cyan-400 transition-colors duration-300">{{ phone.number }}</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex gap-4">
+          <a href="https://facebook.com" target="_blank"
+            class="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 hover:bg-cyan-600 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank"
+            class="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 hover:bg-pink-600 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://twitter.com" target="_blank"
+            class="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 hover:bg-sky-500 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/nowara-infotech/" target="_blank"
+            class="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center text-white transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 hover:bg-blue-700 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2: COMPANY ADDRESS -->
+      <div class="flex flex-col max-w-md">
+        <div class="group/title w-fit mb-3">
+          <h4 class="text-sm font-bold tracking-widest uppercase pb-1 text-white">Company Address</h4>
+          <div class="h-[2px] bg-cyan-500 w-0 group-hover/title:w-full transition-all duration-500 ease-out"></div>
+        </div>
+
+        <!-- UAE -->
+        <div class="mb-4">
+          <h5 class="text-white font-bold text-lg mb-2">Nowara Infotech Fzco</h5>
+          <ul class="flex flex-col gap-2 text-gray-300 text-[14px]">
+            <li class="flex items-start gap-4 group/contact">
+              <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/contact:bg-[#C5A358] group-hover/contact:text-white transition-all duration-500 shadow-sm shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <p class="leading-relaxed pt-0.5"><span class="font-semibold text-white block">Address:</span> G094C DTEC, Dubai Silicon Oasis Dubai, UAE.</p>
+            </li>
+            <li class="flex items-center gap-4 group/contact">
+              <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/contact:bg-[#C5A358] group-hover/contact:text-white transition-all duration-500 shadow-sm shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <p class="pt-0.5"><span class="font-semibold text-white">Email:</span>
+                <a href="mailto:info@nowarainfotech.com" class="group-hover/contact:text-cyan-400 transition-colors duration-300"> info@nowarainfotech.com</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- India -->
+        <div>
+          <h5 class="text-white font-bold text-lg mb-2">Nowara Infotech Pvt Ltd.</h5>
+          <ul class="flex flex-col gap-2 text-gray-300 text-[14px]">
+            <li *ngFor="let office of indiaOffices" class="flex items-start gap-4 group/contact">
+              <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/contact:bg-[#C5A358] group-hover/contact:text-white transition-all duration-500 shadow-sm shrink-0 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <p class="leading-relaxed pt-1"><span class="font-semibold text-white block">{{ office.city }}:</span>{{ office.addr }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COL 3: SERVICES -->
+      <div class="flex flex-col gap-2">
+        <div class="group/title w-fit mb-1">
+          <h4 class="text-sm font-bold tracking-widest uppercase pb-1 text-white">Services</h4>
+          <div class="h-[2px] bg-cyan-500 w-0 group-hover/title:w-full transition-all duration-500 ease-out"></div>
+        </div>
+        <ul class="flex flex-col gap-2 text-gray-300 text-[14px]">
+          <li *ngFor="let svc of services" class="flex items-center gap-4 group/service cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/service:bg-[#C5A358] group-hover/service:text-white transition-all duration-500 shadow-sm">
+              <iconify-icon [attr.icon]="svc.icon" width="18" height="18"></iconify-icon>
+            </div>
+            <a [routerLink]="svc.href" class="group-hover/service:text-cyan-400 transition-colors duration-300 font-medium pt-0.5">{{ svc.label }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- COL 4: TECHNOLOGIES -->
+      <div class="flex flex-col gap-2">
+        <div class="group/title w-fit mb-1">
+          <h4 class="text-sm font-bold tracking-widest uppercase pb-1 text-white">Technologies</h4>
+          <div class="h-[2px] bg-cyan-500 w-0 group-hover/title:w-full transition-all duration-500 ease-out"></div>
+        </div>
+        <ul class="flex flex-col gap-2 text-gray-300 text-[14px]">
+          <li class="flex items-center gap-4 group/tech cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/tech:bg-[#C5A358] group-hover/tech:text-white transition-all duration-500 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 1.105 2.239 2 5 2s5-.895 5-2V7m-10 0c0-1.105 2.239-2 5-2s5 .895 5 2m-10 0c0 1.105 2.239 2 5 2s5-.895 5-2m0 5c0 1.105-2.239 2-5 2s-5-.895-5-2"/></svg>
+            </div>
+            <span class="group-hover/tech:text-cyan-400 transition-colors duration-300 font-medium pt-0.5">Dynamics 365 / Business Central</span>
+          </li>
+          <li class="flex items-center gap-4 group/tech cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/tech:bg-[#C5A358] group-hover/tech:text-white transition-all duration-500 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <span class="group-hover/tech:text-cyan-400 transition-colors duration-300 font-medium pt-0.5">Microsoft Azure & Cloud</span>
+          </li>
+          <li class="flex items-center gap-4 group/tech cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/tech:bg-[#C5A358] group-hover/tech:text-white transition-all duration-500 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <span class="group-hover/tech:text-cyan-400 transition-colors duration-300 font-medium pt-0.5">Power BI & Data Analytics</span>
+          </li>
+          <li class="flex items-center gap-4 group/tech cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/tech:bg-[#C5A358] group-hover/tech:text-white transition-all duration-500 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <span class="group-hover/tech:text-cyan-400 transition-colors duration-300 font-medium pt-0.5">Full Stack Development</span>
+          </li>
+          <li class="flex items-center gap-4 group/tech cursor-pointer">
+            <div class="p-2 rounded-lg bg-gray-800/50 text-[#C5A358] group-hover/tech:bg-[#C5A358] group-hover/tech:text-white transition-all duration-500 shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="group-hover/tech:text-cyan-400 transition-colors duration-300 font-medium pt-0.5">AI & Robotic Process Automation</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="border-t border-gray-800 py-4">
+    <div class="container mx-auto px-6 text-center text-xs text-gray-500 uppercase tracking-widest">
+      &copy; {{ year }} <span class="font-bold text-gray-400">Nowara Infotech</span> — All Rights Reserved
+    </div>
+  </div>
+
+  <!-- SEO crawler links -->
+  <div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
+    <a *ngFor="let link of crawlerLinks" [routerLink]="link.href">{{ link.label }}</a>
+  </div>
+</footer>

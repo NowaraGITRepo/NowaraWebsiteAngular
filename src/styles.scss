@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Swiper & AOS loaded via angular.json styles array */
+
+/* AOS loaded via angular.json */
+
+/* Accordion transitions */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+.accordion-content.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+/* Swiper custom pagination */
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+}
+.swiper-pagination-bullet-active {
+  background: #86a4da;
+  opacity: 1;
+  width: 32px;
+  border-radius: 5px;
+}
+
+/* Prose styles for blog content */
+.prose h1, .prose h2, .prose h3 { font-weight: 800; color: #0f172a; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose p { margin-bottom: 1rem; line-height: 1.75; }
+.prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose img { border-radius: 1rem; margin: 1.5rem 0; }

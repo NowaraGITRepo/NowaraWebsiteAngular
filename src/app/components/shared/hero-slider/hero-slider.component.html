@@ -1,0 +1,84 @@
+<section id="swipe" class="w-full overflow-hidden relative bg-black">
+
+  <div class="swiper nowara-hero-swiper h-[800px] md:h-[95vh] lg:h-[110vh] w-full">
+    <div class="swiper-wrapper">
+
+      <div *ngFor="let slide of slides; let i = index" class="swiper-slide relative overflow-hidden">
+        <!-- BG Image with parallax -->
+        <div class="absolute inset-0" data-swiper-parallax="30%">
+          <img [src]="slide.src" [alt]="slide.tag"
+            class="w-full h-full object-cover scale-110"
+            [attr.loading]="i === 0 ? 'eager' : 'lazy'" />
+          <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-20 lg:px-32"
+          [class.items-end]="slide['align'] === 'right'"
+          [class.items-start]="slide['align'] !== 'right'">
+
+          <div [class.max-w-2xl]="slide['align'] === 'right'"
+               [class.text-right]="slide['align'] === 'right'"
+               [class.flex-col]="slide['align'] === 'right'"
+               [class.items-end]="slide['align'] === 'right'"
+               [class.max-w-4xl]="slide['align'] !== 'right'"
+               [class.text-left]="slide['align'] !== 'right'"
+               class="transition-all duration-700">
+
+            <div data-swiper-parallax="-200"
+              class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mt-10 backdrop-blur-md">
+              <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+              <span class="text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">{{ slide.tag }}</span>
+            </div>
+
+            <h1 data-swiper-parallax="-400"
+              class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+              [innerHTML]="slide.title"></h1>
+
+            <p data-swiper-parallax="-600"
+              class="text-gray-100 text-lg md:text-xl leading-relaxed mb-10 max-w-xl opacity-90">
+              {{ slide.desc }}
+            </p>
+
+            <div data-swiper-parallax="-800">
+              <button (click)="openModal(slide.brochure, slide.tag)"
+                class="relative overflow-hidden bg-[#3D77BE] hover:bg-white text-white hover:text-[#3D77BE] font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-xl active:scale-95">
+                Book a Free Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- MODAL -->
+  <div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+    <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-md" (click)="closeModal()"></div>
+
+    <div class="relative w-full max-w-2xl z-10 animate-fade-in">
+      <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-white/20">
+
+        <div class="bg-slate-50 px-8 py-6 border-b border-slate-100 flex justify-between items-center">
+          <div>
+            <h3 class="text-xl font-bold text-slate-800">Request Brochure</h3>
+            <p class="text-sm text-slate-500">Fill in your details to receive the {{ activeTag }} guide.</p>
+          </div>
+          <button (click)="closeModal()"
+            class="p-2 hover:bg-slate-200 rounded-full text-slate-400 hover:text-slate-600 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="p-8 md:p-10 bg-white">
+          <app-contact-form [isModal]="true" (success)="closeModal()"></app-contact-form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,175 @@
+<header
+  [ngClass]="sticky
+    ? 'h-16 shadow-lg backdrop-blur-md bg-white/80'
+    : 'h-24 bg-[#E7E8E9]'"
+  class="fixed top-0 z-50 w-full transition-all duration-500 flex items-center">
+
+  <div class="container mx-auto flex items-center justify-between px-6">
+
+    <!-- LOGO -->
+    <div class="flex-shrink-0">
+      <a routerLink="/">
+        <img
+          src="/images/logo/cropped-logofooter.webp"
+          alt="Nowara Infotech"
+          [style.width]="sticky ? '90px' : '120px'"
+          style="height:auto" />
+      </a>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:block">
+      <ul class="flex items-center gap-8">
+        <li *ngFor="let item of headerData; let i = index" class="relative h-full">
+
+          <!-- Has submenu -->
+          <ng-container *ngIf="item.submenu; else simpleLink">
+            <div
+              class="relative flex items-center h-full"
+              (mouseenter)="openDropdown = i"
+              (mouseleave)="openDropdown = null">
+
+              <a
+                [href]="item.href"
+                (click)="$event.preventDefault()"
+                [ngClass]="isActive(item.href) ? 'text-[#3D77BE]' : 'text-[#001529]'"
+                class="py-3 text-base flex items-center font-bold transition-all duration-300 hover:text-[#3D77BE]">
+                {{ item.label }}
+                <iconify-icon
+                  icon="heroicons:chevron-down"
+                  class="ml-1 text-sm transition-transform duration-300"
+                  [class.rotate-180]="openDropdown === i"
+                  [class.text-blue-500]="openDropdown === i || isActive(item.href)">
+                </iconify-icon>
+              </a>
+
+              <!-- Dropdown panel -->
+              <div
+                *ngIf="openDropdown === i"
+                class="absolute top-full left-0 min-w-[18rem] w-max bg-white shadow-2xl rounded-xl border border-gray-100 z-[9999]">
+                <!-- Blue gradient bar -->
+                <div class="h-1.5 w-full bg-gradient-to-r from-blue-900 via-blue-600 to-sky-400 rounded-t-xl"></div>
+                <div class="p-2">
+                  <a *ngFor="let sub of item.submenu"
+                    [routerLink]="sub.href"
+                    (click)="openDropdown = null"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 text-[#001529] hover:bg-blue-50 hover:text-[#3D77BE]">
+                    <div class="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                      <iconify-icon
+                        *ngIf="sub.icon"
+                        [attr.icon]="sub.icon"
+                        width="20" height="20"
+                        [class]="sub.iconColor || 'text-[#114f9a]'">
+                      </iconify-icon>
+                      <div *ngIf="!sub.icon" class="w-2 h-2 rounded-full bg-blue-200"></div>
+                    </div>
+                    <span class="font-semibold text-sm whitespace-nowrap">{{ sub.label }}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Simple link -->
+          <ng-template #simpleLink>
+            <a [routerLink]="item.href"
+              [ngClass]="router.url === item.href ? 'text-[#3D77BE]' : 'text-[#001529]'"
+              class="py-3 text-base font-bold transition-all duration-300 hover:text-[#3D77BE]">
+              {{ item.label }}
+            </a>
+          </ng-template>
+
+        </li>
+      </ul>
+    </nav>
+
+    <!-- RIGHT: CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <a routerLink="/contact-us"
+        class="hidden lg:block bg-[#3D77BE] text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+        Get in Touch
+      </a>
+
+      <!-- Hamburger -->
+      <button (click)="toggleNav()" class="lg:hidden flex flex-col gap-1.5 p-2">
+        <span class="block w-6 h-0.5 bg-[#102C46] transition-all duration-300"
+          [class.rotate-45]="navbarOpen" [class.translate-y-2]="navbarOpen"></span>
+        <span class="block w-6 h-0.5 bg-[#102C46] transition-all duration-300"
+          [class.opacity-0]="navbarOpen"></span>
+        <span class="block w-6 h-0.5 bg-[#102C46] transition-all duration-300"
+          [class.-rotate-45]="navbarOpen" [class.-translate-y-2]="navbarOpen"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE SIDEBAR -->
+  <div
+    class="lg:hidden fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 flex flex-col z-[60]"
+    [class.translate-x-0]="navbarOpen"
+    [class.translate-x-full]="!navbarOpen">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6 border-b flex-shrink-0">
+      <h2 class="text-xl font-bold text-[#102C46]">Menu</h2>
+      <button (click)="closeNav()" class="text-slate-600">
+        <iconify-icon icon="ic:round-close" style="font-size:24px"></iconify-icon>
+      </button>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="flex-1 overflow-y-auto py-4">
+      <div *ngFor="let item of headerData; let i = index">
+
+        <ng-container *ngIf="item.submenu; else mobileSingle">
+          <button
+            (click)="toggleMobileDropdown(i)"
+            class="flex items-center justify-between w-full px-6 py-3.5 font-bold text-[#102C46] hover:bg-blue-50 transition-colors">
+            {{ item.label }}
+            <iconify-icon
+              icon="heroicons:chevron-down"
+              class="text-sm transition-transform duration-300"
+              [class.rotate-180]="openMobileDropdown === i">
+            </iconify-icon>
+          </button>
+          <div *ngIf="openMobileDropdown === i" class="bg-slate-50 border-l-4 border-[#3D77BE] ml-4">
+            <a *ngFor="let sub of item.submenu"
+              [routerLink]="sub.href"
+              (click)="closeNav()"
+              class="flex items-center gap-3 px-6 py-2.5 text-sm text-slate-600 hover:text-[#3D77BE] transition-colors">
+              <iconify-icon
+                *ngIf="sub.icon"
+                [attr.icon]="sub.icon"
+                width="16" height="16"
+                [class]="sub.iconColor || 'text-slate-400'">
+              </iconify-icon>
+              {{ sub.label }}
+            </a>
+          </div>
+        </ng-container>
+
+        <ng-template #mobileSingle>
+          <a [routerLink]="item.href"
+            (click)="closeNav()"
+            class="block px-6 py-3.5 font-bold text-[#102C46] hover:bg-blue-50 hover:text-[#3D77BE] transition-colors">
+            {{ item.label }}
+          </a>
+        </ng-template>
+
+      </div>
+    </nav>
+
+    <!-- Footer CTA -->
+    <div class="p-6 border-t flex-shrink-0">
+      <a routerLink="/contact-us" (click)="closeNav()"
+        class="block bg-[#3D77BE] text-white text-center py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div *ngIf="navbarOpen"
+    class="fixed inset-0 bg-black/40 z-[55] lg:hidden"
+    (click)="closeNav()"></div>
+
+</header>

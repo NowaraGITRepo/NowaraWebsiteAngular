@@ -1,0 +1,43 @@
+<section class="bg-white">
+  <!-- Section Header -->
+  <div class="text-center py-14 px-4" data-aos="fade-up">
+    <h2 class="text-secondary text-3xl md:text-4xl font-bold mb-3">Industry Solutions</h2>
+    <p class="text-slate-500 max-w-2xl mx-auto text-base">
+      Helping businesses succeed in their digital transformation initiatives with our specialized ERP ecosystem.
+    </p>
+  </div>
+
+  <!-- 8-Card Image Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-4">
+    <div *ngFor="let item of services; let i = index"
+      class="relative h-[270px] overflow-hidden bg-white cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-500"
+      data-aos="fade-up" [attr.data-aos-delay]="(i % 4) * 80">
+
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0 transition-all duration-700 group-hover:scale-110 group-hover:brightness-[35%]">
+        <img [src]="item.image" [alt]="item.title" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Gradient overlay (always visible) -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-500"></div>
+
+      <!-- Icon top-right -->
+      <div class="absolute top-4 right-4 z-20 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+        <img [src]="item.icon" [alt]="item.title + ' icon'" class="w-10 h-10 object-contain drop-shadow-lg" />
+      </div>
+
+      <!-- Title (always visible at bottom) -->
+      <div class="absolute bottom-0 left-0 right-0 z-20 p-4 group-hover:opacity-0 transition-opacity duration-300">
+        <p class="text-white font-black text-xs tracking-[0.18em] uppercase text-center">{{ item.title }}</p>
+        <div class="w-10 h-[2px] bg-primary mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- Hover Content -->
+      <div class="absolute inset-0 z-30 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+        <img [src]="item.icon" [alt]="item.title + ' icon'" class="w-12 h-12 object-contain mb-4 brightness-200 filter" />
+        <h3 class="text-white font-black text-sm tracking-[0.15em] uppercase text-center mb-3">{{ item.title }}</h3>
+        <p class="text-white/80 text-xs text-center leading-relaxed">{{ item.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
