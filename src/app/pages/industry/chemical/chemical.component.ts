@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-chemical', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class ChemicalComponent {
+export class ChemicalComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.chemical.title, SEO.chemical.description); }
   config: IndustryPageConfig = {
-    badge: 'Chemical Industry Ready', heroTitle: 'Chemical', heroTitleHighlight: 'Industry ERP',
+    badge: 'Chemical Manufacturing', heroTitle: 'Chemical', heroTitleHighlight: 'Industry ERP',
     heroDesc: 'Manage hazardous materials, regulatory reporting, and complex formulations with a fully integrated ERP built for the chemical industry.',
-    heroCta: 'Explore Chemical ERP', heroImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1000',
+    heroCta: 'Book a Demo', heroImage: '/images/chemical/chemical-bg.webp',
     capabilitiesTitle: 'Chemical ERP Capabilities',
     capabilities: [
       { title: 'Hazmat Management', desc: 'Track hazardous materials with safety data sheets and handling protocols.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>' },

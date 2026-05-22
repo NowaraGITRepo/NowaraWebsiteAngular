@@ -1,15 +1,16 @@
-<section id="swipe" class="w-full overflow-hidden relative bg-black">
+<section id="swipe" class="w-full overflow-hidden relative bg-black h-[420px] md:h-[540px] lg:h-[620px]">
 
-  <div class="swiper nowara-hero-swiper h-[800px] md:h-[95vh] lg:h-[110vh] w-full">
+  <div class="swiper nowara-hero-swiper h-full w-full">
     <div class="swiper-wrapper">
 
       <div *ngFor="let slide of slides; let i = index" class="swiper-slide relative overflow-hidden">
-        <!-- BG Image with parallax -->
-        <div class="absolute inset-0" data-swiper-parallax="30%">
+
+        <!-- BG Image with parallax depth only -->
+        <div class="absolute inset-0" data-swiper-parallax="25%">
           <img [src]="slide.src" [alt]="slide.tag"
             class="w-full h-full object-cover scale-110"
             [attr.loading]="i === 0 ? 'eager' : 'lazy'" />
-          <div class="absolute inset-0 bg-black/40"></div>
+          <div class="absolute inset-0 bg-black/45"></div>
         </div>
 
         <!-- Content -->
@@ -19,33 +20,35 @@
 
           <div [class.max-w-2xl]="slide['align'] === 'right'"
                [class.text-right]="slide['align'] === 'right'"
-               [class.flex-col]="slide['align'] === 'right'"
                [class.items-end]="slide['align'] === 'right'"
                [class.max-w-4xl]="slide['align'] !== 'right'"
                [class.text-left]="slide['align'] !== 'right'"
-               class="transition-all duration-700">
+               class="flex flex-col">
 
-            <div data-swiper-parallax="-200"
-              class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mt-10 backdrop-blur-md">
+            <!-- Tag badge -->
+            <div class="hero-tag inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mt-10 backdrop-blur-md self-start"
+              [class.self-end]="slide['align'] === 'right'">
               <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
               <span class="text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">{{ slide.tag }}</span>
             </div>
 
-            <h1 data-swiper-parallax="-400"
-              class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+            <!-- Title -->
+            <h1 class="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
               [innerHTML]="slide.title"></h1>
 
-            <p data-swiper-parallax="-600"
-              class="text-gray-100 text-lg md:text-xl leading-relaxed mb-10 max-w-xl opacity-90">
+            <!-- Description -->
+            <p class="hero-desc text-gray-100 text-lg md:text-xl leading-relaxed mb-10 max-w-xl opacity-90">
               {{ slide.desc }}
             </p>
 
-            <div data-swiper-parallax="-800">
+            <!-- Button -->
+            <div class="hero-btn">
               <button (click)="openModal(slide.brochure, slide.tag)"
                 class="relative overflow-hidden bg-[#3D77BE] hover:bg-white text-white hover:text-[#3D77BE] font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-xl active:scale-95">
                 Book a Free Demo
               </button>
             </div>
+
           </div>
         </div>
       </div>

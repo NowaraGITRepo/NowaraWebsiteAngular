@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({
   selector: 'app-case-study-list',
@@ -45,7 +47,9 @@ import { RouterLink } from '@angular/router';
 </div>
   `,
 })
-export class CaseStudyListComponent {
+export class CaseStudyListComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.caseStudy.title, SEO.caseStudy.description); }
   caseStudyList = [
     { id: '1', title: 'Food & Beverages (South Africa)', img: '/images/casestudy/case-studies foodbeverage.webp' },
     { id: '2', title: 'Dynamics 365 Business Central', img: '/images/casestudy/case-studies-erpimage.webp' },

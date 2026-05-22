@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({
   selector: 'app-resource-aug',
@@ -146,7 +148,9 @@ import { ContactFormComponent } from '../../../components/shared/contact-form/co
 </div>
   `,
 })
-export class ResourceAugComponent {
+export class ResourceAugComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.resourceAug.title, SEO.resourceAug.description); }
   features = [
     { title: 'Pre-Vetted Talent', desc: 'Rigorous technical and communication screening.' },
     { title: 'Flexible Scaling', desc: 'Adjust team size based on project sprint needs.' },

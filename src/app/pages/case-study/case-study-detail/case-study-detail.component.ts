@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { SeoService } from '../../../services/seo.service';
 
 interface CaseStudy {
   id: string;
@@ -68,6 +69,7 @@ interface CaseStudy {
   `,
 })
 export class CaseStudyDetailComponent implements OnInit {
+  private seo = inject(SeoService);
   caseStudy: CaseStudy | null = null;
 
   private data: CaseStudy[] = [
@@ -83,5 +85,8 @@ export class CaseStudyDetailComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.caseStudy = this.data.find(d => d.id === id) || null;
+    if (this.caseStudy) {
+      this.seo.setPage(`${this.caseStudy.title} | Nowara Infotech`, this.caseStudy.overview.slice(0, 160));
+    }
   }
 }

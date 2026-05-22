@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 interface Blog {
   id: string;
@@ -62,6 +64,7 @@ interface Blog {
   `,
 })
 export class BlogListComponent implements OnInit {
+  private seo = inject(SeoService);
   blogs: Blog[] = [];
   loading = true;
   currentPage = 1;
@@ -70,6 +73,7 @@ export class BlogListComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
+    this.seo.setPage(SEO.blogs.title, SEO.blogs.description);
     this.http.get<any>('https://nowarainfotech.co/blog_api.php?action=get_all').subscribe({
       next: (data) => {
         if (data.status) this.blogs = data.data;

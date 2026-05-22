@@ -1,43 +1,78 @@
-<section class="bg-white">
-  <!-- Section Header -->
-  <div class="text-center py-14 px-4" data-aos="fade-up">
-    <h2 class="text-secondary text-3xl md:text-4xl font-bold mb-3">Industry Solutions</h2>
-    <p class="text-slate-500 max-w-2xl mx-auto text-base">
-      Helping businesses succeed in their digital transformation initiatives with our specialized ERP ecosystem.
-    </p>
+<section class="relative bg-white py-24">
+
+  <!-- Blobs in isolated overflow wrapper so pill is never clipped -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full bg-blue-100/50 blur-[120px]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-indigo-100/40 blur-[100px]"></div>
   </div>
 
-  <!-- 8-Card Image Grid -->
-  <div class="grid grid-cols-2 md:grid-cols-4">
-    <div *ngFor="let item of services; let i = index"
-      class="relative h-[270px] overflow-hidden bg-white cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-500"
-      data-aos="fade-up" [attr.data-aos-delay]="(i % 4) * 80">
-
-      <!-- Background Image -->
-      <div class="absolute inset-0 z-0 transition-all duration-700 group-hover:scale-110 group-hover:brightness-[35%]">
-        <img [src]="item.image" [alt]="item.title" class="w-full h-full object-cover" />
-      </div>
-
-      <!-- Gradient overlay (always visible) -->
-      <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:opacity-0 transition-opacity duration-500"></div>
-
-      <!-- Icon top-right -->
-      <div class="absolute top-4 right-4 z-20 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-        <img [src]="item.icon" [alt]="item.title + ' icon'" class="w-10 h-10 object-contain drop-shadow-lg" />
-      </div>
-
-      <!-- Title (always visible at bottom) -->
-      <div class="absolute bottom-0 left-0 right-0 z-20 p-4 group-hover:opacity-0 transition-opacity duration-300">
-        <p class="text-white font-black text-xs tracking-[0.18em] uppercase text-center">{{ item.title }}</p>
-        <div class="w-10 h-[2px] bg-primary mx-auto mt-2 rounded-full"></div>
-      </div>
-
-      <!-- Hover Content -->
-      <div class="absolute inset-0 z-30 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-        <img [src]="item.icon" [alt]="item.title + ' icon'" class="w-12 h-12 object-contain mb-4 brightness-200 filter" />
-        <h3 class="text-white font-black text-sm tracking-[0.15em] uppercase text-center mb-3">{{ item.title }}</h3>
-        <p class="text-white/80 text-xs text-center leading-relaxed">{{ item.desc }}</p>
-      </div>
+  <!-- ── SECTION DIVIDER PILL — sits exactly on the hero/solutions boundary ── -->
+  <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);z-index:30">
+    <div style="display:inline-flex;align-items:center;gap:14px;
+      background:#ffffff;border:1.5px solid #e2e8f0;border-radius:9999px;
+      padding:10px 30px;box-shadow:0 4px 24px rgba(0,0,0,0.08);white-space:nowrap">
+      <div style="width:32px;height:1.5px;background:linear-gradient(to right,transparent,#94a3b8);border-radius:2px"></div>
+      <span style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:#64748b">
+        What We Offer
+      </span>
+      <div style="width:32px;height:1.5px;background:linear-gradient(to left,transparent,#94a3b8);border-radius:2px"></div>
     </div>
   </div>
+
+  <!-- Section header -->
+  <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20 mb-14">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <span class="inline-block mb-3 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600">What We Solve</span>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+          Industry <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Solutions</span>
+        </h2>
+      </div>
+      <p class="text-slate-400 max-w-sm text-sm leading-relaxed md:text-right">
+        Specialized ERP ecosystems that power digital transformation across every vertical.
+      </p>
+    </div>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+
+      <div *ngFor="let item of services; let i = index"
+        class="group relative overflow-hidden rounded-3xl cursor-pointer bg-white
+               border-2 border-blue-200
+               shadow-[0_8px_32px_rgba(37,99,235,0.12)]
+               -translate-y-0 transition-all duration-300">
+
+        <!-- Image area -->
+        <div class="relative h-44 overflow-hidden rounded-t-3xl">
+          <img [src]="item.image" [alt]="item.title"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+          <!-- Icon badge -->
+          <div class="absolute bottom-3 left-3 flex items-center gap-2 rounded-xl bg-white/90 backdrop-blur-sm border border-white/60 px-3 py-1.5 shadow-sm">
+            <img [src]="item.icon" [alt]="item.title" class="w-4 h-4 object-contain flex-shrink-0" />
+            <span class="text-slate-700 font-bold text-[10px] uppercase tracking-wider leading-none">{{ item.title }}</span>
+          </div>
+        </div>
+
+        <!-- Card body -->
+        <div class="p-5">
+          <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">{{ item.desc }}</p>
+
+          <!-- Always visible CTA -->
+          <div class="mt-4 flex items-center gap-1.5 text-blue-600 text-xs font-bold">
+            Learn more
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
 </section>

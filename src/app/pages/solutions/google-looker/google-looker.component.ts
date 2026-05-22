@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-google-looker', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class GoogleLookerComponent {
+export class GoogleLookerComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.googleLooker.title, SEO.googleLooker.description); }
   config: IndustryPageConfig = {
-    badge: 'Google Looker Analytics', heroTitle: 'Google', heroTitleHighlight: 'Looker',
-    heroDesc: 'Nowara Infotech implements Google Looker — the enterprise BI platform that lets every team explore, analyse, and share data-driven insights from a governed semantic layer.',
-    heroCta: 'Explore Looker', heroImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=1000',
+    badge: 'Google Looker Analytics', heroTitle: 'Data That', heroTitleHighlight: 'Delivers.',
+    heroDesc: 'Empower your teams with self-service insights and a unified semantic layer for all your business data. Data that delivers actionable results.',
+    heroCta: 'Get Started', heroImage: '/images/google/google-cloud.webp',
     capabilitiesTitle: 'Google Looker Capabilities',
     capabilities: [
       { title: 'Semantic Layer (LookML)', desc: 'Centralised business logic that ensures everyone works from the same data definitions.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 1.105 2.239 2 5 2s5-.895 5-2V7m-10 0c0-1.105 2.239-2 5-2s5 .895 5 2"/></svg>' },

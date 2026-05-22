@@ -1,80 +1,134 @@
-<!-- DARK HERO SECTION -->
-<section class="relative bg-[#050b14] overflow-hidden" style="min-height:80vh">
+<!-- ── STATS + CTA ─────────────────────────────────────────── -->
+<section class="relative bg-[#f0f6ff] py-24">
 
-  <!-- World map background -->
-  <div class="absolute inset-0 z-0">
-    <div class="sticky top-0 h-screen w-full overflow-hidden">
-      <!-- Dot grid overlay -->
-      <div class="absolute inset-0 z-10 opacity-30"
-        style="background-image:radial-gradient(#3b82f6 1px,transparent 1px);background-size:30px 30px"></div>
-      <!-- Dark gradient vignette -->
-      <div class="absolute inset-0 z-20 bg-gradient-to-b from-[#050b14] via-transparent to-[#050b14]"></div>
-      <!-- World map image -->
-      <img src="/images/bg/world_map.webp" alt="Global Operations Map"
-        class="absolute inset-0 w-full h-full object-cover opacity-25" />
+  <!-- Blobs in their own overflow-hidden wrapper so the pill is never clipped -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-32 left-1/3 h-96 w-96 rounded-full bg-blue-200/40 blur-[120px]"></div>
+    <div class="absolute bottom-0 right-1/4 h-72 w-72 rounded-full bg-indigo-200/30 blur-[100px]"></div>
+  </div>
+
+  <!-- ── SECTION DIVIDER PILL — sits exactly on the white/blue boundary ── -->
+  <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);z-index:30">
+    <div style="display:inline-flex;align-items:center;gap:14px;
+      background:#ffffff;border:1.5px solid #e2e8f0;border-radius:9999px;
+      padding:10px 30px;box-shadow:0 4px 24px rgba(0,0,0,0.08);white-space:nowrap">
+      <div style="width:32px;height:1.5px;background:linear-gradient(to right,transparent,#94a3b8);border-radius:2px"></div>
+      <span style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:#64748b">
+        By The Numbers
+      </span>
+      <div style="width:32px;height:1.5px;background:linear-gradient(to left,transparent,#94a3b8);border-radius:2px"></div>
     </div>
   </div>
 
-  <!-- Content -->
-  <div class="relative z-30 container mx-auto px-6 flex flex-col justify-center" style="min-height:80vh">
-    <div class="max-w-4xl pt-24 pb-16" data-aos="fade-up">
+  <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20">
 
-      <h2 class="text-4xl md:text-5xl font-bold leading-tight text-white mb-6">
-        Empowering Enterprise <br />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+    <!-- Headline + CTA — 12-col grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+
+      <!-- Heading: col-span-8 -->
+      <div class="lg:col-span-8 space-y-5">
+        <span class="inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600">Our Impact</span>
+
+        <!-- Line 1 -->
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;color:#0f172a;
+          line-height:1.05;letter-spacing:-0.02em">
+          Empowering Enterprise
+        </h2>
+
+        <!-- Connector row -->
+        <div class="flex items-center gap-3">
+          <div style="width:44px;height:2px;background:#1d4ed8;border-radius:2px;flex-shrink:0"></div>
+          <span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;
+            font-size:clamp(16px,2vw,24px);color:#1d4ed8;font-weight:400;white-space:nowrap;line-height:1">through</span>
+          <div style="width:44px;height:2px;background:#1d4ed8;border-radius:2px;flex-shrink:0"></div>
+        </div>
+
+        <!-- Line 2: Digital Ecosystems -->
+        <h2 style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.05;
+          letter-spacing:-0.02em;padding-bottom:10px;
+          background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 45%,#06b6d4 100%);
+          -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
           Digital Ecosystems
-        </span>
-      </h2>
+        </h2>
 
-      <p class="text-gray-400 text-xl md:text-2xl max-w-2xl mb-10 leading-relaxed">
-        From LS Central retail management and Android mobile innovation to Power BI data intelligence.
-        We don't just provide ERP; we build the future of your business.
-      </p>
+        <p class="text-slate-500 text-base leading-relaxed max-w-lg pt-1">
+          From LS Central retail management and mobile innovation to Power BI data intelligence — we build the future of your business.
+        </p>
+      </div>
 
-      <div class="flex flex-wrap gap-4">
+      <!-- CTA: col-span-4 -->
+      <div class="lg:col-span-4 flex flex-col gap-4 lg:items-end">
         <button (click)="openModal()"
-          class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20 active:scale-95">
+          class="group inline-flex items-center gap-3 rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-200 hover:bg-blue-700 active:scale-95">
           Request a Demo
+          <svg class="transition-transform duration-200 group-hover:translate-x-1"
+            xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+          </svg>
         </button>
-
-        <div class="flex items-center gap-4 px-6 py-4 border border-gray-700 rounded-xl bg-gray-900/50 backdrop-blur-md">
-          <span class="flex h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
-          <span class="text-gray-300 font-medium">Global Support 24/7</span>
+        <div class="inline-flex items-center gap-2 text-slate-400 text-sm">
+          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Global Support 24 / 7
         </div>
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- STATS SECTION -->
-<section class="relative z-40 -mt-24">
-  <div class="container mx-auto px-6">
-    <div class="bg-white border border-gray-200 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] rounded-[3rem] p-10 md:p-16 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-      <div *ngFor="let stat of stats; let i = index"
-        [class.border-l]="i > 0" class="border-gray-100 space-y-2" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
-        <h3 class="text-5xl font-black text-gray-900 tracking-tighter">{{ stat.value }}</h3>
-        <p class="text-blue-600 font-bold uppercase text-[10px] tracking-widest">{{ stat.label }}</p>
+    <!-- Stats cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div *ngFor="let stat of stats"
+        class="group rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-1 transition-all duration-300 px-8 py-10 text-center">
+        <span class="block text-5xl font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300 tracking-tight">{{ stat.value }}</span>
+        <span class="block text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-400 transition-colors duration-300 mt-2">{{ stat.label }}</span>
       </div>
     </div>
+
+    <!-- ── Middle divider text ── -->
+    <div class="mt-16 flex flex-col items-center gap-4 text-center">
+      <div style="display:flex;align-items:center;gap:16px;width:100%;max-width:560px">
+        <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,#cbd5e1)"></div>
+        <span style="font-size:11px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#94a3b8;white-space:nowrap">
+          Powered By
+        </span>
+        <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,#cbd5e1)"></div>
+      </div>
+      <p style="font-size:13px;color:#94a3b8;font-weight:500;max-width:480px;line-height:1.7">
+        A trusted stack of Microsoft-certified technologies — built to scale your enterprise operations across every dimension.
+      </p>
+    </div>
+
+    <!-- Tech stack pills -->
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <div *ngFor="let tech of [
+        {icon:'/images/icons/icons8-microsoft.webp', label:'Dynamics 365'},
+        {icon:'/images/icons/power-bi_logo_transparent.webp', label:'Power BI'},
+        {icon:'/images/icons/icons8-retail-50.webp', label:'LS Central'},
+        {icon:'/images/icons/android-os.webp', label:'Android Dev'},
+        {icon:'/images/icons/code.webp', label:'Custom Dev'},
+        {icon:'/images/icons/add-on-services.webp', label:'Add-on Services'}
+      ]"
+        class="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+        <img [src]="tech.icon" [alt]="tech.label" class="w-4 h-4 object-contain flex-shrink-0" />
+        <span class="text-slate-600 text-xs font-semibold group-hover:text-blue-600 transition-colors duration-300">{{ tech.label }}</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- REQUEST DEMO MODAL -->
 <div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
-  <div class="absolute inset-0 bg-black/80 backdrop-blur-md" (click)="closeModal()"></div>
-  <div class="relative w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden z-[101]">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-md" (click)="closeModal()"></div>
+  <div class="relative z-[101] w-full max-w-2xl overflow-hidden rounded-[2.5rem] bg-white shadow-2xl">
     <button (click)="closeModal()"
-      class="absolute right-8 top-8 z-10 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition-all hover:rotate-90">
+      class="absolute right-8 top-8 z-10 rounded-full bg-slate-100 p-2 text-slate-500 transition-all hover:bg-slate-200 hover:rotate-90">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
     <div class="p-8 md:p-12">
-      <div class="mb-8">
-        <h2 class="text-4xl font-black text-slate-900 tracking-tight">Schedule a Demo</h2>
-        <p class="text-slate-500 mt-2 font-medium">See how our ecosystem can transform your business operations.</p>
-      </div>
+      <h2 class="text-3xl font-black text-slate-900 tracking-tight mb-1">Schedule a Demo</h2>
+      <p class="text-slate-500 mb-8 font-medium">See how our ecosystem can transform your operations.</p>
       <app-contact-form (success)="closeModal()"></app-contact-form>
     </div>
   </div>

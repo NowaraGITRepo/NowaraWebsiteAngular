@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-ls-retail', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class LsRetailComponent {
+export class LsRetailComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.lsRetail.title, SEO.lsRetail.description); }
   config: IndustryPageConfig = {
-    badge: 'LS Central Partner', heroTitle: 'LS Retail /', heroTitleHighlight: 'LS Central',
-    heroDesc: 'LS Central is the all-in-one retail platform built on Microsoft Dynamics 365 Business Central — unifying POS, inventory, loyalty, and back office in one solution.',
-    heroCta: 'Explore LS Central', heroImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000',
+    badge: 'Unified Commerce Platform', heroTitle: 'LS Central', heroTitleHighlight: 'Ecosystem',
+    heroDesc: 'Bridge the gap between your retail front-end and back-office ERP. Explore our specialized industry modules designed for Microsoft Dynamics 365.',
+    heroCta: 'System Overview', heroImage: '/images/lscentral/lscentral.webp',
     capabilitiesTitle: 'LS Central Capabilities',
     capabilities: [
       { title: 'Unified POS', desc: 'Fast, reliable POS with offline capability and seamless ERP integration.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>' },

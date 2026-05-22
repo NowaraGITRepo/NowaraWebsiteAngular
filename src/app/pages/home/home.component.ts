@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
+import { SEO } from '../../data/seo-data';
 import { CommonModule } from '@angular/common';
 import { HeroSliderComponent } from '../../components/shared/hero-slider/hero-slider.component';
 import { HeroComponent } from './hero/hero.component';
@@ -18,4 +20,7 @@ import { FaqComponent } from './faq/faq.component';
     <app-faq></app-faq>
   `,
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.home.title, SEO.home.description); }
+}

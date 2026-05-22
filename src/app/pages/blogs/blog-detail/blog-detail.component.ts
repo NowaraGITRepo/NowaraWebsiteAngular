@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SeoService } from '../../../services/seo.service';
 
 interface Blog {
   id: string;
@@ -46,6 +47,7 @@ interface Blog {
   `,
 })
 export class BlogDetailComponent implements OnInit {
+  private seo = inject(SeoService);
   blog: Blog | null = null;
   loading = true;
   safeContent: SafeHtml = '';
@@ -64,6 +66,7 @@ export class BlogDetailComponent implements OnInit {
           this.blog = data.data.find((b: Blog) => b.id === slug) || null;
           if (this.blog) {
             this.safeContent = this.sanitizer.bypassSecurityTrustHtml(this.blog.content);
+            this.seo.setPage(`${this.blog.title} | Nowara Infotech`, this.blog.content.replace(/<[^>]*>/g, '').slice(0, 160));
           }
         }
         this.loading = false;

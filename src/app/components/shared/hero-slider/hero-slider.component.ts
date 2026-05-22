@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { heroSlides } from '../../../data/app.data';
 import Swiper from 'swiper';
-import { Autoplay, Pagination, Parallax } from 'swiper/modules';
+import { Autoplay, Pagination, Parallax, EffectCreative } from 'swiper/modules';
 
 @Component({
   selector: 'app-hero-slider',
@@ -22,10 +22,24 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     setTimeout(() => {
       this.swiper = new Swiper('.nowara-hero-swiper', {
-        modules: [Autoplay, Pagination, Parallax],
+        modules: [Autoplay, Pagination, Parallax, EffectCreative],
+        effect: 'creative',
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            origin: 'left center',
+            translate: ['-6%', 0, -600],
+            rotate: [0, 75, 0],
+          },
+          next: {
+            origin: 'right center',
+            translate: ['6%', 0, -600],
+            rotate: [0, -75, 0],
+          },
+        },
         parallax: true,
-        autoplay: { delay: 6000, disableOnInteraction: false },
-        speed: 1400,
+        autoplay: { delay: 5500, disableOnInteraction: false },
+        speed: 1100,
         loop: true,
         grabCursor: true,
         pagination: { el: '.swiper-pagination', clickable: true },

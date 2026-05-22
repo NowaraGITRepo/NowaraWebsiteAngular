@@ -1,83 +1,182 @@
-<div class="relative w-full overflow-hidden">
-  <!-- GRADIENT BACKGROUND -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#f0f4f8] via-[#cbdcf7] to-[#8da9dc] pointer-events-none"></div>
+<div class="relative w-full overflow-hidden bg-[#f8fafc]">
 
-  <!-- MARQUEE SECTION -->
-  <div class="relative w-full z-30 px-4 md:px-20 pt-16">
-    <div class="flex w-full overflow-hidden group"
-      style="mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent)">
-      <div class="flex gap-10 animate-marquee whitespace-nowrap py-4">
-        <div *ngFor="let card of [...cards, ...cards]"
-          class="relative bg-white/95 backdrop-blur-md rounded-[2.5rem] p-8 text-center w-[300px] md:w-[350px] flex-shrink-0 border border-white shadow-[0_10px_40px_rgba(255,255,255,0.5)] transition-all duration-500 hover:-translate-y-4 cursor-pointer overflow-hidden">
-          <div class="w-14 h-1.5 bg-gradient-to-r from-blue-400 to-indigo-500 mx-auto mb-6 rounded-full"></div>
-          <h3 class="font-bold text-xl mb-3 text-[#001529] whitespace-normal leading-tight">{{ card.title }}</h3>
-          <p class="text-slate-500 text-sm leading-relaxed whitespace-normal px-2 font-medium">{{ card.desc }}</p>
+  <!-- Mesh gradient blobs -->
+  <div class="pointer-events-none absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-blue-200/30 blur-[140px]"></div>
+  <div class="pointer-events-none absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-indigo-200/25 blur-[120px]"></div>
+
+  <!-- ── TECH MARQUEE STRIP ──────────────────────────────────── -->
+  <div class="relative z-10 pt-10 w-full overflow-hidden"
+    style="mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent);
+           -webkit-mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent)">
+    <div class="flex gap-3 animate-marquee whitespace-nowrap">
+      <div *ngFor="let card of [...cards, ...cards]; let i = index"
+        class="inline-flex flex-shrink-0 w-[200px] h-[230px] flex-col whitespace-normal cursor-pointer group
+               rounded-2xl bg-white border-2 border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)]
+               hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+        <div class="h-[4px] w-full flex-shrink-0" [style.background]="cardAccents[i % cardAccents.length]"></div>
+        <div class="px-5 py-5 flex flex-col flex-1 justify-between">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">&gt;_ stack</span>
+            <span class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full animate-pulse" [style.background]="cardAccents[i % cardAccents.length]"></span>
+              <span class="font-mono text-[9px] text-slate-300">ON</span>
+            </span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <h3 class="text-slate-800 font-black text-[15px] leading-snug">{{ card.title }}</h3>
+            <p class="text-slate-400 text-[11px] leading-relaxed">{{ card.desc }}</p>
+          </div>
+          <div class="h-[2px] w-0 group-hover:w-full transition-all duration-500 rounded-full"
+            [style.background]="cardAccents[i % cardAccents.length]"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ABOUT US + CHART -->
-  <section id="about" class="relative pt-3 pb-8 overflow-hidden">
-    <div class="container relative z-10 mx-auto px-4">
-      <div class="flex flex-wrap items-center lg:flex-nowrap gap-12 lg:gap-24">
+  <!-- ── HERO CONTENT ──────────────────────────────────────────── -->
+  <section class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20 py-20">
+    <div class="flex gap-6 lg:gap-10 items-stretch">
 
-        <!-- Text Side -->
-        <div class="w-full lg:w-[50%]">
-          <h1 class="text-white text-5xl sm:text-6xl font-black mb-3 drop-shadow-2xl tracking-tighter">About Us</h1>
-          <div class="space-y-5 max-w-xl text-white">
-            <p class="text-3xl leading-tight font-bold">
-              We architect <span class="text-blue-900">Digital Ecosystems</span> for the modern enterprise.
-            </p>
-            <p class="text-white/90 text-lg leading-relaxed font-medium">
-              Expertly deploying <strong>Business Central</strong>, <strong>LS Central</strong>, and <strong>Power BI</strong> to create seamless global operations.
-            </p>
-          </div>
-          <button (click)="openModal()"
-            class="mt-12 bg-white text-[#001529] hover:bg-blue-600 hover:text-white px-12 py-5 rounded-2xl font-black shadow-2xl transition-all flex items-center gap-4">
-            LET'S CONNECT <span>→</span>
-          </button>
+      <!-- ── Vertical "MICROSOFT CERTIFIED" side text ── -->
+      <div class="hidden lg:flex flex-col items-center gap-3 flex-shrink-0 pt-2">
+
+        <span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0;animation:pulse 2s infinite"></span>
+        <div style="width:1px;height:28px;background:linear-gradient(to bottom,#3b82f6,#e2e8f0)"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+          <span class="vert-letter">M</span>
+          <span class="vert-letter">I</span>
+          <span class="vert-letter">C</span>
+          <span class="vert-letter">R</span>
+          <span class="vert-letter">O</span>
+          <span class="vert-letter">S</span>
+          <span class="vert-letter">O</span>
+          <span class="vert-letter">F</span>
+          <span class="vert-letter">T</span>
+          <span style="width:4px;height:4px;border-radius:50%;background:#cbd5e1;margin:4px 0"></span>
+          <span class="vert-letter">C</span>
+          <span class="vert-letter">E</span>
+          <span class="vert-letter">R</span>
+          <span class="vert-letter">T</span>
+          <span class="vert-letter">I</span>
+          <span class="vert-letter">F</span>
+          <span class="vert-letter">I</span>
+          <span class="vert-letter">E</span>
+          <span class="vert-letter">D</span>
         </div>
 
-        <!-- CHART SIDE -->
-        <div class="w-full lg:w-[50%] relative min-h-[550px] flex items-center justify-center">
+        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#e2e8f0,transparent)"></div>
+      </div>
 
-          <!-- Central Node -->
-          <div class="relative z-20 w-40 h-40 rounded-full bg-[radial-gradient(circle_at_top,_#0a2540,_#38bdf8)] shadow-[0_20px_60px_rgba(0,80,180,0.55)] flex items-center justify-center text-center p-5">
-            <div class="absolute inset-0 rounded-full bg-sky-400/30 blur-2xl -z-10"></div>
-            <div class="flex flex-col items-center">
-              <p class="text-white font-black text-lg tracking-widest uppercase">Nowara</p>
-              <p class="text-white font-bold text-sm tracking-wider">INFOTECH</p>
+      <!-- ── Main content + image ── -->
+      <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Text -->
+      <div class="space-y-8">
+
+        <!-- CSS ticker badge -->
+        <div style="display:inline-flex;align-items:center;gap:10px;
+          border-radius:9999px;border:1.5px solid #fde68a;background:#fefce8;
+          padding:6px 18px;height:36px;overflow:hidden">
+          <span style="width:8px;height:8px;border-radius:50%;background:#facc15;
+            flex-shrink:0;animation:pulse 2s infinite"></span>
+          <div style="height:18px;overflow:hidden">
+            <div class="badge-scroll">
+              <div class="badge-item">Microsoft Certified Partner</div>
+              <div class="badge-item">Power BI Expert</div>
+              <div class="badge-item">Business Central</div>
+              <div class="badge-item">LS Central Ready</div>
+              <div class="badge-item">Cloud ERP Leader</div>
+              <div class="badge-item">Azure Solutions</div>
+              <div class="badge-item">Microsoft Certified Partner</div>
             </div>
           </div>
+        </div>
 
-          <!-- Ecosystem Nodes -->
-          <div class="absolute inset-0">
-            <div *ngFor="let node of nodes" class="absolute z-30" [style.top]="node.top" [style.left]="node.left">
-              <div class="bg-white/80 backdrop-blur-md border border-white p-4 rounded-2xl shadow-lg flex flex-col items-center w-24 transform -translate-x-1/2 -translate-y-1/2">
-                <span class="text-[10px] font-black text-[#001529] uppercase tracking-tighter text-center mt-1">{{ node.label }}</span>
-              </div>
-            </div>
+        <h1 class="text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-slate-900">
+          We architect<br>
+          <span class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+            Digital Ecosystems
+          </span><br>
+          for modern enterprise.
+        </h1>
+
+        <p class="max-w-md text-lg leading-relaxed text-slate-500">
+          Expertly deploying <strong class="text-slate-700">Business Central</strong>,
+          <strong class="text-slate-700">LS Central</strong>, and
+          <strong class="text-slate-700">Power BI</strong> to create seamless global operations.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <button (click)="openModal()"
+            class="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/30 transition-all duration-200 hover:bg-blue-700 active:scale-95">
+            Let's Connect
+            <svg class="transition-transform duration-200 group-hover:translate-x-1"
+              xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+            </svg>
+          </button>
+          <div class="inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-sm">
+            <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500"></span>
+            <span class="text-sm font-semibold text-slate-600">Global Support 24 / 7</span>
           </div>
-
-          <!-- Glow -->
-          <div class="absolute w-[80%] h-[80%] bg-blue-400/20 blur-[120px] rounded-full pointer-events-none"></div>
         </div>
 
       </div>
-    </div>
 
-    <!-- Bottom Curve -->
-    <div class="absolute bottom-0 left-0 w-full opacity-40">
-      <img src="/images/footer/ftr-bg.webp" alt="curve" class="w-full h-auto" />
-    </div>
+      <!-- Right: Floating image -->
+      <div class="flex items-center justify-center">
+        <div class="hero-img-float relative group w-full max-w-[480px]">
+
+          <!-- Glow behind image -->
+          <div class="absolute inset-0 rounded-3xl bg-blue-400/20 blur-[50px] scale-95"></div>
+
+          <!-- Image -->
+          <div style="position:relative; border-radius:1.5rem; overflow:hidden;
+            border:4px solid white; box-shadow:0 24px 64px rgba(37,99,235,0.18);
+            background:#dbeafe; transition:transform 0.5s ease"
+            class="group-hover:scale-[1.02]">
+
+            <img [src]="serviceImages[currentImgIndex].src"
+              [alt]="serviceImages[currentImgIndex].label"
+              style="width:100%; height:340px; object-fit:cover; display:block;
+                     transition:opacity 0.7s ease;"
+              [style.opacity]="fading ? 0 : 1" />
+
+            <!-- Label -->
+            <div style="position:absolute; bottom:0; left:0; right:0;
+              background:linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+              padding:16px 20px; display:flex; align-items:center; gap:8px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#60a5fa;
+                flex-shrink:0;animation:pulse 2s infinite"></span>
+              <span style="color:white;font-size:14px;font-weight:600;letter-spacing:0.03em">
+                {{ serviceImages[currentImgIndex].label }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Dots -->
+          <div style="display:flex;justify-content:center;gap:6px;margin-top:16px">
+            <span *ngFor="let img of serviceImages; let i = index"
+              style="height:6px; border-radius:9999px; cursor:pointer; transition: all 0.3s ease"
+              [style.width]="i === currentImgIndex ? '24px' : '6px'"
+              [style.background]="i === currentImgIndex ? '#3b82f6' : '#cbd5e1'"
+              (click)="selectImage(i)">
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- end lg:col-span-2 inner grid -->
+    </div><!-- end outer grid -->
   </section>
 
-  <!-- CONTACT DIALOG -->
+  <!-- Contact modal -->
   <div *ngIf="isOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeModal()"></div>
-    <div class="relative bg-white w-full max-w-2xl rounded-[2.5rem] p-10 shadow-2xl animate-fade-in">
-      <button (click)="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors z-50">
+    <div class="relative w-full max-w-2xl animate-fade-in rounded-[2.5rem] bg-white p-10 shadow-2xl">
+      <button (click)="closeModal()" class="absolute right-6 top-6 z-50 text-slate-400 transition-colors hover:text-slate-900">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
         </svg>

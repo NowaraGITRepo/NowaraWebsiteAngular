@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-sap', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class SapComponent {
+export class SapComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.sap.title, SEO.sap.description); }
   config: IndustryPageConfig = {
-    badge: 'SAP Services', heroTitle: 'SAP Web', heroTitleHighlight: 'Services & ERP',
+    badge: 'SAP Certified Partner', heroTitle: 'Future-Proof', heroTitleHighlight: 'with SAP',
     heroDesc: 'Nowara Infotech provides SAP consulting, implementation, and integration services — helping organisations leverage SAP\'s full ecosystem for enterprise transformation.',
-    heroCta: 'Explore SAP Services', heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    heroCta: 'Book a Free Demo', heroImage: '/images/sap/sap-hero-bg.webp',
     capabilitiesTitle: 'SAP Services Offered',
     capabilities: [
       { title: 'SAP S/4HANA', desc: 'Implementation and migration to SAP S/4HANA for next-gen ERP.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 1.105 2.239 2 5 2s5-.895 5-2V7m-10 0c0-1.105 2.239-2 5-2s5 .895 5 2"/></svg>' },

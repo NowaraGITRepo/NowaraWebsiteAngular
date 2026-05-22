@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-steel-metal', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class SteelMetalComponent {
+export class SteelMetalComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.steelMetal.title, SEO.steelMetal.description); }
   config: IndustryPageConfig = {
-    badge: 'Heavy Industry ERP', heroTitle: 'Steel &', heroTitleHighlight: 'Metal ERP',
-    heroDesc: 'Purpose-built ERP for steel mills, metal fabricators, and foundries. Optimize heat management, scrap control, and customer-specific tolerances.',
-    heroCta: 'Strengthen Operations', heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1000',
+    badge: 'Heavy Industry Solutions', heroTitle: 'Steel &', heroTitleHighlight: 'Metal ERP',
+    heroDesc: 'Forge Stronger Operations: Precision tracking, real-time scrap management, and automated furnace scheduling for the steel and metal industry.',
+    heroCta: 'Book a Demo', heroImage: '/images/steel/molten-metal.webp',
     capabilitiesTitle: 'Steel & Metal ERP Capabilities',
     capabilities: [
       { title: 'Heat & Melt Tracking', desc: 'Trace every heat from casting to coil with full chemical composition records.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>' },

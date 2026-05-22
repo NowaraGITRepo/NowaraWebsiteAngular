@@ -133,6 +133,9 @@ export const routes: Routes = [
     path: 'services/resource-augmentation',
     loadComponent: () => import('./pages/services/resource-aug/resource-aug.component').then(m => m.ResourceAugComponent),
   },
+  // ─── Legacy URL redirects (preserve Next.js routes for SEO) ─────────────────
+  { path: 'blog', redirectTo: 'blogs', pathMatch: 'full' },
+  { path: 'blog-details/:id', redirectTo: 'blog/:id', pathMatch: 'full' },
   // ─── Content Pages ───────────────────────────────────────────────────────────
   {
     path: 'blogs',

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
+import { SEO } from '../../data/seo-data';
 import { ContactFormComponent } from '../../components/shared/contact-form/contact-form.component';
 
 @Component({
@@ -70,4 +72,6 @@ import { ContactFormComponent } from '../../components/shared/contact-form/conta
 </div>
   `,
 })
-export class CareerComponent {}
+export class CareerComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.career.title, SEO.career.description); }}

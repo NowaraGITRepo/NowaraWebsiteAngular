@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Custom cursor — hide system cursor globally ────────────────── */
+body.no-cursor,
+body.no-cursor * {
+  cursor: none !important;
+}
+
+/* Cursor pulse rings */
+@keyframes cursorRing1 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.65; }
+  50%       { transform: translate(-50%, -50%) scale(1.35); opacity: 0.15; }
+}
+@keyframes cursorRing2 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.5;  }
+  50%       { transform: translate(-50%, -50%) scale(1.28); opacity: 0.1;  }
+}
+
 /* Swiper & AOS loaded via angular.json styles array */
 
 /* AOS loaded via angular.json */
@@ -40,6 +56,103 @@
   width: 32px;
   border-radius: 5px;
 }
+
+/* ── Hero slider text reveal animations ───────────────────── */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Reset text on inactive slides so animation re-fires each time */
+.swiper-slide .hero-tag,
+.swiper-slide .hero-title,
+.swiper-slide .hero-desc,
+.swiper-slide .hero-btn {
+  opacity: 0;
+}
+
+/* Staggered reveal when slide becomes active */
+.swiper-slide-active .hero-tag {
+  animation: heroReveal 0.7s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.swiper-slide-active .hero-title {
+  animation: heroReveal 0.9s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.swiper-slide-active .hero-desc {
+  animation: heroReveal 0.8s 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.swiper-slide-active .hero-btn {
+  animation: heroReveal 0.7s 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Vertical "MICROSOFT CERTIFIED" side letters ─────────── */
+.vert-letter {
+  display: block;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #1e3a8a;
+  line-height: 1;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+.vert-letter:hover { color: #2563eb; }
+
+/* ── Hero word train animation ───────────────────────────── */
+@keyframes wordUp {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.hero-word {
+  display: inline-block;
+  animation: wordUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Badge CSS-only vertical ticker ─────────────────────────
+   6 items × 18px = 108px. Each item: 2s show + 0.4s slide.
+   Total cycle = 14.4s. Percentages below match exactly.      */
+.badge-item {
+  height: 18px;
+  line-height: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #92400e;
+  white-space: nowrap;
+}
+.badge-scroll {
+  animation: badgeTick 14.4s linear infinite;
+}
+@keyframes badgeTick {
+  0%,     13.89% { transform: translateY(0px);    }
+  16.67%, 30.56% { transform: translateY(-18px);  }
+  33.33%, 47.22% { transform: translateY(-36px);  }
+  50%,    63.89% { transform: translateY(-54px);  }
+  66.67%, 80.56% { transform: translateY(-72px);  }
+  83.33%, 97.22% { transform: translateY(-90px);  }
+  100%           { transform: translateY(-108px); }
+}
+
+/* ── Hero image float ─────────────────────────────────────── */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+.hero-img-float { animation: heroFloat 4s ease-in-out infinite; }
 
 /* Prose styles for blog content */
 .prose h1, .prose h2, .prose h3 { font-weight: 800; color: #0f172a; margin-top: 1.5rem; margin-bottom: 0.75rem; }

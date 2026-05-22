@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
+import { SeoService } from '../../services/seo.service';
+import { SEO } from '../../data/seo-data';
 
 interface GalleryImage {
   id: number;
@@ -57,7 +59,9 @@ interface GalleryImage {
 </div>
   `,
 })
-export class GalleryComponent {
+export class GalleryComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.gallery.title, SEO.gallery.description); }
   selectedTab = 'All';
   activeImage: GalleryImage | null = null;
   categories = ['All', 'Office', 'Events', 'Projects'];

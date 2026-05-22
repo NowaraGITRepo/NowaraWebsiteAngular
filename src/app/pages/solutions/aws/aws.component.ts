@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-aws', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class AwsComponent {
+export class AwsComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.aws.title, SEO.aws.description); }
   config: IndustryPageConfig = {
-    badge: 'AWS Cloud Partner', heroTitle: 'AWS Cloud', heroTitleHighlight: 'Services',
-    heroDesc: 'Nowara Infotech delivers enterprise AWS cloud solutions — from infrastructure setup and migration to managed services and DevOps on Amazon Web Services.',
-    heroCta: 'Go AWS', heroImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000',
+    badge: 'Certified Cloud Solutions Provider', heroTitle: 'Cloud', heroTitleHighlight: 'Without Limits.',
+    heroDesc: 'Accelerate your digital transformation with Nowara Infotech's managed cloud services. Scale, innovate, and secure your future with confidence.',
+    heroCta: 'Start Your Journey', heroImage: '/images/product/awsimage.webp',
     capabilitiesTitle: 'AWS Services We Deliver',
     capabilities: [
       { title: 'EC2 & Compute', desc: 'Scalable virtual servers and containerised workloads on AWS EC2 and ECS.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>' },

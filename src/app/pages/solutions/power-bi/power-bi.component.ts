@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-power-bi', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class PowerBiComponent {
+export class PowerBiComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.powerBi.title, SEO.powerBi.description); }
   config: IndustryPageConfig = {
-    badge: 'Microsoft Power BI', heroTitle: 'Power BI &', heroTitleHighlight: 'Data Analytics',
-    heroDesc: 'Transform your raw business data into beautiful, interactive dashboards. Nowara builds custom Power BI solutions that drive smarter decisions across your organisation.',
-    heroCta: 'See Your Data Clearly', heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
+    badge: 'Business Intelligence', heroTitle: 'Decisions Driven', heroTitleHighlight: 'by Data.',
+    heroDesc: 'Turn your unrelated sources of data into coherent, visually immersive, and interactive insights that drive smarter business decisions.',
+    heroCta: 'Start Your Analysis', heroImage: '/images/power-bi/702.webp',
     capabilitiesTitle: 'Power BI Services',
     capabilities: [
       { title: 'Custom Dashboards', desc: 'Role-specific dashboards designed for executives, managers, and operations.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' },

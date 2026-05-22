@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { homeCards } from '../../../data/app.data';
@@ -9,19 +9,83 @@ import { homeCards } from '../../../data/app.data';
   imports: [CommonModule, ContactFormComponent],
   templateUrl: './hero.component.html',
 })
-export class HeroComponent {
-  cards = homeCards;
-  isOpen = false;
+export class HeroComponent implements OnInit, OnDestroy {
+  constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
 
-  nodes = [
-    { label: 'Dynamics', icon: 'boxes', top: '10%', left: '50%', color: 'text-blue-600' },
-    { label: 'App / Web Dev', icon: 'layout', top: '30%', left: '85%', color: 'text-emerald-600' },
-    { label: 'Power BI', icon: 'bar-chart', top: '65%', left: '80%', color: 'text-amber-500' },
-    { label: 'LS Central', icon: 'shopping-cart', top: '85%', left: '50%', color: 'text-rose-500' },
-    { label: 'Cloud Services', icon: 'cloud', top: '65%', left: '15%', color: 'text-sky-500' },
-    { label: 'Power Apps', icon: 'zap', top: '28%', left: '10%', color: 'text-indigo-600' },
+  cards       = homeCards;
+  isOpen      = false;
+  cardAccents = ['#3b82f6', '#06b6d4', '#7c3aed', '#10b981', '#f97316', '#e11d48'];
+
+  serviceImages = [
+    { src: '/images/Swiper/slider-image.webp',                                    label: 'Enterprise ERP' },
+    { src: '/images/Swiper/pexels-photo-3183153.webp',                            label: 'Cloud Solutions' },
+    { src: '/images/Swiper/people-analyzing-checking-finance-graphs-office.webp', label: 'Power BI Analytics' },
+    { src: '/images/Swiper/pexels-photo-1181244.webp',                            label: 'Mobile Development' },
+    { src: '/images/Swiper/pexels-photo-1181263.webp',                            label: 'Software Engineering' },
+    { src: '/images/Swiper/pexels-photo-1092671.webp',                            label: 'Web Technology' },
+    { src: '/images/Swiper/pexels-photo-3861964.webp',                            label: 'Data Visualization' },
   ];
 
-  openModal() { this.isOpen = true; document.body.style.overflow = 'hidden'; }
+  currentImgIndex = 0;
+  fading          = false;
+
+  private timer?: ReturnType<typeof setInterval>;
+
+  ngOnInit() {
+    // Run timer OUTSIDE Angular zone — prevents change detection on every tick.
+    // We manually call detectChanges() only when state actually changes.
+    this.ngZone.runOutsideAngular(() => {
+      this.timer = setInterval(() => this.advance(), 3500);
+    });
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.timer);
+  }
+
+  private advance() {
+    // Defer to next tick so we never mutate state mid-CD cycle (prevents NG0100)
+    setTimeout(() => {
+      this.ngZone.run(() => {
+        this.fading = true;
+        this.cdr.detectChanges();
+      });
+
+      setTimeout(() => {
+        this.ngZone.run(() => {
+          this.currentImgIndex = (this.currentImgIndex + 1) % this.serviceImages.length;
+          this.fading          = false;
+          this.cdr.detectChanges();
+        });
+      }, 700);
+    }, 0);
+  }
+
+  selectImage(index: number) {
+    if (index === this.currentImgIndex) return;
+    clearInterval(this.timer);
+
+    // Defer to avoid mutating state mid-CD cycle
+    setTimeout(() => {
+      this.ngZone.run(() => {
+        this.fading = true;
+        this.cdr.detectChanges();
+      });
+
+      setTimeout(() => {
+        this.ngZone.run(() => {
+          this.currentImgIndex = index;
+          this.fading          = false;
+          this.cdr.detectChanges();
+        });
+
+        this.ngZone.runOutsideAngular(() => {
+          this.timer = setInterval(() => this.advance(), 3500);
+        });
+      }, 700);
+    }, 0);
+  }
+
+  openModal()  { this.isOpen = true;  document.body.style.overflow = 'hidden'; }
   closeModal() { this.isOpen = false; document.body.style.overflow = ''; }
 }

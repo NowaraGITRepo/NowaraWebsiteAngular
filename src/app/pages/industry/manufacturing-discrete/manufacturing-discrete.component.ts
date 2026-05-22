@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({
   selector: 'app-manufacturing-discrete',
@@ -7,14 +9,16 @@ import { IndustryPageComponent, IndustryPageConfig } from '../../../components/s
   imports: [IndustryPageComponent],
   template: `<app-industry-page [config]="config"></app-industry-page>`,
 })
-export class ManufacturingDiscreteComponent {
+export class ManufacturingDiscreteComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.manufacturingDiscrete.title, SEO.manufacturingDiscrete.description); }
   config: IndustryPageConfig = {
     badge: 'Industry 4.0 Ready',
     heroTitle: 'Discrete',
     heroTitleHighlight: 'Manufacturing',
     heroDesc: 'Streamline production for distinct, countable products. From BOM management to shop-floor control, Dynamics 365 delivers the precision your assembly line demands.',
     heroCta: 'Optimize Production',
-    heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000',
+    heroImage: '/images/manufacturing/hybrid-manufacturing.webp',
     capabilitiesTitle: 'How Dynamics 365 Empowers You',
     capabilities: [
       { title: 'Advanced BOM & Routing', desc: 'Manage complex multi-level Bills of Materials and production sequences with ease.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>' },

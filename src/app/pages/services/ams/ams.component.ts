@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({
   selector: 'app-ams',
@@ -103,7 +105,9 @@ import { ContactFormComponent } from '../../../components/shared/contact-form/co
 </div>
   `,
 })
-export class AmsComponent {
+export class AmsComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.ams.title, SEO.ams.description); }
   tiers = [
     {
       name: 'Essential', desc: 'Core support for stable environments.', style: 'bg-white border-slate-100 shadow-lg', titleColor: 'text-slate-900', descColor: 'text-slate-500', featureColor: 'text-slate-600', checkColor: '#10b981',

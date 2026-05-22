@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
+import { SEO } from '../../data/seo-data';
 import { NgFor } from '@angular/common';
 import { ContactFormComponent } from '../../components/shared/contact-form/contact-form.component';
 
@@ -83,7 +85,9 @@ import { ContactFormComponent } from '../../components/shared/contact-form/conta
 </div>
   `,
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.contact.title, SEO.contact.description); }
   offices = [
     { city: 'UAE', address: 'G094C DTEC, Dubai Silicon Oasis Dubai', phone: '+971 585041986', email: 'info@nowarainfotech.com' },
     { city: 'Noida', address: 'Anthurium Tower A-212, Sector 73, Noida 201301', phone: '+91 7488910014', email: 'info@nowarainfotech.com' },

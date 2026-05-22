@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IndustryPageComponent, IndustryPageConfig } from '../../../components/shared/industry-page/industry-page.component';
+import { SeoService } from '../../../services/seo.service';
+import { SEO } from '../../../data/seo-data';
 
 @Component({ selector: 'app-azure', standalone: true, imports: [IndustryPageComponent], template: `<app-industry-page [config]="config"></app-industry-page>` })
-export class AzureComponent {
+export class AzureComponent implements OnInit {
+  private seo = inject(SeoService);
+  ngOnInit() { this.seo.setPage(SEO.azure.title, SEO.azure.description); }
   config: IndustryPageConfig = {
-    badge: 'Microsoft Azure Partner', heroTitle: 'Microsoft', heroTitleHighlight: 'Azure Cloud',
-    heroDesc: 'Nowara Infotech is a certified Microsoft Azure cloud services provider. We design, deploy, and manage Azure solutions that power your digital transformation.',
-    heroCta: 'Move to Azure', heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000',
+    badge: 'Certified Microsoft Azure Partner', heroTitle: 'Scale Faster with', heroTitleHighlight: 'Azure Cloud',
+    heroDesc: 'Empower your digital transformation with industry-leading computing, AI, and secure storage solutions tailored for the modern enterprise.',
+    heroCta: 'Book a Demo', heroImage: '/images/product/azureimage.webp',
     capabilitiesTitle: 'Azure Services We Offer',
     capabilities: [
       { title: 'Azure Infrastructure', desc: 'Virtual machines, storage, networking, and compute resources on Azure.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>' },
