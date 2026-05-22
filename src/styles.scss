@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Custom cursor — hide system cursor globally ────────────────── */
-body.no-cursor,
-body.no-cursor * {
-  cursor: none !important;
-}
-
-/* Cursor pulse rings */
-@keyframes cursorRing1 {
-  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.65; }
-  50%       { transform: translate(-50%, -50%) scale(1.35); opacity: 0.15; }
-}
-@keyframes cursorRing2 {
-  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.5;  }
-  50%       { transform: translate(-50%, -50%) scale(1.28); opacity: 0.1;  }
-}
 
 /* Swiper & AOS loaded via angular.json styles array */
 

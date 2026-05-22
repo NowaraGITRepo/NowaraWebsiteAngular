@@ -9,7 +9,7 @@ export class AwsComponent implements OnInit {
   ngOnInit() { this.seo.setPage(SEO.aws.title, SEO.aws.description); }
   config: IndustryPageConfig = {
     badge: 'Certified Cloud Solutions Provider', heroTitle: 'Cloud', heroTitleHighlight: 'Without Limits.',
-    heroDesc: 'Accelerate your digital transformation with Nowara Infotech's managed cloud services. Scale, innovate, and secure your future with confidence.',
+    heroDesc: 'Accelerate your digital transformation with Nowara Infotech\'s managed cloud services. Scale, innovate, and secure your future with confidence.',
     heroCta: 'Start Your Journey', heroImage: '/images/product/awsimage.webp',
     capabilitiesTitle: 'AWS Services We Deliver',
     capabilities: [

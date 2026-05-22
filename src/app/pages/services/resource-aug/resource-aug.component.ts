@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { NgFor, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -150,6 +150,7 @@ import { SEO } from '../../../data/seo-data';
 })
 export class ResourceAugComponent implements OnInit {
   private seo = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
   ngOnInit() { this.seo.setPage(SEO.resourceAug.title, SEO.resourceAug.description); }
   features = [
     { title: 'Pre-Vetted Talent', desc: 'Rigorous technical and communication screening.' },
@@ -172,6 +173,6 @@ export class ResourceAugComponent implements OnInit {
     { title: 'QA & Test Engineers', desc: 'Quality assurance specialists ensuring error-free go-lives.', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>' },
   ];
   scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
   }
 }

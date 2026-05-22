@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { heroSlides } from '../../../data/app.data';
@@ -18,33 +19,36 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   activeBrochure = '';
   activeTag = '';
   private swiper?: Swiper;
+  private platformId = inject(PLATFORM_ID);
 
   ngOnInit() {
-    setTimeout(() => {
-      this.swiper = new Swiper('.nowara-hero-swiper', {
-        modules: [Autoplay, Pagination, Parallax, EffectCreative],
-        effect: 'creative',
-        creativeEffect: {
-          prev: {
-            shadow: true,
-            origin: 'left center',
-            translate: ['-6%', 0, -600],
-            rotate: [0, 75, 0],
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.swiper = new Swiper('.nowara-hero-swiper', {
+          modules: [Autoplay, Pagination, Parallax, EffectCreative],
+          effect: 'creative',
+          creativeEffect: {
+            prev: {
+              shadow: true,
+              origin: 'left center',
+              translate: ['-6%', 0, -600],
+              rotate: [0, 75, 0],
+            },
+            next: {
+              origin: 'right center',
+              translate: ['6%', 0, -600],
+              rotate: [0, -75, 0],
+            },
           },
-          next: {
-            origin: 'right center',
-            translate: ['6%', 0, -600],
-            rotate: [0, -75, 0],
-          },
-        },
-        parallax: true,
-        autoplay: { delay: 5500, disableOnInteraction: false },
-        speed: 1100,
-        loop: true,
-        grabCursor: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-      });
-    }, 100);
+          parallax: true,
+          autoplay: { delay: 5500, disableOnInteraction: false },
+          speed: 1100,
+          loop: true,
+          grabCursor: true,
+          pagination: { el: '.swiper-pagination', clickable: true },
+        });
+      }, 100);
+    }
   }
 
   ngOnDestroy() {
@@ -55,11 +59,15 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
     this.activeBrochure = brochure;
     this.activeTag = tag;
     this.isModalOpen = true;
-    document.body.style.overflow = 'hidden';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   closeModal() {
     this.isModalOpen = false;
-    document.body.style.overflow = '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
   }
 }

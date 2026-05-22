@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,6 +13,7 @@ export class ContactFormComponent {
   @Input() isModal = false;
   @Input() isCareerPage = false;
   @Output() success = new EventEmitter<void>();
+  private platformId = inject(PLATFORM_ID);
 
   name = '';
   email = '';
@@ -23,7 +24,7 @@ export class ContactFormComponent {
   loading = false;
   submitted = false;
 
-  private emailApi = 'https://email.nowarainfo.com/api/email/send';
+  private emailApi = 'https://mail.nicpl.co/api/email/send';
 
   constructor(private http: HttpClient) {}
 
@@ -65,6 +66,7 @@ export class ContactFormComponent {
   }
 
   downloadBrochure() {
+    if (!isPlatformBrowser(this.platformId)) return;
     const link = document.createElement('a');
     link.href = '/brochures/NowaraBrochure.pdf';
     link.setAttribute('download', 'Nowara_Brochure.pdf');

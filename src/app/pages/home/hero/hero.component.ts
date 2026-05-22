@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { homeCards } from '../../../data/app.data';
 
@@ -10,6 +10,7 @@ import { homeCards } from '../../../data/app.data';
   templateUrl: './hero.component.html',
 })
 export class HeroComponent implements OnInit, OnDestroy {
+  private platformId = inject(PLATFORM_ID);
   constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
 
   cards       = homeCards;
@@ -86,6 +87,12 @@ export class HeroComponent implements OnInit, OnDestroy {
     }, 0);
   }
 
-  openModal()  { this.isOpen = true;  document.body.style.overflow = 'hidden'; }
-  closeModal() { this.isOpen = false; document.body.style.overflow = ''; }
+  openModal()  {
+    this.isOpen = true;
+    if (isPlatformBrowser(this.platformId)) document.body.style.overflow = 'hidden';
+  }
+  closeModal() {
+    this.isOpen = false;
+    if (isPlatformBrowser(this.platformId)) document.body.style.overflow = '';
+  }
 }

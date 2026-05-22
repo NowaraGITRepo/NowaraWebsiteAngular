@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 
 export interface IndustryCapability { title: string; desc: string; icon: string; }
@@ -35,8 +35,11 @@ export interface IndustryPageConfig {
 })
 export class IndustryPageComponent {
   @Input() config!: IndustryPageConfig;
+  private platformId = inject(PLATFORM_ID);
 
   scrollToContact() {
-    document.getElementById('contact-form-section')?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) {
+      document.getElementById('contact-form-section')?.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

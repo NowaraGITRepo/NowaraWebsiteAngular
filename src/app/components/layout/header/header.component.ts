@@ -1,5 +1,5 @@
-import { Component, HostListener, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, OnDestroy, CUSTOM_ELEMENTS_SCHEMA, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { headerData, HeaderItem } from '../../../data/menu.data';
 
@@ -17,21 +17,29 @@ export class HeaderComponent implements OnDestroy {
   openDropdown: number | null = null;
   openMobileDropdown: number | null = null;
 
+  private platformId = inject(PLATFORM_ID);
+
   constructor(public router: Router) {}
 
   @HostListener('window:scroll')
   onScroll() {
-    this.sticky = window.scrollY >= 50;
+    if (isPlatformBrowser(this.platformId)) {
+      this.sticky = window.scrollY >= 50;
+    }
   }
 
   toggleNav() {
     this.navbarOpen = !this.navbarOpen;
-    document.body.style.overflow = this.navbarOpen ? 'hidden' : '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = this.navbarOpen ? 'hidden' : '';
+    }
   }
 
   closeNav() {
     this.navbarOpen = false;
-    document.body.style.overflow = '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
   }
 
   toggleMobileDropdown(index: number) {
@@ -43,6 +51,8 @@ export class HeaderComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    document.body.style.overflow = '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
   }
 }

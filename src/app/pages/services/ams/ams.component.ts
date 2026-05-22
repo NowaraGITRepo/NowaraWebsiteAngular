@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { NgFor, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -107,6 +107,7 @@ import { SEO } from '../../../data/seo-data';
 })
 export class AmsComponent implements OnInit {
   private seo = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
   ngOnInit() { this.seo.setPage(SEO.ams.title, SEO.ams.description); }
   tiers = [
     {
@@ -126,6 +127,6 @@ export class AmsComponent implements OnInit {
     },
   ];
   scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
   }
 }

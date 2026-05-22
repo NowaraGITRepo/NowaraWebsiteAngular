@@ -59,7 +59,12 @@
               "node_modules/swiper/swiper-bundle.min.css",
               "node_modules/aos/dist/aos.css",
               "src/styles.scss"
-            ]
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "static",
+            "prerender": {
+              "routesFile": "routes.txt"
+            }
           },
           "configurations": {
             "production": {

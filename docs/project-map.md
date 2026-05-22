@@ -168,7 +168,7 @@ If navigation changes, check both header and footer.
 ### Form and lead capture
 
 - Main form UI and submission logic: `src/app/components/shared/contact-form/contact-form.component.ts`
-- API endpoint currently posts to `https://email.nowarainfo.com/api/email/send`
+- API endpoint currently posts to `https://mail.nicpl.co/api/email/send`
 - Brochure download is triggered after successful non-career submissions
 
 ### SEO

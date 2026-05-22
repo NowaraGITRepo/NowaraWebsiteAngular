@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/layout/header/header.component';
@@ -22,7 +23,11 @@ import AOS from 'aos';
   `,
 })
 export class App implements OnInit {
+  private platformId = inject(PLATFORM_ID);
+
   ngOnInit() {
-    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+    }
   }
 }

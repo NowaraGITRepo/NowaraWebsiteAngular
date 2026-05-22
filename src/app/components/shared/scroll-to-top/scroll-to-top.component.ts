@@ -1,5 +1,5 @@
-import { Component, HostListener, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 interface ChatMessage { role: 'user' | 'ai'; text: string; }
@@ -12,6 +12,7 @@ interface ChatMessage { role: 'user' | 'ai'; text: string; }
   templateUrl: './scroll-to-top.component.html',
 })
 export class ScrollToTopComponent {
+  private platformId = inject(PLATFORM_ID);
   constructor(private cdr: ChangeDetectorRef) {}
 
   scrollVisible = false;
@@ -29,9 +30,17 @@ export class ScrollToTopComponent {
   ];
 
   @HostListener('window:scroll')
-  onScroll() { this.scrollVisible = window.scrollY > 500; }
+  onScroll() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.scrollVisible = window.scrollY > 500;
+    }
+  }
 
-  scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  scrollTop() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 
   toggleEnquiry() {
     this.openEnquiry = !this.openEnquiry;
@@ -45,8 +54,8 @@ export class ScrollToTopComponent {
 
   closeAll() { this.openEnquiry = false; this.openChat = false; }
 
-  openWhatsApp() { window.open('https://wa.me/919311205831', '_blank'); }
-  openPhone()    { window.location.href = 'tel:+919311205831'; }
+  openWhatsApp() { if (isPlatformBrowser(this.platformId)) window.open('https://wa.me/919311205831', '_blank'); }
+  openPhone()    { if (isPlatformBrowser(this.platformId)) window.location.href = 'tel:+919311205831'; }
 
   validate(): boolean {
     this.errors = { name: '', mobile: '', pincode: '' };
@@ -60,12 +69,14 @@ export class ScrollToTopComponent {
     if (!this.validate()) return;
     this.isSubmitting = true;
     await new Promise(r => setTimeout(r, 800));
-    const link = document.createElement('a');
-    link.href = '/brochures/NowaraBrochure.pdf';
-    link.setAttribute('download', 'Nowara_Brochure.pdf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    if (isPlatformBrowser(this.platformId)) {
+      const link = document.createElement('a');
+      link.href = '/brochures/NowaraBrochure.pdf';
+      link.setAttribute('download', 'Nowara_Brochure.pdf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
     this.isSuccess    = true;
     this.isSubmitting = false;
     setTimeout(() => {

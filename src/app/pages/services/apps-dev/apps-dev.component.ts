@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { NgFor, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -105,6 +105,7 @@ import { SEO } from '../../../data/seo-data';
 })
 export class AppsDevComponent implements OnInit {
   private seo = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
   ngOnInit() { this.seo.setPage(SEO.appsDev.title, SEO.appsDev.description); }
   stats = [
     { val: '99.9%', label: 'Uptime SLA', valColor: 'text-cyan-400', style: 'bg-slate-900 border-slate-800', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#22d3ee" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' },
@@ -129,6 +130,6 @@ export class AppsDevComponent implements OnInit {
     { name: 'GPT-4 / Claude API', category: 'AI/LLM' },
   ];
   scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
   }
 }
