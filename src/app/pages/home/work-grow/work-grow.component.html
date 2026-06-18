@@ -51,7 +51,7 @@
           Digital Ecosystems
         </h2>
 
-        <p class="text-slate-500 text-base leading-relaxed max-w-lg pt-1">
+        <p class="text-slate-600 text-base leading-relaxed max-w-lg pt-1">
           From LS Central retail management and mobile innovation to Power BI data intelligence — we build the future of your business.
         </p>
       </div>
@@ -79,7 +79,7 @@
       <div *ngFor="let stat of stats"
         class="group rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-1 transition-all duration-300 px-8 py-10 text-center">
         <span class="block text-5xl font-black text-slate-900 group-hover:text-blue-600 transition-colors duration-300 tracking-tight">{{ stat.value }}</span>
-        <span class="block text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-400 transition-colors duration-300 mt-2">{{ stat.label }}</span>
+        <span class="block text-xs font-bold uppercase tracking-widest text-slate-600 group-hover:text-blue-500 transition-colors duration-300 mt-2">{{ stat.label }}</span>
       </div>
     </div>
 
@@ -99,18 +99,16 @@
 
     <!-- Tech stack pills -->
     <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <div *ngFor="let tech of [
-        {icon:'/images/icons/icons8-microsoft.webp', label:'Dynamics 365'},
-        {icon:'/images/icons/power-bi_logo_transparent.webp', label:'Power BI'},
-        {icon:'/images/icons/icons8-retail-50.webp', label:'LS Central'},
-        {icon:'/images/icons/android-os.webp', label:'Android Dev'},
-        {icon:'/images/icons/code.webp', label:'Custom Dev'},
-        {icon:'/images/icons/add-on-services.webp', label:'Add-on Services'}
-      ]"
-        class="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
-        <img [src]="tech.icon" [alt]="tech.label" class="w-4 h-4 object-contain flex-shrink-0" />
-        <span class="text-slate-600 text-xs font-semibold group-hover:text-blue-600 transition-colors duration-300">{{ tech.label }}</span>
-      </div>
+      <a *ngFor="let tech of techStack"
+        [routerLink]="tech.href"
+        class="group inline-flex items-center gap-2 rounded-full border-2 border-[#3D77BE] bg-white px-4 py-2
+               shadow-md hover:bg-[#3D77BE] hover:shadow-lg hover:-translate-y-0.5
+               transition-all duration-300 cursor-pointer no-underline">
+        <img [src]="tech.icon" [alt]="tech.label" class="w-5 h-5 object-contain flex-shrink-0" />
+        <span class="text-xs font-bold text-[#3D77BE] group-hover:text-white transition-colors duration-300">
+          {{ tech.label }}
+        </span>
+      </a>
     </div>
 
   </div>
@@ -120,7 +118,7 @@
 <div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
   <div class="absolute inset-0 bg-black/60 backdrop-blur-md" (click)="closeModal()"></div>
   <div class="relative z-[101] w-full max-w-2xl overflow-hidden rounded-[2.5rem] bg-white shadow-2xl">
-    <button (click)="closeModal()"
+    <button (click)="closeModal()" aria-label="Close modal"
       class="absolute right-8 top-8 z-10 rounded-full bg-slate-100 p-2 text-slate-500 transition-all hover:bg-slate-200 hover:rotate-90">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>

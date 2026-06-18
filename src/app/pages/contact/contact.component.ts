@@ -64,11 +64,11 @@ import { ContactFormComponent } from '../../components/shared/contact-form/conta
           <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-6 mb-4">Let's Start a <span class="text-blue-600">Conversation</span></h2>
           <p class="text-lg text-slate-500 leading-relaxed">Tell us about your project and we'll connect you with the right expert within 24 hours.</p>
           <div class="mt-8 space-y-4">
-            <a href="tel:+917488910014" class="flex items-center gap-4 text-slate-700 hover:text-blue-600 transition-colors">
+            <a href="tel:+919311205831" class="flex items-center gap-4 text-slate-700 hover:text-blue-600 transition-colors">
               <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               </div>
-              <span class="font-medium">+91 7488910014</span>
+              <span class="font-medium">+91 9311205831</span>
             </a>
             <a href="mailto:info@nowarainfotech.com" class="flex items-center gap-4 text-slate-700 hover:text-blue-600 transition-colors">
               <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center">
@@ -90,9 +90,8 @@ export class ContactComponent implements OnInit {
   ngOnInit() { this.seo.setPage(SEO.contact.title, SEO.contact.description); }
   offices = [
     { city: 'UAE', address: 'G094C DTEC, Dubai Silicon Oasis Dubai', phone: '+971 585041986', email: 'info@nowarainfotech.com' },
-    { city: 'Noida', address: 'Anthurium Tower A-212, Sector 73, Noida 201301', phone: '+91 7488910014', email: 'info@nowarainfotech.com' },
-    { city: 'Bhagalpur', address: 'C/O Shyam Kishore Ray, Ganga Vihar Colony, Bhagalpur, Bihar – 813210', phone: '+91 7488910014', email: 'info@nowarainfotech.com' },
-    { city: 'Ahmedabad', address: 'Sarkhej - Gandhinagar Hwy & Vaishnodevi Cir, Ahmedabad, Gujarat - 382481', phone: '+91 9638540355', email: 'info@nowarainfotech.com' },
-    { city: 'Mumbai', address: '502, Corporate Arena, Sitaram Patkar Rd, Piramal Nagar, Goregaon West, Mumbai, Maharashtra - 400104', phone: '+91 7488910014', email: 'info@nowarainfotech.com' },
+    { city: 'Noida', address: 'Anthurium Tower A-212, Sector 73, Noida 201301', phone: '+91 9311205831', email: 'info@nowarainfotech.com' },
+    { city: 'Bhagalpur', address: 'Ganga Vihar Colony, Bhagalpur, Bihar - 813210', phone: '+91 9311205831', email: 'info@nowarainfotech.com' },
+    { city: 'Mumbai', address: '901, Real Tech Park, Sector 30A, Vashi, Navi Mumbai 400709', phone: '+91 9311205831', email: 'info@nowarainfotech.com' },
   ];
 }

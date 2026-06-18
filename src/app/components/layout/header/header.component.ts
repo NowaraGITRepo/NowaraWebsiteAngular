@@ -2,20 +2,25 @@ import { Component, HostListener, OnDestroy, CUSTOM_ELEMENTS_SCHEMA, inject, PLA
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { headerData, HeaderItem } from '../../../data/menu.data';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SafeHtmlPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnDestroy {
   headerData: HeaderItem[] = headerData;
-  sticky = false;
-  navbarOpen = false;
-  openDropdown: number | null = null;
-  openMobileDropdown: number | null = null;
+  sticky           = false;
+  navbarOpen       = false;
+  openDropdown     : number | null = null;
+  openSubDropdown  : string | null = null;   // key = sub.label for level-2 flyout
+
+  // Mobile accordion
+  openMobileDropdown    : number | null = null;
+  openMobileSubDropdown : string | null = null;  // key = i + '-' + j
 
   private platformId = inject(PLATFORM_ID);
 
@@ -42,8 +47,18 @@ export class HeaderComponent implements OnDestroy {
     }
   }
 
+  closeAllDropdowns() {
+    this.openDropdown    = null;
+    this.openSubDropdown = null;
+  }
+
   toggleMobileDropdown(index: number) {
-    this.openMobileDropdown = this.openMobileDropdown === index ? null : index;
+    this.openMobileDropdown    = this.openMobileDropdown === index ? null : index;
+    this.openMobileSubDropdown = null;
+  }
+
+  toggleMobileSubDropdown(key: string) {
+    this.openMobileSubDropdown = this.openMobileSubDropdown === key ? null : key;
   }
 
   isActive(href: string): boolean {

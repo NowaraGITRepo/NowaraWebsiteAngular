@@ -1,4 +1,5 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://nowarainfo.com/sitemap.xml
+Sitemap: https://nowarainfotech.com/sitemap.xml

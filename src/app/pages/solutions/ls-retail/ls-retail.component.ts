@@ -31,6 +31,8 @@ export class LsRetailComponent implements OnInit {
       { step: '04', title: 'Staff Training', desc: 'Train cashiers, store managers, and back-office users.' },
       { step: '05', title: 'Go-Live & Support', desc: 'Live launch with dedicated Nowara support team.' },
     ],
+    compareTitle: 'Why LS Central?',
+    compareSubtitle: 'The difference between standard retail software and LS Central.',
     compareRows: [
       { feature: 'ERP Integration', standard: 'Complex Connectors', dynamics: 'Native Business Central' },
       { feature: 'Omnichannel', standard: 'Separate Systems', dynamics: 'Unified Platform' },

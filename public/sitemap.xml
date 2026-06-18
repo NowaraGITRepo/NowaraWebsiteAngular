@@ -1,194 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Core Pages -->
-  <url>
-    <loc>https://nowarainfo.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/about-nowara-infotech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/contact-us</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/career</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/faqs</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <url><loc>https://nowarainfotech.com/</loc>                                         <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>1.0</priority></url>
+  <url><loc>https://nowarainfotech.com/about-nowara-infotech</loc>                    <lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/contact-us</loc>                               <lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/career</loc>                                   <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/faqs</loc>                                     <lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Solution Pages (highest priority) -->
+  <url><loc>https://nowarainfotech.com/microsoft-dynamic-365-business-central</loc>   <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://nowarainfotech.com/msd-365-finance-and-operations</loc>            <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://nowarainfotech.com/erp-crm-implementations</loc>                  <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://nowarainfotech.com/ls-retail</loc>                                <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/microsoft-azure-cloud-services-provider</loc>  <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/aws-cloud-services-provider</loc>              <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/sap-web-service</loc>                          <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/power-bi</loc>                                 <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/google-looker</loc>                            <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/tableau</loc>                                  <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
 
   <!-- Industry Pages -->
-  <url>
-    <loc>https://nowarainfo.com/manufacturing/discrete</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/manufacturing/process</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/manufacturing/hybrid</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/food-and-beverages</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/automotive-equipment</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/erp-software-for-pharmacy-industry</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/chemical-industry</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/steel-and-metal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/corrugated-erp</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/fashion-erp</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/microsoft-dynamics-365-for-e-commerce</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Solution Pages -->
-  <url>
-    <loc>https://nowarainfo.com/msd-365-finance-and-operations</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/microsoft-dynamic-365-business-central</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/erp-crm-implementations</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/microsoft-azure-cloud-services-provider</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/aws-cloud-services-provider</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/ls-retail</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/sap-web-service</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/power-bi</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/google-looker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/tableau</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://nowarainfotech.com/manufacturing/discrete</loc>                   <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/manufacturing/process</loc>                    <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/manufacturing/hybrid</loc>                     <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/food-and-beverages</loc>                       <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/automotive-equipment</loc>                     <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/erp-software-for-pharmacy-industry</loc>       <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/chemical-industry</loc>                        <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/steel-and-metal</loc>                          <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/corrugated-erp</loc>                           <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/fashion-erp</loc>                              <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/microsoft-dynamics-365-for-e-commerce</loc>    <lastmod>2026-06-11</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/supermarket-erp</loc>                          <lastmod>2026-06-11</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
 
   <!-- Service Pages -->
-  <url>
-    <loc>https://nowarainfo.com/services/erp-crm-support</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/services/custom-development-integration</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/services/upgrade-and-migration</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/services/ams</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/services/apps-development</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/services/resource-augmentation</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://nowarainfotech.com/services/erp-crm-support</loc>                 <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/services/custom-development-integration</loc>  <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/services/upgrade-and-migration</loc>           <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/services/ams</loc>                             <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/services/apps-development</loc>                <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/services/resource-augmentation</loc>           <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
 
   <!-- Content Pages -->
-  <url>
-    <loc>https://nowarainfo.com/blogs</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/case-study</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/event-page</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://nowarainfo.com/gallery</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <url><loc>https://nowarainfotech.com/blogs</loc>                                    <lastmod>2026-06-03</lastmod><changefreq>daily</changefreq>  <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/case-study</loc>                               <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/event-page</loc>                               <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/gallery</loc>                                  <lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
 </urlset>

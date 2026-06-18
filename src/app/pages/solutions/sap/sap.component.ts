@@ -31,12 +31,6 @@ export class SapComponent implements OnInit {
       { step: '04', title: 'Custom Development', desc: 'ABAP enhancements and reports as needed.' },
       { step: '05', title: 'Go-Live & AMS', desc: 'Launch with ongoing application managed services.' },
     ],
-    compareRows: [
-      { feature: 'ERP Scale', standard: 'Generic ERP', dynamics: 'Enterprise-grade SAP S/4HANA' },
-      { feature: 'Analytics', standard: 'Basic Reporting', dynamics: 'SAP BW / SAC Advanced BI' },
-      { feature: 'Integration', standard: 'Point-to-point', dynamics: 'SAP Integration Suite' },
-      { feature: 'Support', standard: 'Ticket-based Only', dynamics: 'Proactive AMS Model' },
-    ],
     formTitle: 'Maximise Your', formSubTitle: 'SAP Investment.',
     formDesc: 'Speak with Nowara\'s SAP consultants about optimising your SAP landscape today.',
   };

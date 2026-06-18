@@ -4,37 +4,92 @@
   <div class="pointer-events-none absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-blue-200/30 blur-[140px]"></div>
   <div class="pointer-events-none absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-indigo-200/25 blur-[120px]"></div>
 
-  <!-- ── TECH MARQUEE STRIP ──────────────────────────────────── -->
-  <div class="relative z-10 pt-10 w-full overflow-hidden"
-    style="mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent);
-           -webkit-mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent)">
-    <div class="flex gap-3 animate-marquee whitespace-nowrap">
-      <div *ngFor="let card of [...cards, ...cards]; let i = index"
-        class="inline-flex flex-shrink-0 w-[200px] h-[230px] flex-col whitespace-normal cursor-pointer group
-               rounded-2xl bg-white border-2 border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)]
-               hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
-        <div class="h-[4px] w-full flex-shrink-0" [style.background]="cardAccents[i % cardAccents.length]"></div>
-        <div class="px-5 py-5 flex flex-col flex-1 justify-between">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">&gt;_ stack</span>
-            <span class="flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full animate-pulse" [style.background]="cardAccents[i % cardAccents.length]"></span>
-              <span class="font-mono text-[9px] text-slate-300">ON</span>
-            </span>
-          </div>
-          <div class="flex flex-col gap-3">
-            <h3 class="text-slate-800 font-black text-[15px] leading-snug">{{ card.title }}</h3>
-            <p class="text-slate-400 text-[11px] leading-relaxed">{{ card.desc }}</p>
-          </div>
-          <div class="h-[2px] w-0 group-hover:w-full transition-all duration-500 rounded-full"
-            [style.background]="cardAccents[i % cardAccents.length]"></div>
+  <!-- ── CARD SLIDER ───────────────────────────────────────── -->
+  <div class="relative z-10 pt-10 w-full">
+    <div class="relative px-12 md:px-16">
+
+      <!-- Left arrow -->
+      <button (click)="slideLeft()" aria-label="Scroll left"
+        class="absolute left-1 md:left-2 top-[50%] -translate-y-1/2 z-20
+               w-9 h-9 md:w-11 md:h-11 bg-white border border-slate-200 rounded-full shadow-md
+               flex items-center justify-center
+               hover:bg-blue-50 hover:border-blue-400 hover:shadow-blue-100/60
+               active:scale-90 transition-all duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <!-- Right arrow -->
+      <button (click)="slideRight()" aria-label="Scroll right"
+        class="absolute right-1 md:right-2 top-[50%] -translate-y-1/2 z-20
+               w-9 h-9 md:w-11 md:h-11 bg-white border border-slate-200 rounded-full shadow-md
+               flex items-center justify-center
+               hover:bg-blue-50 hover:border-blue-400 hover:shadow-blue-100/60
+               active:scale-90 transition-all duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Track -->
+      <div class="overflow-x-hidden pt-2 pb-3"
+           (mouseenter)="pauseSlider()" (mouseleave)="resumeSlider()"
+           (touchstart)="pauseSlider()" (touchend)="resumeSlider()">
+        <div #cardTrack class="flex gap-3" style="will-change:transform;">
+          <a *ngFor="let card of sliderCards; let i = index"
+            [routerLink]="card.href"
+            class="inline-flex flex-shrink-0 w-[210px] h-[210px] flex-col whitespace-normal group
+                   rounded-2xl bg-white border border-slate-200
+                   shadow-[0_4px_20px_rgba(0,0,0,0.07)]
+                   hover:shadow-[0_10px_32px_rgba(61,119,190,0.18)] hover:border-blue-300 hover:-translate-y-2
+                   transition-all duration-300 overflow-hidden no-underline">
+            <!-- Top accent bar -->
+            <div class="h-[3px] w-full flex-shrink-0" [style.background]="card.badgeColor || '#3D77BE'"></div>
+            <div class="px-4 py-4 flex flex-col flex-1">
+              <!-- Logo + badge row -->
+              <div class="flex items-center justify-between mb-3">
+                <!-- Logo: SVG inline > image > iconify -->
+                <div class="w-9 h-9 flex items-center justify-center">
+                  <span *ngIf="card.svgIcon" [innerHTML]="card.svgIcon | safeHtml"></span>
+                  <img *ngIf="!card.svgIcon && card.imgSrc" [src]="card.imgSrc" alt="" class="w-8 h-8 object-contain" />
+                  <iconify-icon *ngIf="!card.svgIcon && !card.imgSrc && card.iconifyIcon"
+                    [attr.icon]="card.iconifyIcon" width="30" height="30"
+                    [style.color]="card.iconColor || '#3D77BE'"></iconify-icon>
+                </div>
+                <!-- Badge -->
+                <span class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
+                  [style.background]="(card.badgeColor || '#3D77BE') + '18'"
+                  [style.color]="card.badgeColor || '#3D77BE'">
+                  {{ card.badge }}
+                </span>
+              </div>
+              <!-- Title -->
+              <p class="text-slate-800 font-black text-[13.5px] leading-snug mb-1.5 group-hover:text-[#3D77BE] transition-colors duration-200">
+                {{ card.title }}
+              </p>
+              <!-- Desc -->
+              <p class="text-slate-600 text-[11px] leading-relaxed flex-1">{{ card.desc }}</p>
+              <!-- Bottom CTA -->
+              <div class="flex items-center gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-[11px] font-bold" [style.color]="card.badgeColor || '#3D77BE'">Learn more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="3" [style.color]="card.badgeColor || '#3D77BE'">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
+
     </div>
   </div>
 
   <!-- ── HERO CONTENT ──────────────────────────────────────────── -->
-  <section class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20 py-20">
+  <section class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20 py-10 lg:py-20">
     <div class="flex gap-6 lg:gap-10 items-stretch">
 
       <!-- ── Vertical "MICROSOFT CERTIFIED" side text ── -->
@@ -69,7 +124,7 @@
       </div>
 
       <!-- ── Main content + image ── -->
-      <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
       <!-- Left: Text -->
       <div class="space-y-8">
@@ -93,7 +148,7 @@
           </div>
         </div>
 
-        <h1 class="text-5xl md:text-6xl font-black leading-[1.05] tracking-tight text-slate-900">
+        <h1 class="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight text-slate-900">
           We architect<br>
           <span class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
             Digital Ecosystems
@@ -139,8 +194,8 @@
 
             <img [src]="serviceImages[currentImgIndex].src"
               [alt]="serviceImages[currentImgIndex].label"
-              style="width:100%; height:340px; object-fit:cover; display:block;
-                     transition:opacity 0.7s ease;"
+              loading="lazy" decoding="async" width="480" height="340"
+              style="width:100%; height:340px; object-fit:cover; display:block; transition:opacity 0.7s ease;"
               [style.opacity]="fading ? 0 : 1" />
 
             <!-- Label -->
@@ -175,8 +230,8 @@
   <!-- Contact modal -->
   <div *ngIf="isOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeModal()"></div>
-    <div class="relative w-full max-w-2xl animate-fade-in rounded-[2.5rem] bg-white p-10 shadow-2xl">
-      <button (click)="closeModal()" class="absolute right-6 top-6 z-50 text-slate-400 transition-colors hover:text-slate-900">
+    <div class="relative w-full max-w-2xl animate-fade-in rounded-[2rem] bg-white p-5 sm:p-8 md:p-10 shadow-2xl">
+      <button (click)="closeModal()" aria-label="Close modal" class="absolute right-6 top-6 z-50 text-slate-400 transition-colors hover:text-slate-900">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
         </svg>

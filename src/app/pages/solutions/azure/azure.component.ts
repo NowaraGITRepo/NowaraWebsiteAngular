@@ -31,12 +31,6 @@ export class AzureComponent implements OnInit {
       { step: '04', title: 'Full Migration', desc: 'Execute full migration with minimal business disruption.' },
       { step: '05', title: 'Optimise & Manage', desc: 'Ongoing monitoring, cost optimisation, and governance.' },
     ],
-    compareRows: [
-      { feature: 'Uptime', standard: 'On-premise ~95%', dynamics: 'Azure 99.9% SLA' },
-      { feature: 'Security', standard: 'Manual Patching', dynamics: 'Automated Azure Security' },
-      { feature: 'Scalability', standard: 'Hardware Investment', dynamics: 'Instant Scale On-demand' },
-      { feature: 'Cost Model', standard: 'Fixed CapEx', dynamics: 'Flexible OpEx / Pay-as-you-go' },
-    ],
     formTitle: 'Take Your Business', formSubTitle: 'to the Cloud.',
     formDesc: 'Connect with our Azure certified architects for a free cloud readiness assessment.',
   };

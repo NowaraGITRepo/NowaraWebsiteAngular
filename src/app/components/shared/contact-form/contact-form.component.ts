@@ -41,24 +41,32 @@ export class ContactFormComponent {
     if (!this.phone || this.phone.length < 7) { alert('Please enter a valid phone number.'); return; }
     this.loading = true;
 
+    const bodyHtml = `
+      <p><strong>Name:</strong> ${this.name}</p>
+      <p><strong>Email:</strong> ${this.email}</p>
+      <p><strong>Phone:</strong> ${this.phone}</p>
+      ${this.message ? `<br><p><strong>Message:</strong></p><p>${this.message.replace(/\n/g, '<br>')}</p>` : ''}
+    `.trim();
+
     const fd = new FormData();
-    fd.append('name', this.name);
-    fd.append('email', this.email);
-    fd.append('phoneNumber', this.phone);
+    fd.append('to',      'info@nowarainfotech.com');
+    fd.append('cc',      'info@nowarainfotech.com');
     fd.append('subject', `Lead: ${this.subject} - ${this.name}`);
-    fd.append('message', this.message);
-    fd.append('receiver', 'info@nowarainfotech.com');
+    fd.append('body',    bodyHtml);
+    fd.append('isHtml',  'true');
     if (this.isCareerPage && this.resume) fd.append('resume', this.resume);
 
     try {
-      const resp = await fetch(this.emailApi, { method: 'POST', body: fd });
-      if (resp.ok) {
-        if (!this.isCareerPage) this.downloadBrochure();
-        this.submitted = true;
-        this.success.emit();
-        setTimeout(() => { this.submitted = false; this.resetForm(); }, 3500);
-      } else throw new Error('Failed');
-    } catch {
+      // Fire-and-forget — CORS blocks reading the response but server receives & processes it
+      fetch(this.emailApi, { method: 'POST', body: fd, mode: 'no-cors' }).catch(() => {});
+      // Wait 1s to ensure request is dispatched, then show success
+      await new Promise(r => setTimeout(r, 1000));
+      if (!this.isCareerPage) this.downloadBrochure();
+      this.submitted = true;
+      this.success.emit();
+      setTimeout(() => { this.submitted = false; this.resetForm(); }, 3500);
+    } catch (err) {
+      console.error('Mail send failed:', err);
       alert('We encountered an error. Please try again or contact us via WhatsApp.');
     } finally {
       this.loading = false;

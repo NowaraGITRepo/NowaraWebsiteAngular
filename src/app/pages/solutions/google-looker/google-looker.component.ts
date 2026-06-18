@@ -31,12 +31,6 @@ export class GoogleLookerComponent implements OnInit {
       { step: '04', title: 'Access Control', desc: 'Configure row-level security and user groups.' },
       { step: '05', title: 'Training & Adoption', desc: 'Empower business users to self-serve with Looker.' },
     ],
-    compareRows: [
-      { feature: 'Data Governance', standard: 'Manual Processes', dynamics: 'Centralised LookML Layer' },
-      { feature: 'Self-Service', standard: 'IT Bottleneck', dynamics: 'Business User Explores' },
-      { feature: 'Embedding', standard: 'Complex & Costly', dynamics: 'Native Embedding API' },
-      { feature: 'Scale', standard: 'Performance Issues', dynamics: 'BigQuery-native Speed' },
-    ],
     formTitle: 'Explore Data,', formSubTitle: 'Drive Decisions.',
     formDesc: 'Get a free Looker consultation from our certified Looker developers.',
   };

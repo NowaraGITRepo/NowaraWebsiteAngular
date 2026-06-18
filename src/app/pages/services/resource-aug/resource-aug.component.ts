@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { NgFor, isPlatformBrowser } from '@angular/common';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -7,7 +8,7 @@ import { SEO } from '../../../data/seo-data';
 @Component({
   selector: 'app-resource-aug',
   standalone: true,
-  imports: [ContactFormComponent, NgFor],
+  imports: [ContactFormComponent, NgFor, SafeHtmlPipe],
   template: `
 <div class="min-h-screen bg-white">
   <!-- HERO -->
@@ -124,7 +125,7 @@ import { SEO } from '../../../data/seo-data';
       <h2 class="text-4xl font-black text-slate-900 mb-12 text-center">Available <span class="text-violet-600">Roles</span></h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div *ngFor="let role of roles" class="bg-slate-50 border border-slate-100 rounded-[2rem] p-8 hover:shadow-xl hover:border-violet-200 transition-all">
-          <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center text-violet-600 mb-5" [innerHTML]="role.icon"></div>
+          <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center text-violet-600 mb-5" [innerHTML]="role.icon | safeHtml"></div>
           <h3 class="text-xl font-bold text-slate-900 mb-2">{{role.title}}</h3>
           <p class="text-sm text-slate-500 leading-relaxed">{{role.desc}}</p>
         </div>

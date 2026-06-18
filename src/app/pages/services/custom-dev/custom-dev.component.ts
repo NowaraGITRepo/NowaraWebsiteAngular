@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { NgFor, isPlatformBrowser } from '@angular/common';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -7,7 +8,7 @@ import { SEO } from '../../../data/seo-data';
 @Component({
   selector: 'app-custom-dev',
   standalone: true,
-  imports: [ContactFormComponent, NgFor],
+  imports: [ContactFormComponent, NgFor, SafeHtmlPipe],
   template: `
 <div class="min-h-screen bg-white">
   <div class="pt-24 lg:pt-28">
@@ -61,7 +62,7 @@ import { SEO } from '../../../data/seo-data';
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div *ngFor="let feature of features" class="bg-white p-8 rounded-[2rem] border border-slate-100 hover:shadow-xl transition-all">
-          <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-5 text-indigo-600" [innerHTML]="feature.icon"></div>
+          <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-5 text-indigo-600" [innerHTML]="feature.icon | safeHtml"></div>
           <h3 class="text-xl font-bold text-slate-900 mb-2">{{feature.title}}</h3>
           <p class="text-sm text-slate-500 leading-relaxed font-medium">{{feature.desc}}</p>
         </div>

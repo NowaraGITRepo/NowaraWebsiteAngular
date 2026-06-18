@@ -1,19 +1,111 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Nowara Infotech — Microsoft Dynamics 365 ERP Partner</title>
+  <title>Nowara Infotech â€” Microsoft Dynamics 365 ERP Partner</title>
   <base href="/">
+
+  <!-- Viewport / Mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nowara Infotech is a certified Microsoft Dynamics 365 ERP Partner offering ERP, CRM, Cloud, Power BI, and app development services across UAE and India.">
-  <link rel="icon" type="image/webp" href="/images/logo/cropped-logofooter.webp">
-  <link rel="apple-touch-icon" href="/images/logo/cropped-logofooter.webp">
-  <!-- Google Fonts: DM Sans -->
+
+  <!-- Default SEO -->
+  <meta name="description" content="Nowara Infotech â€” Certified Microsoft Dynamics 365 ERP Partner delivering Business Central, Finance & Operations, CRM, LS Central, Power BI and Cloud across UAE & India.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nowara Infotech">
+  <meta name="keywords" content="Microsoft Dynamics 365, ERP partner India, Business Central, Finance and Operations, CRM, LS Central, Power BI, Azure, ERP implementation UAE">
+
+  <!-- Default Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Nowara Infotech">
+  <meta property="og:title"       content="Nowara Infotech â€” Microsoft Dynamics 365 ERP Partner">
+  <meta property="og:description" content="Certified Microsoft Dynamics 365 ERP Partner delivering Business Central, Finance & Operations, CRM, LS Central, Power BI and Cloud across UAE & India.">
+  <meta property="og:image"       content="https://nowarainfotech.com/images/logo/cropped-logofooter.webp">
+  <meta property="og:url"         content="https://nowarainfotech.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Nowara Infotech â€” Microsoft Dynamics 365 ERP Partner">
+  <meta name="twitter:description" content="Certified Microsoft Dynamics 365 ERP Partner â€” Business Central, F&O, CRM, LS Central, Power BI, Cloud.">
+  <meta name="twitter:image"       content="https://nowarainfotech.com/images/logo/cropped-logofooter.webp">
+
+  <!-- Canonical (default â€” overridden per page by SeoService) -->
+  <link rel="canonical" href="https://nowarainfotech.com">
+
+  <!-- Favicon -->
+  <link rel="icon"             type="image/webp" href="/images/logo/cropped-logofooter.webp">
+  <link rel="apple-touch-icon"                   href="/images/logo/cropped-logofooter.webp">
+
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://code.iconify.design">
+
+  <!-- Google Fonts: non-blocking load (removes render-blocking CSS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
-  <!-- Iconify web component (modern) -->
-  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,900;1,9..40,400&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,900;1,9..40,400&display=swap">
+  </noscript>
+
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="/images/Swiper/slider-image.webp" fetchpriority="high">
+
+  <!-- Iconify web component (defer — non-blocking) -->
+  <script defer src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BLGPS2FPN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BLGPS2FPN');
+  </script>
+
+  <!-- Organization Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nowara Infotech",
+    "url": "https://nowarainfotech.com",
+    "logo": "https://nowarainfotech.com/images/logo/cropped-logofooter.webp",
+    "description": "Certified Microsoft Dynamics 365 ERP Partner delivering Business Central, Finance & Operations, CRM, LS Central, Power BI and Cloud solutions across UAE and India.",
+    "foundingDate": "1994",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9311205831",
+      "contactType": "customer support",
+      "areaServed": ["IN", "AE"],
+      "availableLanguage": "English"
+    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN",
+        "streetAddress": "Anthurium Tower A-212, Sector 73, Noida 201301"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Navi Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN",
+        "streetAddress": "901, Real Tech Park, Sector 30A, Vashi, Navi Mumbai 400709"
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/nowara-infotech/",
+      "https://facebook.com",
+      "https://twitter.com"
+    ]
+  }
+  </script>
 </head>
 <body class="bg-white text-[#102C46]">
   <app-root></app-root>

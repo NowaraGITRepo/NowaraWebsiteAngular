@@ -1,6 +1,7 @@
 import { Component, Input, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
 export interface IndustryCapability { title: string; desc: string; icon: string; }
 export interface IndustryStep { step: string; title: string; desc: string; }
@@ -21,7 +22,9 @@ export interface IndustryPageConfig {
   stat2Value: string; stat2Label: string;
   workflowTitle: string;
   steps: IndustryStep[];
-  compareRows: CompareRow[];
+  compareRows?: CompareRow[];
+  compareTitle?: string;
+  compareSubtitle?: string;
   formTitle: string;
   formSubTitle: string;
   formDesc: string;
@@ -30,7 +33,7 @@ export interface IndustryPageConfig {
 @Component({
   selector: 'app-industry-page',
   standalone: true,
-  imports: [CommonModule, ContactFormComponent],
+  imports: [CommonModule, ContactFormComponent, SafeHtmlPipe],
   templateUrl: './industry-page.component.html',
 })
 export class IndustryPageComponent {

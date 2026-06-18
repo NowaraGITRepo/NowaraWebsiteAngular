@@ -31,12 +31,6 @@ export class TableauComponent implements OnInit {
       { step: '04', title: 'Review & Iterate', desc: 'Stakeholder review and dashboard refinement.' },
       { step: '05', title: 'Publish & Train', desc: 'Publish to Tableau Server/Cloud and train users.' },
     ],
-    compareRows: [
-      { feature: 'Visualisation', standard: 'Basic Charts', dynamics: 'Advanced Interactive Charts' },
-      { feature: 'Data Prep', standard: 'Manual ETL', dynamics: 'Tableau Prep Pipelines' },
-      { feature: 'Self-Service', standard: 'IT-dependent', dynamics: 'Drag-and-drop Exploration' },
-      { feature: 'Deployment', standard: 'Desktop Only', dynamics: 'Server / Cloud / Mobile' },
-    ],
     formTitle: 'Visualise Smarter,', formSubTitle: 'Decide Faster.',
     formDesc: 'Get a free Tableau dashboard prototype from our certified Tableau developers.',
   };

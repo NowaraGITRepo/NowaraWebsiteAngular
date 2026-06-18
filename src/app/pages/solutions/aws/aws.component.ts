@@ -31,12 +31,6 @@ export class AwsComponent implements OnInit {
       { step: '04', title: 'Production Migration', desc: 'Migrate at scale with minimal downtime.' },
       { step: '05', title: 'Managed Services', desc: 'Ongoing AWS management, monitoring, and optimisation.' },
     ],
-    compareRows: [
-      { feature: 'Global Regions', standard: 'Limited On-premise', dynamics: '32 AWS Global Regions' },
-      { feature: 'Scalability', standard: 'Hardware Constraint', dynamics: 'Infinite On-demand Scale' },
-      { feature: 'Cost', standard: 'Fixed CapEx', dynamics: 'Pay-as-you-go OpEx' },
-      { feature: 'Innovation', standard: 'Slow Adoption', dynamics: '200+ AWS Services Available' },
-    ],
     formTitle: 'Power Your Business', formSubTitle: 'with AWS.',
     formDesc: 'Speak with our AWS architects about designing your cloud strategy today.',
   };

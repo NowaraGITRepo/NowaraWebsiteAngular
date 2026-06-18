@@ -31,12 +31,6 @@ export class PowerBiComponent implements OnInit {
       { step: '04', title: 'UAT & Feedback', desc: 'Iterate with stakeholders to refine insights.' },
       { step: '05', title: 'Deploy & Train', desc: 'Publish to Power BI Service and train end users.' },
     ],
-    compareRows: [
-      { feature: 'Speed to Insight', standard: 'Hours / Days', dynamics: 'Real-time Dashboards' },
-      { feature: 'Data Sources', standard: 'Single System', dynamics: '100+ Native Connectors' },
-      { feature: 'Self-Service', standard: 'IT-dependent', dynamics: 'Business User Empowered' },
-      { feature: 'Collaboration', standard: 'Email Reports', dynamics: 'Live Shared Dashboards' },
-    ],
     formTitle: 'See Your Data,', formSubTitle: 'Act Faster.',
     formDesc: 'Get a free Power BI dashboard prototype from our analytics team.',
   };

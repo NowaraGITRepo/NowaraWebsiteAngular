@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { NgFor, isPlatformBrowser } from '@angular/common';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -7,7 +8,7 @@ import { SEO } from '../../../data/seo-data';
 @Component({
   selector: 'app-upgrade',
   standalone: true,
-  imports: [ContactFormComponent, NgFor],
+  imports: [ContactFormComponent, NgFor, SafeHtmlPipe],
   template: `
 <div class="min-h-screen bg-white">
   <div class="pt-24 lg:pt-28">
@@ -57,7 +58,7 @@ import { SEO } from '../../../data/seo-data';
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div *ngFor="let step of steps; let i = index" class="bg-white p-6 rounded-2xl border border-slate-100 flex flex-col items-center text-center space-y-3">
-          <div [class]="step.color + ' mb-2'" [innerHTML]="step.icon"></div>
+          <div [class]="step.color + ' mb-2'" [innerHTML]="step.icon | safeHtml"></div>
           <h3 class="font-bold text-slate-900 text-sm italic">Step 0{{i+1}}</h3>
           <p class="font-bold text-slate-700">{{step.title}}</p>
         </div>

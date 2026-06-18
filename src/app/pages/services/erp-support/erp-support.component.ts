@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { NgFor, isPlatformBrowser } from '@angular/common';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -7,7 +8,7 @@ import { SEO } from '../../../data/seo-data';
 @Component({
   selector: 'app-erp-support',
   standalone: true,
-  imports: [ContactFormComponent, NgFor],
+  imports: [ContactFormComponent, NgFor, SafeHtmlPipe],
   template: `
 <div class="min-h-screen bg-white pt-20">
   <!-- HERO -->
@@ -61,7 +62,7 @@ import { SEO } from '../../../data/seo-data';
           </div>
           <div class="relative mb-8 w-20 h-20">
             <div class="absolute inset-0 bg-blue-600 rounded-3xl rotate-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 opacity-10"></div>
-            <div class="relative w-20 h-20 bg-white border border-slate-100 rounded-3xl flex items-center justify-center text-blue-600 shadow-sm group-hover:border-blue-600 transition-all duration-500" [innerHTML]="item.icon"></div>
+            <div class="relative w-20 h-20 bg-white border border-slate-100 rounded-3xl flex items-center justify-center text-blue-600 shadow-sm group-hover:border-blue-600 transition-all duration-500" [innerHTML]="item.icon | safeHtml"></div>
           </div>
           <div class="space-y-4">
             <h4 class="text-2xl font-black text-slate-900 tracking-tight">{{item.title}}</h4>

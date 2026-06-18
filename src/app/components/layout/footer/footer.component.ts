@@ -14,7 +14,6 @@ export class FooterComponent {
 
   phones = [
     { label: 'India', number: '+91 9311205831' },
-    { label: 'India', number: '+91 9638540355' },
     { label: 'UAE', number: '+971 585041986' },
   ];
 
@@ -27,8 +26,8 @@ export class FooterComponent {
 
   indiaOffices = [
     { city: 'Noida', addr: 'Anthurium Tower A-212, Sector 73, Noida 201301' },
-    { city: 'Ahmedabad', addr: 'Sarkhej - Gandhinagar Hwy & Vaishnodevi Cir, Ahmedabad, Gujarat 382481' },
-    { city: 'Bhagalpur', addr: 'C/O Shyam Kishore Ray, Ganga Vihar Colony, Bhagalpur, Bihar - 813210' },
+    { city: 'Mumbai', addr: '901, Real Tech Park, Sector 30A, Vashi, Navi Mumbai 400709' },
+    { city: 'Bhagalpur', addr: 'Ganga Vihar Colony, Bhagalpur, Bihar - 813210' },
   ];
 
   services = [
@@ -51,7 +50,8 @@ export class FooterComponent {
     { href: '/steel-and-metal', label: 'Steel and Metal ERP' },
     { href: '/corrugated-erp', label: 'Corrugation ERP' },
     { href: '/fashion-erp', label: 'Fashion ERP' },
-    { href: '/microsoft-dynamics-365-for-e-commerce', label: 'Retail and E-commerce ERP' },
+    { href: '/microsoft-dynamics-365-for-e-commerce', label: 'E-commerce ERP' },
+    { href: '/supermarket-erp', label: 'Supermarket ERP' },
     { href: '/msd-365-finance-and-operations', label: 'Finance and Operations' },
     { href: '/microsoft-dynamic-365-business-central', label: 'Business Central' },
     { href: '/erp-crm-implementations', label: 'CRM Implementation' },

@@ -36,33 +36,57 @@
 
   <!-- Cards grid -->
   <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20">
+
+    <!-- ERP Products label -->
+    <div class="flex items-center gap-3 mb-5">
+      <span class="text-xs font-black uppercase tracking-[0.2em] text-[#3D77BE]">Microsoft ERP Products</span>
+      <div class="flex-1 h-px bg-gradient-to-r from-blue-200 to-transparent"></div>
+    </div>
+
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
 
-      <div *ngFor="let item of services; let i = index"
-        class="group relative overflow-hidden rounded-3xl cursor-pointer bg-white
-               border-2 border-blue-200
-               shadow-[0_8px_32px_rgba(37,99,235,0.12)]
-               -translate-y-0 transition-all duration-300">
+      <!-- Divider after first 4 -->
+      <ng-container *ngFor="let item of services; let i = index">
+
+        <!-- Industry Solutions label between index 3 and 4 -->
+        <div *ngIf="i === 4" class="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-3 mt-4 mb-1">
+          <span class="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Industry Solutions</span>
+          <div class="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent"></div>
+        </div>
+
+      <a
+        [routerLink]="item.href"
+        [class]="item.highlight
+          ? 'group relative overflow-hidden rounded-3xl cursor-pointer bg-white border-2 border-[#3D77BE] shadow-[0_8px_32px_rgba(61,119,190,0.18)] hover:shadow-[0_14px_44px_rgba(61,119,190,0.28)] hover:-translate-y-1 transition-all duration-300 no-underline block'
+          : 'group relative overflow-hidden rounded-3xl cursor-pointer bg-white border-2 border-blue-200 shadow-[0_8px_32px_rgba(37,99,235,0.12)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.22)] hover:-translate-y-1 transition-all duration-300 no-underline block'">
 
         <!-- Image area -->
         <div class="relative h-44 overflow-hidden rounded-t-3xl">
           <img [src]="item.image" [alt]="item.title"
+            loading="lazy" decoding="async" width="400" height="176"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
           <!-- Icon badge -->
           <div class="absolute bottom-3 left-3 flex items-center gap-2 rounded-xl bg-white/90 backdrop-blur-sm border border-white/60 px-3 py-1.5 shadow-sm">
             <img [src]="item.icon" [alt]="item.title" class="w-4 h-4 object-contain flex-shrink-0" />
-            <span class="text-slate-700 font-bold text-[10px] uppercase tracking-wider leading-none">{{ item.title }}</span>
+            <span class="font-bold text-[10px] uppercase tracking-wider leading-none"
+              [class]="item.highlight ? 'text-[#3D77BE]' : 'text-slate-700'">{{ item.title }}</span>
+          </div>
+
+          <!-- Highlighted badge for ERP products -->
+          <div *ngIf="item.highlight" class="absolute top-3 right-3 bg-[#3D77BE] text-white text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full">
+            Featured
           </div>
         </div>
 
         <!-- Card body -->
         <div class="p-5">
-          <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">{{ item.desc }}</p>
+          <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">{{ item.desc }}</p>
 
           <!-- Always visible CTA -->
-          <div class="mt-4 flex items-center gap-1.5 text-blue-600 text-xs font-bold">
+          <div class="mt-4 flex items-center gap-1.5 text-xs font-bold group-hover:gap-2.5 transition-all duration-200"
+            [class]="item.highlight ? 'text-[#3D77BE]' : 'text-blue-600'">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
@@ -70,7 +94,9 @@
           </div>
         </div>
 
-      </div>
+      </a>
+
+      </ng-container>
 
     </div>
   </div>

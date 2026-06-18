@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { NgFor, isPlatformBrowser } from '@angular/common';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 import { ContactFormComponent } from '../../../components/shared/contact-form/contact-form.component';
 import { SeoService } from '../../../services/seo.service';
 import { SEO } from '../../../data/seo-data';
@@ -7,7 +8,7 @@ import { SEO } from '../../../data/seo-data';
 @Component({
   selector: 'app-apps-dev',
   standalone: true,
-  imports: [ContactFormComponent, NgFor],
+  imports: [ContactFormComponent, NgFor, SafeHtmlPipe],
   template: `
 <div class="min-h-screen bg-[#020617] text-slate-300">
   <!-- GRID BACKGROUND -->
@@ -42,7 +43,7 @@ import { SEO } from '../../../data/seo-data';
       <!-- BENTO STATS -->
       <div class="lg:col-span-5 grid grid-cols-2 gap-4">
         <div *ngFor="let stat of stats" [class]="'rounded-3xl p-6 flex flex-col justify-between border ' + stat.style">
-          <div [innerHTML]="stat.icon"></div>
+          <div [innerHTML]="stat.icon | safeHtml"></div>
           <div class="mt-4">
             <p class="text-2xl font-black" [class]="stat.valColor">{{stat.val}}</p>
             <p class="text-xs text-slate-500 font-mono mt-1">{{stat.label}}</p>
@@ -61,7 +62,7 @@ import { SEO } from '../../../data/seo-data';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div *ngFor="let cap of capabilities" class="group bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500/50 transition-all cursor-pointer">
         <div class="flex items-start gap-6">
-          <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 flex-shrink-0" [innerHTML]="cap.icon"></div>
+          <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 flex-shrink-0" [innerHTML]="cap.icon | safeHtml"></div>
           <div>
             <h3 class="text-white font-bold text-xl mb-1">{{cap.name}}</h3>
             <p class="text-slate-500 text-xs font-mono mb-3">{{cap.desc}}</p>
