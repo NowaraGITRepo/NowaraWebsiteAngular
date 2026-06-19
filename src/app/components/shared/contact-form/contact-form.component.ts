@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, inject, PLATFORM_ID } from '@an
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -14,6 +15,7 @@ export class ContactFormComponent {
   @Input() isCareerPage = false;
   @Output() success = new EventEmitter<void>();
   private platformId = inject(PLATFORM_ID);
+  private router = inject(Router);
 
   name = '';
   email = '';
@@ -62,9 +64,18 @@ export class ContactFormComponent {
       // Wait 1s to ensure request is dispatched, then show success
       await new Promise(r => setTimeout(r, 1000));
       if (!this.isCareerPage) this.downloadBrochure();
-      this.submitted = true;
-      this.success.emit();
-      setTimeout(() => { this.submitted = false; this.resetForm(); }, 3500);
+      // ✅ Navigate to thank-you page for contact & career
+      // Only show inline thank-you for modals (they can't navigate away)
+      if (this.isModal) {
+        this.submitted = true;
+        this.success.emit();
+        setTimeout(() => { this.submitted = false; this.resetForm(); }, 3500);
+      } else {
+        // Navigate to /thank-you?for=contact or /thank-you?for=career
+        const slug = this.isCareerPage ? 'career' : 'contact';
+        this.success.emit();
+        this.router.navigate(['/thank-you'], { queryParams: { for: slug } });
+      }
     } catch (err) {
       console.error('Mail send failed:', err);
       alert('We encountered an error. Please try again or contact us via WhatsApp.');

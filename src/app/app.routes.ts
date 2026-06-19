@@ -386,6 +386,28 @@ export const routes: Routes = [
     }},
     loadComponent: () => import('./pages/gallery/gallery.component').then(m => m.GalleryComponent),
   },
+  {
+  path: 'blogs/add-blog',
+    loadComponent: () =>
+      import('../app/pages/blogs/add-blog/add-blog.component')
+        .then(m => m.AddBlogComponent)
+  },
+  {
+  path: 'blog/:slug',
+  loadComponent: () =>
+    import('./pages/blogs/blog-detail/blog-detail.component')
+      .then(m => m.BlogDetailComponent)
+},
+{
+  path: 'thank-you/:event',
+  loadComponent: () =>
+    import('./pages/thank-you/thank-you.component').then(m => m.ThankYouComponent),
+},
+{
+  path: 'thank-you',
+  loadComponent: () =>
+    import('./pages/thank-you/thank-you.component').then(m => m.ThankYouComponent),
+},
 
   // ─── 404 ───────────────────────────────────────────────────────────────────
   {

@@ -10,7 +10,10 @@ export class EmailService {
   constructor(private http: HttpClient) {}
 
   sendContactEmail(formData: FormData): Observable<any> {
-    formData.append('receiver', this.receiverEmail);
+    formData.set('to', this.receiverEmail);
+    formData.set('cc', this.receiverEmail);
+    formData.set('isHtml', 'true');
+
     return this.http.post(this.emailApi, formData);
   }
 
