@@ -58,7 +58,76 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
+  <!--Summit page -->
+<!-- EVENT POPUP -->
+<div *ngIf="showEventPopup" style="
+  position:absolute;
+  top:95px;
+  right:90px;
+  z-index:40;
+  width:300px;
+  max-width:calc(100% - 40px);
+  background:linear-gradient(145deg,#071633,#0b2a66);
+  color:#fff;
+  border:1px solid #2563eb;
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 20px 45px rgba(37,99,235,.35);
+">
 
+  <button type="button" (click)="closeEventPopup()" style="
+    position:absolute;
+    top:8px;
+    right:12px;
+    background:transparent;
+    border:none;
+    color:#fff;
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+  ">
+    ×
+  </button>
+
+  <div style="width:34px;height:34px;background:#2563eb;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:16px;">
+    📅
+  </div>
+
+  <div style="font-size:10px;font-weight:800;color:#facc15;letter-spacing:1px;margin-bottom:7px;">
+    UPCOMING EVENT
+  </div>
+
+  <h3 style="font-size:20px;font-weight:900;line-height:1.25;margin:0 0 12px;padding-right:18px;">
+   Nowara CXO Roundtable Conference 2026
+  </h3>
+
+  <div style="height:1px;background:rgba(255,255,255,.18);margin:12px 0;"></div>
+
+  <p style="font-size:12px;margin:0 0 7px;color:#e5e7eb;">
+    📅 Friday, 7 August 2026
+  </p>
+
+  <p style="font-size:12px;margin:0 0 10px;color:#e5e7eb;line-height:1.4;">
+    📍 Hotel Lemon Tree Banjara Hills,<br>
+    Hyderabad, India
+  </p>
+
+  <a routerLink="/CXO-Roundtable-Conference-2026" style="
+    display:block;
+    text-align:center;
+    background:#fff;
+    color:#0b1530;
+    padding:10px;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:800;
+    text-decoration:none;
+    margin-top:12px;
+  ">
+    View Details →
+  </a>
+
+</div>
   <!-- MODAL -->
   <div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
     <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-md" (click)="closeModal()"></div>

@@ -370,13 +370,13 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/events/events.component').then(m => m.EventsComponent),
   },
   {
-    path: 'summit-2026',
+    path: 'CXO-Roundtable-Conference-2026',
     data: { seo: {
       title: 'Manufacturing Leadership Summit 2026 | Nowara Infotech',
       description: 'Join Nowara Infotech and Microsoft at the Manufacturing Leadership Summit 2026 in Hyderabad. An invitation-only event for C-level manufacturing leaders exploring AI-powered ERP and Dynamics 365.',
       keywords: 'Manufacturing Leadership Summit 2026, Dynamics 365 event, Nowara Infotech summit, Hyderabad ERP event',
     }},
-    loadComponent: () => import('./pages/events/summit-2026/summit-2026.component').then(m => m.Summit2026Component),
+    loadComponent: () => import('./pages/events/CXO-Roundtable-Conference-2026/CXO-Roundtable-Conference-2026.component').then(m => m.Summit2026Component),
   },
   {
     path: 'gallery',

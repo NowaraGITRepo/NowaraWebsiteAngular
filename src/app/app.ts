@@ -16,10 +16,13 @@ import { SeoService } from './services/seo.service';
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ScrollToTopComponent, CursorComponent],
   template: `
     <app-cursor></app-cursor>
-    <app-header></app-header>
-    <main class="pt-16">
+
+    <app-header *ngIf="!hideLayout"></app-header>
+
+    <main [class.pt-16]="!hideLayout">
       <router-outlet></router-outlet>
     </main>
+
     <app-footer></app-footer>
     <app-scroll-to-top></app-scroll-to-top>
   `,
@@ -29,6 +32,7 @@ export class App implements OnInit {
   private router       = inject(Router);
   private activedRoute = inject(ActivatedRoute);
   private seo          = inject(SeoService);
+  hideLayout = false;
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -53,6 +57,7 @@ export class App implements OnInit {
         return route;
       }),
     ).subscribe(route => {
+      this.hideLayout = this.router.url.includes('/CXO-Roundtable-Conference-2026');
       const seoData = route.snapshot.data?.['seo'];
       const path    = this.router.url.replace(/^\//, '');
       if (seoData) {

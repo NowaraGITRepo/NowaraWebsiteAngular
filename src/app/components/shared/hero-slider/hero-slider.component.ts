@@ -3,11 +3,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { heroSlides } from '../../../data/app.data';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-hero-slider',
   standalone: true,
-  imports: [CommonModule, ContactFormComponent],
+  imports: [CommonModule, ContactFormComponent,RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './hero-slider.component.html',
 })
@@ -16,6 +16,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   isModalOpen = false;
   activeBrochure = '';
   activeTag = '';
+  showEventPopup = true;
   private swiper: any;
   private platformId = inject(PLATFORM_ID);
 
@@ -76,5 +77,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
       .forEach((el: HTMLElement) => el.setAttribute('tabindex', '-1'));
     swiper.el.querySelectorAll('.swiper-slide-active button, .swiper-slide-active a')
       .forEach((el: HTMLElement) => el.removeAttribute('tabindex'));
+  }
+  closeEventPopup() {
+    this.showEventPopup = false;
   }
 }
