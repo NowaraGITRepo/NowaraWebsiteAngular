@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class EmailService {
-  private emailApi = 'https://mail.nicpl.co/api/email/send';
+  private emailApi = 'https://email.nowarainfotech.co/api/email/send';
   private receiverEmail = 'info@nowarainfotech.com';
 
   constructor(private http: HttpClient) {}

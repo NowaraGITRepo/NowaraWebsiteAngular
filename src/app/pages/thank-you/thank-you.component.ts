@@ -57,6 +57,19 @@ const THANK_YOU_CONTENT: Record<string, ThankYouContent> = {
     backLink: '/summit-2026',
     backLabel: 'Back to event details',
   },
+  'CXO-Roundtable-Conference-2026': {
+    metaTitle: 'Thank You | Nowara CXO Roundtable Conference 2026',
+    metaDescription: 'Your registration request for the Nowara CXO Roundtable Conference 2026 has been received.',
+    metaKeywords: 'CXO Roundtable Conference 2026 thank you, Nowara Infotech registration confirmation',
+    badge: 'Registration Received',
+    emoji: '🎊',
+    heading: "Thank You for Registering!",
+    subheading: 'Your request for the Nowara CXO Roundtable Conference 2026 has been received.',
+    detailLine: 'Our team will review and confirm your participation shortly — watch your inbox 📩',
+    pillText: 'See you in Hyderabad on 7 August 🏙️',
+    backLink: '/CXO-Roundtable-Conference-2026',
+    backLabel: 'Back to event details',
+  },
 };
 
 const DEFAULT_CONTENT: ThankYouContent = {

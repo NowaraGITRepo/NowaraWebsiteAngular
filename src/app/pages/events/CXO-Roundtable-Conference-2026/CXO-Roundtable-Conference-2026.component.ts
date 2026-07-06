@@ -1,6 +1,7 @@
-import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID, NgZone, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SeoService } from '../../../services/seo.service';
 import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
@@ -192,11 +193,11 @@ import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
   <div class="max-w-xl mx-auto">
 
     <div *ngIf="submitted" class="bg-white rounded-3xl p-10 text-center shadow-xl">
-      <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-5">
-        ✅
-      </div>
-      <h3 class="text-2xl font-black text-slate-900 mb-2">Request Received!</h3>
-      <p class="text-slate-500 font-medium">Our team will review your registration and confirm your participation.</p>
+      <svg class="w-14 h-14 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <h3 class="text-xl font-black text-slate-900 mb-1">Registration Submitted!</h3>
+      <p class="text-slate-500 text-sm">We'll be in touch soon.</p>
     </div>
 
     <form *ngIf="!submitted" (ngSubmit)="onSubmit()" class="bg-white rounded-3xl p-8 shadow-xl space-y-4">
@@ -246,7 +247,10 @@ import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 export class Summit2026Component implements OnInit {
   private seo = inject(SeoService);
   private platformId = inject(PLATFORM_ID);
-  private emailApi = 'https://mail.nicpl.co/api/email/send';
+  private ngZone = inject(NgZone);
+  private cdr = inject(ChangeDetectorRef);
+  private router = inject(Router);
+  private emailApi = 'https://email.nowarainfotech.co/api/email/send';
 
   companyName = '';
   guestName = '';
@@ -277,7 +281,7 @@ export class Summit2026Component implements OnInit {
     }
   }
 
-  async onSubmit() {
+  onSubmit() {
     this.loading = true;
 
     const bodyHtml = `
@@ -295,26 +299,16 @@ export class Summit2026Component implements OnInit {
     fd.append('body', bodyHtml);
     fd.append('isHtml', 'true');
 
-    try {
+    this.ngZone.runOutsideAngular(() => {
       fetch(this.emailApi, { method: 'POST', body: fd, mode: 'no-cors' }).catch(() => {});
-      await new Promise(r => setTimeout(r, 1000));
-      this.submitted = true;
+    });
 
-      setTimeout(() => {
-        this.submitted = false;
-        this.companyName = '';
-        this.guestName = '';
-        this.businessEmail = '';
-        this.mobile = '';
-        // this.altMobile = '';
-        this.guestCount = '';
-      }, 4000);
-    } catch (err) {
-      console.error('Registration failed:', err);
-      alert('We encountered an error. Please try again or contact us via WhatsApp.');
-    } finally {
-      this.loading = false;
-    }
+    setTimeout(() => {
+      this.ngZone.run(() => {
+        this.loading = false;
+        this.router.navigate(['/thank-you'], { queryParams: { for: 'CXO-Roundtable-Conference-2026' } });
+      });
+    }, 300);
   }
 
   benefits = [

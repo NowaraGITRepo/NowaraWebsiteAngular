@@ -26,7 +26,7 @@ export class ContactFormComponent {
   loading = false;
   submitted = false;
 
-  private emailApi = 'https://mail.nicpl.co/api/email/send';
+  private emailApi = 'https://email.nowarainfotech.co/api/email/send';
 
   constructor(private http: HttpClient) {}
 

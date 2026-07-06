@@ -5,6 +5,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'blog/:slug', renderMode: RenderMode.Client },
   { path: 'blog-details/:id', renderMode: RenderMode.Client },
   { path: 'case-study-details/:id', renderMode: RenderMode.Client },
+  { path: 'thank-you/:event', renderMode: RenderMode.Client },
   // All other routes — prerendered as static HTML
   { path: '**', renderMode: RenderMode.Prerender },
 ];
