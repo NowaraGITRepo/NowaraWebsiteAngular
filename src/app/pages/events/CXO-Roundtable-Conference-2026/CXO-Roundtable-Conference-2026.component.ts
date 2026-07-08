@@ -251,7 +251,8 @@ export class Summit2026Component implements OnInit {
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
   private emailApi = 'https://email.nowarainfotech.co/api/email/send';
-
+  private powerAutomateUrl =
+  'https://default17be3ff79c23478ab4799e1439af95.8f.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/18/workflows/c4e9a45d65634b18af63fa745d0fd78a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=g-jRWyiht4Nd7Mw3w5rSbM8n5MAg073qUSC3SaOf0Bk'; 
   companyName = '';
   guestName = '';
   businessEmail = '';
@@ -298,9 +299,92 @@ export class Summit2026Component implements OnInit {
     fd.append('subject', `CXO Roundtable Conference 2026 Registration - ${this.companyName}`);
     fd.append('body', bodyHtml);
     fd.append('isHtml', 'true');
+    const ticketId =
+    `NOWARA-CXO-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+
+    // const attendeeEmailHtml = `
+    // <div style="font-family:Arial,sans-serif;background:#f4f7fb;padding:30px;">
+    //   <div style="max-width:650px;margin:auto;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #e5e7eb;">
+        
+    //     <div style="background:#0b1530;color:white;padding:28px;text-align:center;">
+    //       <h2 style="margin:0;font-size:24px;">Nowara CXO Roundtable Conference 2026</h2>
+    //       <p style="margin:8px 0 0;color:#cbd5e1;">Registration Confirmation</p>
+    //     </div>
+
+    //     <div style="padding:30px;">
+    //       <h2 style="color:#0f172a;margin-top:0;">Thank you for registering, ${this.guestName}!</h2>
+    //       <p style="color:#475569;font-size:15px;line-height:1.6;">
+    //         We have received your registration for the Nowara CXO Roundtable Conference 2026.
+    //         Our team will review your request and confirm your participation shortly.
+    //       </p>
+
+    //       <div style="border:2px dashed #2563eb;border-radius:16px;padding:22px;margin:25px 0;background:#eff6ff;">
+    //         <p style="margin:0 0 10px;color:#2563eb;font-weight:bold;letter-spacing:1px;">REGISTRATION TICKET</p>
+    //         <h3 style="margin:0 0 18px;color:#0f172a;">Ticket ID: ${ticketId}</h3>
+
+    //         <p><strong>Guest Name:</strong> ${this.guestName}</p>
+    //         <p><strong>Company:</strong> ${this.companyName}</p>
+    //         <p><strong>Email:</strong> ${this.businessEmail}</p>
+    //         <p><strong>Number of Guests:</strong> ${this.guestCount}</p>
+    //         <p><strong>Date:</strong> Friday, 7 August 2026</p>
+    //         <p><strong>Time:</strong> 07:00 PM – 11:00 PM</p>
+    //         <p><strong>Venue:</strong> Hotel Lemon Tree Banjara Hills, Hyderabad, India</p>
+    //       </div>
+
+    //       <p style="color:#475569;font-size:15px;line-height:1.6;">
+    //         We look forward to welcoming you for an evening of networking, enterprise technology discussions,
+    //         AI innovation, and meaningful business conversations.
+    //       </p>
+
+    //       <h3 style="color:#0f172a;">See you soon in Hyderabad!</h3>
+
+    //       <p style="color:#64748b;font-size:14px;">
+    //         Regards,<br/>
+    //         <strong>Nowara Infotech</strong>
+    //       </p>
+    //     </div>
+    //   </div>
+    // </div>
+    // `.trim();
 
     this.ngZone.runOutsideAngular(() => {
-      fetch(this.emailApi, { method: 'POST', body: fd, mode: 'no-cors' }).catch(() => {});
+      // Send Email
+      fetch(this.emailApi, {
+        method: 'POST',
+        body: fd,
+        mode: 'no-cors'
+      }).catch(err => console.error('Email Error:', err));
+
+      // Save to Excel
+      const excelData = {
+        ticketId: ticketId,
+        companyName: this.companyName,
+        guestName: this.guestName,
+        businessEmail: this.businessEmail,
+        mobile: this.mobile,
+        guestCount: String(this.guestCount),
+        date: new Date().toLocaleDateString('en-IN'),
+        time: new Date().toLocaleTimeString('en-IN')
+      };
+      // const attendeeFd = new FormData();
+      // attendeeFd.append('to', this.businessEmail);
+      // // attendeeFd.append('cc', 'gopal@nowarainfotech.com');
+      // attendeeFd.append('subject', `Your Registration Ticket - ${ticketId}`);
+      // attendeeFd.append('body', attendeeEmailHtml);
+      // attendeeFd.append('isHtml', 'true');
+
+      // fetch(this.emailApi, {
+      //   method: 'POST',
+      //   body: attendeeFd,
+      //   mode: 'no-cors'
+      // }).catch(err => console.error('Attendee Email Error:', err));
+      fetch(this.powerAutomateUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(excelData)
+      }).catch(err => console.error('Power Automate Error:', err));
     });
 
     setTimeout(() => {
