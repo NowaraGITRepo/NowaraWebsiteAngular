@@ -153,6 +153,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/industry/fashion/fashion.component').then(m => m.FashionComponent),
   },
   {
+    path: 'dynamics-365-erp-software-for-manufacturing-industry',
+    data: { seo: {
+      title: 'Best ERP Software for Manufacturing Industry – Try It Now',
+      description: 'Looking for the best ERP software for manufacturing industry? Streamline production, cut costs, and boost efficiency. Try it now with a free demo',
+      keywords: 'ERP software for manufacturing industry, best manufacturing ERP, Dynamics 365 manufacturing, production management software, manufacturing ERP India UAE',
+      ogImage: '/images/manufacturing/hero-manufacturing.webp',
+    }},
+    loadComponent: () => import('./pages/industry/manufacturing-erp/manufacturing-erp.component').then(m => m.ManufacturingErpComponent),
+  },
+  {
     path: 'microsoft-dynamics-365-for-e-commerce',
     data: { seo: {
       title: 'ERP for E-Commerce — Dynamics 365 | Nowara Infotech',
@@ -171,6 +181,16 @@ export const routes: Routes = [
       ogImage: '/images/retail/hero-commerce.webp',
     }},
     loadComponent: () => import('./pages/industry/supermarket/supermarket.component').then(m => m.SupermarketComponent),
+  },
+  {
+    path: 'erp-for-retail-industry',
+    data: { seo: {
+      title: 'ERP for Retail Industry – Nowara Infotech',
+      description: 'Looking for the best ERP for retail industry? Manage POS, inventory, loyalty, and omnichannel sales on one unified platform powered by Microsoft Dynamics 365.',
+      keywords: 'ERP for retail industry, retail ERP software, Microsoft Dynamics 365 retail, omnichannel ERP, POS ERP India UAE',
+      ogImage: '/images/retail/hero-retail-erp.svg',
+    }},
+    loadComponent: () => import('./pages/industry/retail-erp/retail-erp.component').then(m => m.RetailErpComponent),
   },
 
   // ─── Solution / Practice Pages ─────────────────────────────────────────────
@@ -232,16 +252,6 @@ export const routes: Routes = [
       ogImage: '/images/lscentral/lscentral.webp',
     }},
     loadComponent: () => import('./pages/solutions/ls-retail/ls-retail.component').then(m => m.LsRetailComponent),
-  },
-  {
-    path: 'sap-web-service',
-    data: { seo: {
-      title: 'SAP ERP Consulting & Implementation | Nowara Infotech',
-      description: 'Nowara Infotech provides SAP ERP consulting and implementation services. We integrate SAP with Microsoft Dynamics 365 for seamless enterprise operations.',
-      keywords: 'SAP ERP India, SAP consulting, SAP implementation partner, SAP Dynamics 365 integration',
-      ogImage: '/images/sap/hero-sap.webp',
-    }},
-    loadComponent: () => import('./pages/solutions/sap/sap.component').then(m => m.SapComponent),
   },
   {
     path: 'power-bi',

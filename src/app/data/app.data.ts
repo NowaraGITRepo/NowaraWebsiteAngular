@@ -12,7 +12,7 @@ export const accordionData = [
   {
     title: 'Can Nowara Infotech support ERP implementation in my industry?',
     content:
-      'Absolutely. With 30+ years of experience, we serve multiple industries including manufacturing, retail, pharmacy, hospitality, and food & beverages—delivering customized ERP software solutions using Microsoft Dynamics 365, LS Central, and SAP.',
+      'Absolutely. With 30+ years of experience, we serve multiple industries including manufacturing, retail, pharmacy, hospitality, and food & beverages—delivering customized ERP software solutions using Microsoft Dynamics 365 and LS Central.',
   },
   {
     title: 'What makes MS Dynamics 365 Business Central ideal for Finance and Operations?',
@@ -27,7 +27,7 @@ export const accordionData = [
   {
     title: 'Why choose Nowara Infotech as your ERP software solutions provider?',
     content:
-      'Nowara Infotech is a trusted Microsoft Dynamics Certified Partner, delivering tailored ERP systems powered by MS Dynamics 365, LS Central, and SAP. We offer 24/7 support, global deployment expertise, and solutions that align with your specific business goals.',
+      'Nowara Infotech is a trusted Microsoft Dynamics Certified Partner, delivering tailored ERP systems powered by MS Dynamics 365 and LS Central. We offer 24/7 support, global deployment expertise, and solutions that align with your specific business goals.',
   },
 ];
 
@@ -232,13 +232,6 @@ export const homeCards: HomeCard[] = [
     href: '/services/ams',
     badge: 'AMS', badgeColor: '#107c10',
     iconifyIcon: 'solar:shield-check-bold', iconColor: '#107c10',
-  },
-  {
-    title: 'SAP Services',
-    desc: 'SAP consulting and integration alongside your Microsoft stack.',
-    href: '/sap-web-service',
-    badge: 'SAP', badgeColor: '#0070f2',
-    iconifyIcon: 'logos:sap', iconColor: '',
   },
   {
     title: 'Custom Development',

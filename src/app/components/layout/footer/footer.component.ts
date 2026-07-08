@@ -58,7 +58,6 @@ export class FooterComponent {
     { href: '/microsoft-azure-cloud-services-provider', label: 'Microsoft Azure' },
     { href: '/aws-cloud-services-provider', label: 'AWS Cloud Services' },
     { href: '/ls-retail', label: 'LS Central' },
-    { href: '/sap-web-service', label: 'SAP' },
     { href: '/power-bi', label: 'Power BI' },
     { href: '/google-looker', label: 'Google Looker' },
     { href: '/tableau', label: 'Tableau' },

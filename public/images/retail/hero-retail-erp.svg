@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="bgG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e1f3d"/>
+      <stop offset="100%" style="stop-color:#1a3560"/>
+    </linearGradient>
+    <linearGradient id="floorG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1b2e52"/>
+      <stop offset="100%" style="stop-color:#0a1627"/>
+    </linearGradient>
+    <linearGradient id="shelfG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#243b6b"/>
+      <stop offset="100%" style="stop-color:#1a2e56"/>
+    </linearGradient>
+    <linearGradient id="posG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3870"/>
+      <stop offset="100%" style="stop-color:#142a58"/>
+    </linearGradient>
+    <linearGradient id="glowL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3d77be;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#3d77be;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#3d77be;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="purpG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sglow"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- BG -->
+  <rect width="600" height="750" fill="url(#bgG)"/>
+
+  <!-- Grid -->
+  <g stroke="#1e3a6e" stroke-width="0.5" opacity="0.35">
+    <line x1="0" y1="125" x2="600" y2="125"/><line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="375" x2="600" y2="375"/><line x1="0" y1="500" x2="600" y2="500"/>
+    <line x1="0" y1="625" x2="600" y2="625"/>
+    <line x1="100" y1="0" x2="100" y2="750"/><line x1="200" y1="0" x2="200" y2="750"/>
+    <line x1="300" y1="0" x2="300" y2="750"/><line x1="400" y1="0" x2="400" y2="750"/>
+    <line x1="500" y1="0" x2="500" y2="750"/>
+  </g>
+
+  <!-- Floor -->
+  <rect x="0" y="540" width="600" height="210" fill="url(#floorG)"/>
+  <line x1="0" y1="540" x2="600" y2="540" stroke="#3d77be" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- ── STORE CEILING / TOP STRUCTURE ── -->
+  <rect x="30" y="120" width="540" height="16" fill="#1a3060" rx="2"/>
+  <!-- Ceiling lights -->
+  <rect x="80" y="130" width="60" height="6" fill="#fffbe6" rx="3" opacity="0.8"/>
+  <rect x="240" y="130" width="60" height="6" fill="#fffbe6" rx="3" opacity="0.8"/>
+  <rect x="400" y="130" width="60" height="6" fill="#fffbe6" rx="3" opacity="0.8"/>
+  <!-- Light glow cones -->
+  <polygon points="80,136 140,136 160,260 60,260" fill="#fffde0" opacity="0.04"/>
+  <polygon points="240,136 300,136 320,260 220,260" fill="#fffde0" opacity="0.04"/>
+  <polygon points="400,136 460,136 480,260 380,260" fill="#fffde0" opacity="0.04"/>
+
+  <!-- ── SHELVING UNITS LEFT ── -->
+  <!-- Left shelf unit -->
+  <rect x="30" y="145" width="130" height="350" fill="url(#shelfG)" rx="4"/>
+  <!-- Shelf boards -->
+  <rect x="30" y="145" width="130" height="8" fill="#2a4a80" rx="4"/>
+  <rect x="30" y="215" width="130" height="6" fill="#2a4a80"/>
+  <rect x="30" y="285" width="130" height="6" fill="#2a4a80"/>
+  <rect x="30" y="355" width="130" height="6" fill="#2a4a80"/>
+  <rect x="30" y="425" width="130" height="6" fill="#2a4a80"/>
+  <rect x="30" y="495" width="130" height="6" fill="#2a4a80"/>
+  <!-- Products on shelves -->
+  <!-- Row 1 -->
+  <rect x="38" y="188" width="18" height="26" fill="#ef4444" rx="2" opacity="0.85"/>
+  <rect x="60" y="192" width="14" height="22" fill="#ef4444" rx="2" opacity="0.75"/>
+  <rect x="78" y="185" width="22" height="29" fill="#f97316" rx="2" opacity="0.85"/>
+  <rect x="104" y="190" width="16" height="24" fill="#f97316" rx="2" opacity="0.7"/>
+  <rect x="124" y="186" width="20" height="28" fill="#eab308" rx="2" opacity="0.85"/>
+  <!-- Row 2 -->
+  <rect x="38" y="256" width="20" height="28" fill="#22c55e" rx="2" opacity="0.8"/>
+  <rect x="62" y="260" width="16" height="24" fill="#3b82f6" rx="2" opacity="0.85"/>
+  <rect x="82" y="253" width="24" height="31" fill="#22c55e" rx="2" opacity="0.75"/>
+  <rect x="110" y="258" width="16" height="26" fill="#8b5cf6" rx="2" opacity="0.8"/>
+  <rect x="130" y="254" width="18" height="30" fill="#3b82f6" rx="2" opacity="0.7"/>
+  <!-- Row 3 -->
+  <rect x="38" y="325" width="18" height="29" fill="#ec4899" rx="2" opacity="0.8"/>
+  <rect x="60" y="328" width="22" height="26" fill="#f97316" rx="2" opacity="0.8"/>
+  <rect x="86" y="322" width="16" height="32" fill="#ec4899" rx="2" opacity="0.75"/>
+  <rect x="106" y="325" width="20" height="29" fill="#eab308" rx="2" opacity="0.8"/>
+  <rect x="130" y="323" width="18" height="31" fill="#ef4444" rx="2" opacity="0.75"/>
+  <!-- Row 4 -->
+  <rect x="38" y="395" width="24" height="28" fill="#06b6d4" rx="2" opacity="0.8"/>
+  <rect x="66" y="398" width="18" height="25" fill="#8b5cf6" rx="2" opacity="0.8"/>
+  <rect x="88" y="392" width="20" height="31" fill="#06b6d4" rx="2" opacity="0.75"/>
+  <rect x="112" y="396" width="16" height="27" fill="#22c55e" rx="2" opacity="0.8"/>
+  <rect x="132" y="394" width="20" height="29" fill="#8b5cf6" rx="2" opacity="0.75"/>
+  <!-- Row 5 -->
+  <rect x="38" y="464" width="20" height="28" fill="#f59e0b" rx="2" opacity="0.8"/>
+  <rect x="62" y="467" width="16" height="25" fill="#ef4444" rx="2" opacity="0.8"/>
+  <rect x="82" y="461" width="22" height="31" fill="#f59e0b" rx="2" opacity="0.75"/>
+  <rect x="108" y="465" width="18" height="27" fill="#3b82f6" rx="2" opacity="0.8"/>
+  <rect x="130" y="462" width="20" height="30" fill="#22c55e" rx="2" opacity="0.75"/>
+
+  <!-- ── SHELVING UNITS RIGHT ── -->
+  <rect x="440" y="145" width="130" height="350" fill="url(#shelfG)" rx="4"/>
+  <rect x="440" y="145" width="130" height="8" fill="#2a4a80" rx="4"/>
+  <rect x="440" y="215" width="130" height="6" fill="#2a4a80"/>
+  <rect x="440" y="285" width="130" height="6" fill="#2a4a80"/>
+  <rect x="440" y="355" width="130" height="6" fill="#2a4a80"/>
+  <rect x="440" y="425" width="130" height="6" fill="#2a4a80"/>
+  <rect x="440" y="495" width="130" height="6" fill="#2a4a80"/>
+  <!-- Right shelf products -->
+  <rect x="448" y="188" width="20" height="26" fill="#8b5cf6" rx="2" opacity="0.85"/>
+  <rect x="472" y="191" width="16" height="23" fill="#ec4899" rx="2" opacity="0.8"/>
+  <rect x="492" y="185" width="22" height="29" fill="#8b5cf6" rx="2" opacity="0.75"/>
+  <rect x="518" y="188" width="18" height="26" fill="#3b82f6" rx="2" opacity="0.85"/>
+  <rect x="540" y="186" width="20" height="28" fill="#ec4899" rx="2" opacity="0.8"/>
+
+  <rect x="448" y="256" width="18" height="28" fill="#22c55e" rx="2" opacity="0.8"/>
+  <rect x="470" y="259" width="22" height="25" fill="#f97316" rx="2" opacity="0.85"/>
+  <rect x="496" y="252" width="16" height="32" fill="#22c55e" rx="2" opacity="0.75"/>
+  <rect x="516" y="256" width="20" height="28" fill="#eab308" rx="2" opacity="0.8"/>
+  <rect x="540" y="253" width="18" height="31" fill="#f97316" rx="2" opacity="0.75"/>
+
+  <rect x="448" y="325" width="22" height="29" fill="#ef4444" rx="2" opacity="0.8"/>
+  <rect x="474" y="328" width="16" height="26" fill="#06b6d4" rx="2" opacity="0.8"/>
+  <rect x="494" y="322" width="20" height="32" fill="#ef4444" rx="2" opacity="0.75"/>
+  <rect x="518" y="325" width="18" height="29" fill="#06b6d4" rx="2" opacity="0.8"/>
+  <rect x="540" y="323" width="20" height="31" fill="#8b5cf6" rx="2" opacity="0.75"/>
+
+  <rect x="448" y="395" width="18" height="28" fill="#f59e0b" rx="2" opacity="0.8"/>
+  <rect x="470" y="398" width="22" height="25" fill="#22c55e" rx="2" opacity="0.8"/>
+  <rect x="496" y="392" width="16" height="31" fill="#f59e0b" rx="2" opacity="0.75"/>
+  <rect x="516" y="396" width="20" height="27" fill="#ec4899" rx="2" opacity="0.8"/>
+  <rect x="540" y="394" width="18" height="29" fill="#22c55e" rx="2" opacity="0.75"/>
+
+  <rect x="448" y="464" width="20" height="28" fill="#3b82f6" rx="2" opacity="0.8"/>
+  <rect x="472" y="467" width="16" height="25" fill="#f97316" rx="2" opacity="0.8"/>
+  <rect x="492" y="461" width="22" height="31" fill="#3b82f6" rx="2" opacity="0.75"/>
+  <rect x="518" y="465" width="18" height="27" fill="#eab308" rx="2" opacity="0.8"/>
+  <rect x="540" y="462" width="20" height="30" fill="#f97316" rx="2" opacity="0.75"/>
+
+  <!-- ── POS CHECKOUT COUNTER ── -->
+  <rect x="180" y="440" width="240" height="100" fill="url(#posG)" rx="8"/>
+  <rect x="180" y="440" width="240" height="12" fill="#2453a0" rx="8"/>
+  <!-- POS Screen -->
+  <rect x="210" y="360" width="110" height="85" fill="#0d1b3e" rx="6"/>
+  <rect x="210" y="360" width="110" height="14" fill="#1a3a72" rx="6"/>
+  <circle cx="220" cy="367" r="3" fill="#ef4444" opacity="0.8"/>
+  <circle cx="230" cy="367" r="3" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="240" cy="367" r="3" fill="#22c55e" opacity="0.8"/>
+  <!-- Receipt display -->
+  <rect x="218" y="381" width="94" height="8" fill="#1e4080" rx="2"/>
+  <rect x="218" y="393" width="60" height="5" fill="#3d77be" rx="1" opacity="0.7"/>
+  <rect x="218" y="402" width="80" height="5" fill="#3d77be" rx="1" opacity="0.5"/>
+  <rect x="218" y="411" width="50" height="5" fill="#22c55e" rx="1" opacity="0.8"/>
+  <rect x="272" y="411" width="38" height="5" fill="#f59e0b" rx="1" opacity="0.8"/>
+  <rect x="218" y="420" width="94" height="14" fill="#22c55e" rx="3" opacity="0.8"/>
+  <text x="265" y="431" font-family="Arial,sans-serif" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">PAID ✓</text>
+  <!-- POS Stand -->
+  <rect x="258" y="445" width="14" height="20" fill="#1a3060"/>
+  <rect x="245" y="463" width="40" height="5" fill="#2453a0" rx="2"/>
+  <!-- Keyboard/pad -->
+  <rect x="340" y="455" width="68" height="50" fill="#0d1b3e" rx="4"/>
+  <rect x="340" y="455" width="68" height="10" fill="#1a3a72" rx="4"/>
+  <g fill="#2453a0" opacity="0.9">
+    <rect x="347" y="470" width="10" height="8" rx="1"/><rect x="361" y="470" width="10" height="8" rx="1"/><rect x="375" y="470" width="10" height="8" rx="1"/><rect x="389" y="470" width="10" height="8" rx="1"/>
+    <rect x="347" y="482" width="10" height="8" rx="1"/><rect x="361" y="482" width="10" height="8" rx="1"/><rect x="375" y="482" width="10" height="8" rx="1"/><rect x="389" y="482" width="10" height="8" rx="1"/>
+    <rect x="347" y="494" width="26" height="8" rx="1"/><rect x="377" y="494" width="22" height="8" rx="1"/>
+  </g>
+  <!-- Shopping basket on counter -->
+  <rect x="192" y="454" width="44" height="30" fill="#1e4080" rx="4"/>
+  <path d="M196 460 Q214 454 232 460" stroke="#3d77be" stroke-width="2" fill="none"/>
+  <rect x="198" y="462" width="10" height="14" fill="#ef4444" rx="1" opacity="0.8"/>
+  <rect x="212" y="460" width="12" height="16" fill="#22c55e" rx="1" opacity="0.8"/>
+  <rect x="228" y="463" width="8" height="13" fill="#f59e0b" rx="1" opacity="0.8"/>
+
+  <!-- ── CUSTOMER FIGURE ── -->
+  <!-- Person 1 (shopping) -->
+  <circle cx="195" cy="330" r="16" fill="#2453a0"/>
+  <rect x="183" y="348" width="24" height="50" fill="#1e3a72" rx="8"/>
+  <rect x="175" y="355" width="12" height="35" fill="#1e3a72" rx="6"/>
+  <rect x="207" y="352" width="12" height="38" fill="#1e3a72" rx="6"/>
+  <rect x="183" y="398" width="10" height="30" fill="#152d5a" rx="4"/>
+  <rect x="197" y="398" width="10" height="30" fill="#152d5a" rx="4"/>
+  <!-- Shopping bag -->
+  <rect x="213" y="368" width="20" height="24" fill="#f97316" rx="3" opacity="0.9"/>
+  <path d="M216 368 Q223 360 230 368" stroke="#f97316" stroke-width="2" fill="none"/>
+
+  <!-- ── ERP FLOATING CARDS ── -->
+  <!-- Card 1: Sales Dashboard -->
+  <g transform="translate(165, 40)">
+    <rect width="195" height="115" rx="12" fill="#0e1f3d" stroke="#3d77be" stroke-width="1.2" opacity="0.97"/>
+    <rect width="195" height="32" rx="12" fill="#1a3a72"/>
+    <rect x="0" y="20" width="195" height="12" fill="#1a3a72"/>
+    <text x="14" y="22" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Sales Dashboard</text>
+    <!-- Mini bar chart -->
+    <rect x="14" y="72" width="14" height="32" fill="#3d77be" rx="2" opacity="0.8"/>
+    <rect x="32" y="58" width="14" height="46" fill="#60a5fa" rx="2" opacity="0.9"/>
+    <rect x="50" y="65" width="14" height="39" fill="#3d77be" rx="2" opacity="0.8"/>
+    <rect x="68" y="50" width="14" height="54" fill="#60a5fa" rx="2" opacity="0.9"/>
+    <rect x="86" y="60" width="14" height="44" fill="#3d77be" rx="2" opacity="0.8"/>
+    <line x1="12" y1="104" x2="105" y2="104" stroke="#1e4080" stroke-width="0.8"/>
+    <!-- KPIs -->
+    <text x="118" y="52" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Today</text>
+    <text x="118" y="65" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#60a5fa">₹4.8L</text>
+    <text x="118" y="79" font-family="Arial,sans-serif" font-size="8" fill="#34d399">↑ 22%</text>
+    <text x="118" y="92" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">vs yesterday</text>
+    <text x="14" y="42" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8">Weekly Revenue</text>
+  </g>
+
+  <!-- Card 2: Inventory Alert -->
+  <g transform="translate(370, 38)">
+    <rect width="195" height="105" rx="12" fill="#0e1f3d" stroke="#34d399" stroke-width="1.2" opacity="0.97"/>
+    <rect width="195" height="30" rx="12" fill="#0a2a1e"/>
+    <rect x="0" y="18" width="195" height="12" fill="#0a2a1e"/>
+    <text x="14" y="20" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#34d399">Smart Inventory</text>
+    <!-- Stock bars -->
+    <text x="14" y="48" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Fashion</text>
+    <rect x="70" y="40" width="100" height="10" fill="#1e3a72" rx="4"/>
+    <rect x="70" y="40" width="82" height="10" fill="#34d399" rx="4"/>
+    <text x="175" y="49" font-family="Arial,sans-serif" font-size="8" fill="#34d399" text-anchor="end">82%</text>
+    <text x="14" y="66" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Electronics</text>
+    <rect x="70" y="58" width="100" height="10" fill="#1e3a72" rx="4"/>
+    <rect x="70" y="58" width="55" height="10" fill="#f59e0b" rx="4"/>
+    <text x="175" y="67" font-family="Arial,sans-serif" font-size="8" fill="#f59e0b" text-anchor="end">55%</text>
+    <text x="14" y="84" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">FMCG</text>
+    <rect x="70" y="76" width="100" height="10" fill="#1e3a72" rx="4"/>
+    <rect x="70" y="76" width="91" height="10" fill="#3d77be" rx="4"/>
+    <text x="175" y="85" font-family="Arial,sans-serif" font-size="8" fill="#60a5fa" text-anchor="end">91%</text>
+    <text x="14" y="101" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8">Auto-reorder active for 14 SKUs</text>
+  </g>
+
+  <!-- Card 3: Loyalty Program -->
+  <g transform="translate(30, 620)">
+    <rect width="170" height="100" rx="12" fill="#0e1f3d" stroke="#a78bfa" stroke-width="1.2" opacity="0.97"/>
+    <rect width="170" height="30" rx="12" fill="#1a0a2e"/>
+    <rect x="0" y="18" width="170" height="12" fill="#1a0a2e"/>
+    <text x="12" y="20" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#a78bfa">Loyalty Program</text>
+    <text x="12" y="48" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#a78bfa">24.6K</text>
+    <text x="12" y="62" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8">Active Loyalty Members</text>
+    <text x="12" y="78" font-family="Arial,sans-serif" font-size="9" fill="#34d399">↑ 1,240 new this month</text>
+    <text x="12" y="93" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8">Avg. spend 2.3× higher</text>
+  </g>
+
+  <!-- Card 4: Omnichannel Orders -->
+  <g transform="translate(395, 620)">
+    <rect width="180" height="100" rx="12" fill="#0e1f3d" stroke="#f59e0b" stroke-width="1.2" opacity="0.97"/>
+    <rect width="180" height="30" rx="12" fill="#2a1a00"/>
+    <rect x="0" y="18" width="180" height="12" fill="#2a1a00"/>
+    <text x="12" y="20" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#f59e0b">Omnichannel Orders</text>
+    <!-- Donut -->
+    <circle cx="148" cy="67" r="25" fill="none" stroke="#1e3a72" stroke-width="9"/>
+    <circle cx="148" cy="67" r="25" fill="none" stroke="#f59e0b" stroke-width="9" stroke-dasharray="78 79" stroke-dashoffset="20"/>
+    <circle cx="148" cy="67" r="25" fill="none" stroke="#3d77be" stroke-width="9" stroke-dasharray="47 110" stroke-dashoffset="-58"/>
+    <circle cx="148" cy="67" r="25" fill="none" stroke="#34d399" stroke-width="9" stroke-dasharray="32 125" stroke-dashoffset="-105"/>
+    <circle cx="148" cy="67" r="10" fill="#0e1f3d"/>
+    <text x="148" y="71" font-family="Arial,sans-serif" font-size="8" fill="#f59e0b" text-anchor="middle">642</text>
+    <text x="12" y="50" font-family="Arial,sans-serif" font-size="9" fill="#f59e0b">● In-store</text>
+    <text x="12" y="64" font-family="Arial,sans-serif" font-size="9" fill="#3d77be">● Online</text>
+    <text x="12" y="78" font-family="Arial,sans-serif" font-size="9" fill="#34d399">● App</text>
+    <text x="12" y="93" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8">Today's orders</text>
+  </g>
+
+  <!-- ── CONNECTING LINES ── -->
+  <line x1="265" y1="155" x2="270" y2="440" stroke="#3d77be" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+  <line x1="465" y1="143" x2="400" y2="440" stroke="#34d399" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+  <line x1="115" y1="620" x2="240" y2="540" stroke="#a78bfa" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+  <line x1="485" y1="620" x2="380" y2="540" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+
+  <!-- Data nodes -->
+  <circle cx="267" cy="295" r="4" fill="#3d77be" filter="url(#glow)"/>
+  <circle cx="430" cy="290" r="4" fill="#34d399" filter="url(#glow)"/>
+
+  <!-- ── BADGE ── -->
+  <rect x="165" y="18" width="270" height="36" rx="18" fill="#1a3a72" stroke="#3d77be" stroke-width="1"/>
+  <text x="300" y="33" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#60a5fa" text-anchor="middle">Microsoft Dynamics 365</text>
+  <text x="300" y="46" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Retail ERP Solution</text>
+
+  <!-- Bottom glow -->
+  <rect x="100" y="746" width="400" height="3" fill="url(#glowL)" rx="2" opacity="0.7"/>
+
+  <!-- Ambient orbs -->
+  <circle cx="110" cy="380" r="80" fill="#3d77be" opacity="0.04"/>
+  <circle cx="490" cy="350" r="65" fill="#8b5cf6" opacity="0.05"/>
+  <circle cx="300" cy="600" r="100" fill="#1a3a72" opacity="0.25"/>
+</svg>

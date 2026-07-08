@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2d5e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a4f9c;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a6e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0a1e40;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="machineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a5db0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a3f80;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1b3e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#162850;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="conveyorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e4080;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2a5db0;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="glowBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3d77be;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#3d77be;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#3d77be;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="card1Clip">
+      <rect x="0" y="0" width="200" height="110" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="750" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="#1e4080" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="150" x2="600" y2="150"/>
+    <line x1="0" y1="300" x2="600" y2="300"/>
+    <line x1="0" y1="450" x2="600" y2="450"/>
+    <line x1="0" y1="600" x2="600" y2="600"/>
+    <line x1="100" y1="0" x2="100" y2="750"/>
+    <line x1="200" y1="0" x2="200" y2="750"/>
+    <line x1="300" y1="0" x2="300" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="750"/>
+    <line x1="500" y1="0" x2="500" y2="750"/>
+  </g>
+
+  <!-- Floor / ground area -->
+  <rect x="0" y="520" width="600" height="230" fill="url(#floorGrad)"/>
+  <line x1="0" y1="520" x2="600" y2="520" stroke="#3d77be" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- ───── FACTORY BUILDING ───── -->
+  <!-- Main factory body -->
+  <rect x="60" y="280" width="480" height="240" fill="#152d5a" rx="4"/>
+  <!-- Roof / top structure -->
+  <rect x="60" y="260" width="480" height="28" fill="#1a3670" rx="2"/>
+  <!-- Chimney stacks -->
+  <rect x="100" y="180" width="28" height="90" fill="#1a3a72" rx="3"/>
+  <rect x="155" y="210" width="22" height="60" fill="#1a3a72" rx="3"/>
+  <!-- Chimney tops -->
+  <rect x="95" y="175" width="38" height="10" fill="#2453a0" rx="2"/>
+  <rect x="150" y="206" width="32" height="8" fill="#2453a0" rx="2"/>
+  <!-- Smoke puffs -->
+  <circle cx="114" cy="165" r="10" fill="#1e4585" opacity="0.7"/>
+  <circle cx="122" cy="150" r="8" fill="#1e4585" opacity="0.5"/>
+  <circle cx="108" cy="142" r="6" fill="#1e4585" opacity="0.3"/>
+  <circle cx="166" cy="196" r="8" fill="#1e4585" opacity="0.6"/>
+  <circle cx="172" cy="182" r="6" fill="#1e4585" opacity="0.4"/>
+
+  <!-- Factory windows row -->
+  <rect x="90" y="295" width="50" height="35" fill="#0d1b3e" rx="3"/>
+  <rect x="160" y="295" width="50" height="35" fill="#0d1b3e" rx="3"/>
+  <rect x="230" y="295" width="50" height="35" fill="#0d1b3e" rx="3"/>
+  <!-- Window glows -->
+  <rect x="90" y="295" width="50" height="35" fill="#3d77be" rx="3" opacity="0.15"/>
+  <rect x="160" y="295" width="50" height="35" fill="#f59e0b" rx="3" opacity="0.12"/>
+  <rect x="230" y="295" width="50" height="35" fill="#3d77be" rx="3" opacity="0.15"/>
+
+  <!-- Large factory door -->
+  <rect x="380" y="380" width="80" height="140" fill="#0d1b3e" rx="4"/>
+  <line x1="420" y1="380" x2="420" y2="520" stroke="#1e4080" stroke-width="1.5"/>
+  <!-- Door frame glow -->
+  <rect x="380" y="380" width="80" height="140" fill="none" stroke="#3d77be" stroke-width="1.5" rx="4" opacity="0.5"/>
+
+  <!-- ───── LARGE INDUSTRIAL MACHINE (centre) ───── -->
+  <rect x="170" y="370" width="180" height="150" fill="url(#machineGrad)" rx="6"/>
+  <rect x="175" y="375" width="170" height="95" fill="url(#screenGrad)" rx="4"/>
+
+  <!-- ERP Dashboard on machine screen -->
+  <!-- Bar chart -->
+  <rect x="190" y="430" width="16" height="28" fill="#3d77be" rx="2" opacity="0.9"/>
+  <rect x="212" y="418" width="16" height="40" fill="#60a5fa" rx="2" opacity="0.9"/>
+  <rect x="234" y="408" width="16" height="50" fill="#3d77be" rx="2" opacity="0.9"/>
+  <rect x="256" y="422" width="16" height="36" fill="#60a5fa" rx="2" opacity="0.9"/>
+  <rect x="278" y="412" width="16" height="46" fill="#3d77be" rx="2" opacity="0.9"/>
+  <!-- Chart label line -->
+  <line x1="188" y1="460" x2="298" y2="460" stroke="#3d77be" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Screen header bar -->
+  <rect x="175" y="375" width="170" height="14" fill="#1e4080" rx="4"/>
+  <circle cx="185" cy="382" r="3" fill="#ef4444"/>
+  <circle cx="196" cy="382" r="3" fill="#f59e0b"/>
+  <circle cx="207" cy="382" r="3" fill="#22c55e"/>
+  <rect x="218" y="378" width="90" height="7" fill="#2453a0" rx="2" opacity="0.6"/>
+
+  <!-- KPI metrics on machine -->
+  <rect x="175" y="472" width="52" height="46" fill="#1a3a72" rx="3"/>
+  <text x="201" y="493" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#60a5fa" text-anchor="middle">35%</text>
+  <text x="201" y="508" font-family="Arial,sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Cost Down</text>
+  <rect x="233" y="472" width="52" height="46" fill="#1a3a72" rx="3"/>
+  <text x="259" y="493" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#34d399" text-anchor="middle">98%</text>
+  <text x="259" y="508" font-family="Arial,sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Accuracy</text>
+  <rect x="291" y="472" width="52" height="46" fill="#1a3a72" rx="3"/>
+  <text x="317" y="493" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">40%</text>
+  <text x="317" y="508" font-family="Arial,sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Faster</text>
+
+  <!-- Machine legs -->
+  <rect x="195" y="520" width="18" height="22" fill="#1a3a72" rx="2"/>
+  <rect x="307" y="520" width="18" height="22" fill="#1a3a72" rx="2"/>
+  <rect x="195" y="540" width="18" height="6" fill="#3d77be" rx="1" opacity="0.7"/>
+  <rect x="307" y="540" width="18" height="6" fill="#3d77be" rx="1" opacity="0.7"/>
+
+  <!-- ───── CONVEYOR BELT ───── -->
+  <rect x="50" y="525" width="500" height="22" fill="url(#conveyorGrad)" rx="4"/>
+  <rect x="50" y="525" width="500" height="22" fill="none" stroke="#3d77be" stroke-width="1" rx="4" opacity="0.5"/>
+  <!-- Conveyor rollers -->
+  <line x1="110" y1="525" x2="110" y2="547" stroke="#1a3a72" stroke-width="2.5"/>
+  <line x1="175" y1="525" x2="175" y2="547" stroke="#1a3a72" stroke-width="2.5"/>
+  <line x1="240" y1="525" x2="240" y2="547" stroke="#1a3a72" stroke-width="2.5"/>
+  <line x1="305" y1="525" x2="305" y2="547" stroke="#1a3a72" stroke-width="2.5"/>
+  <line x1="370" y1="525" x2="370" y2="547" stroke="#1a3a72" stroke-width="2.5"/>
+  <line x1="435" y1="525" x2="435" y2="547" stroke="#1a3a72" stroke-width="2.5"/>
+  <!-- Products on belt -->
+  <rect x="75" y="512" width="26" height="18" fill="#2453a0" rx="2"/>
+  <rect x="140" y="512" width="26" height="18" fill="#2453a0" rx="2"/>
+  <rect x="210" y="512" width="26" height="18" fill="#2453a0" rx="2"/>
+  <rect x="275" y="512" width="26" height="18" fill="#22c55e" rx="2" opacity="0.8"/>
+  <rect x="340" y="512" width="26" height="18" fill="#2453a0" rx="2"/>
+  <rect x="410" y="512" width="26" height="18" fill="#2453a0" rx="2"/>
+
+  <!-- ───── GEAR SYSTEM (right side) ───── -->
+  <!-- Large gear -->
+  <g transform="translate(490, 360)">
+    <circle cx="0" cy="0" r="52" fill="none" stroke="#2453a0" stroke-width="10"/>
+    <circle cx="0" cy="0" r="22" fill="#1a3670" stroke="#2453a0" stroke-width="4"/>
+    <circle cx="0" cy="0" r="8" fill="#3d77be"/>
+    <!-- Gear teeth -->
+    <rect x="-7" y="-60" width="14" height="16" fill="#2453a0" rx="2"/>
+    <rect x="-7" y="44" width="14" height="16" fill="#2453a0" rx="2"/>
+    <rect x="-60" y="-7" width="16" height="14" fill="#2453a0" rx="2"/>
+    <rect x="44" y="-7" width="16" height="14" fill="#2453a0" rx="2"/>
+    <rect x="-47" y="-47" width="14" height="14" fill="#2453a0" rx="2" transform="rotate(45)"/>
+    <rect x="33" y="-47" width="14" height="14" fill="#2453a0" rx="2" transform="rotate(45)"/>
+    <rect x="-47" y="33" width="14" height="14" fill="#2453a0" rx="2" transform="rotate(45)"/>
+    <rect x="33" y="33" width="14" height="14" fill="#2453a0" rx="2" transform="rotate(45)"/>
+  </g>
+  <!-- Small gear -->
+  <g transform="translate(453, 320)">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#3d77be" stroke-width="7"/>
+    <circle cx="0" cy="0" r="11" fill="#1a3670" stroke="#3d77be" stroke-width="3"/>
+    <circle cx="0" cy="0" r="5" fill="#60a5fa"/>
+    <rect x="-5" y="-33" width="10" height="10" fill="#3d77be" rx="1"/>
+    <rect x="-5" y="23" width="10" height="10" fill="#3d77be" rx="1"/>
+    <rect x="-33" y="-5" width="10" height="10" fill="#3d77be" rx="1"/>
+    <rect x="23" y="-5" width="10" height="10" fill="#3d77be" rx="1"/>
+  </g>
+
+  <!-- ───── FLOATING ERP CARDS ───── -->
+  <!-- Card 1: Production Status -->
+  <g transform="translate(30, 60)" filter="url(#softGlow)">
+    <rect width="200" height="110" rx="12" fill="#0f2040" stroke="#3d77be" stroke-width="1.2" opacity="0.95"/>
+    <rect width="200" height="32" rx="12" fill="#1a3a72"/>
+    <rect x="0" y="20" width="200" height="12" fill="#1a3a72"/>
+    <text x="14" y="22" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Production Status</text>
+    <text x="14" y="50" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Active Orders</text>
+    <text x="130" y="50" font-family="Arial,sans-serif" font-size="9" font-weight="bold" fill="#22c55e" text-anchor="end">142 / 150</text>
+    <rect x="14" y="54" width="116" height="5" fill="#1e3a72" rx="2"/>
+    <rect x="14" y="54" width="110" height="5" fill="#22c55e" rx="2"/>
+    <text x="14" y="74" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">On-Time Delivery</text>
+    <text x="170" y="74" font-family="Arial,sans-serif" font-size="9" font-weight="bold" fill="#60a5fa" text-anchor="end">96.4%</text>
+    <rect x="14" y="78" width="116" height="5" fill="#1e3a72" rx="2"/>
+    <rect x="14" y="78" width="106" height="5" fill="#3d77be" rx="2"/>
+    <text x="14" y="98" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Material Utilisation</text>
+    <text x="170" y="98" font-family="Arial,sans-serif" font-size="9" font-weight="bold" fill="#f59e0b" text-anchor="end">88.2%</text>
+  </g>
+
+  <!-- Card 2: Inventory -->
+  <g transform="translate(360, 55)">
+    <rect width="185" height="100" rx="12" fill="#0f2040" stroke="#34d399" stroke-width="1.2" opacity="0.95"/>
+    <rect width="185" height="30" rx="12" fill="#0a2a1e"/>
+    <rect x="0" y="18" width="185" height="12" fill="#0a2a1e"/>
+    <text x="12" y="20" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#34d399">Inventory Control</text>
+    <circle cx="24" cy="50" r="7" fill="#22c55e" opacity="0.3"/>
+    <circle cx="24" cy="50" r="4" fill="#22c55e"/>
+    <text x="38" y="54" font-family="Arial,sans-serif" font-size="9" fill="#e2e8f0">Raw Materials: <tspan font-weight="bold" fill="#34d399">OK</tspan></text>
+    <circle cx="24" cy="70" r="7" fill="#f59e0b" opacity="0.3"/>
+    <circle cx="24" cy="70" r="4" fill="#f59e0b"/>
+    <text x="38" y="74" font-family="Arial,sans-serif" font-size="9" fill="#e2e8f0">WIP Stock: <tspan font-weight="bold" fill="#f59e0b">Low</tspan></text>
+    <circle cx="24" cy="90" r="7" fill="#22c55e" opacity="0.3"/>
+    <circle cx="24" cy="90" r="4" fill="#22c55e"/>
+    <text x="38" y="94" font-family="Arial,sans-serif" font-size="9" fill="#e2e8f0">Finished Goods: <tspan font-weight="bold" fill="#34d399">Good</tspan></text>
+  </g>
+
+  <!-- Card 3: Cost Analytics -->
+  <g transform="translate(40, 620)">
+    <rect width="175" height="95" rx="12" fill="#0f2040" stroke="#f59e0b" stroke-width="1.2" opacity="0.95"/>
+    <rect width="175" height="30" rx="12" fill="#2a1a00"/>
+    <rect x="0" y="18" width="175" height="12" fill="#2a1a00"/>
+    <text x="12" y="20" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#f59e0b">Cost Analytics</text>
+    <text x="12" y="48" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#f59e0b">₹2.4M</text>
+    <text x="12" y="64" font-family="Arial,sans-serif" font-size="8" fill="#94a3b8">Monthly Production Cost</text>
+    <text x="12" y="82" font-family="Arial,sans-serif" font-size="9" fill="#34d399">↓ 18% vs last month</text>
+  </g>
+
+  <!-- Card 4: Quality Score -->
+  <g transform="translate(380, 625)">
+    <rect width="175" height="95" rx="12" fill="#0f2040" stroke="#a78bfa" stroke-width="1.2" opacity="0.95"/>
+    <rect width="175" height="30" rx="12" fill="#1a0a2e"/>
+    <rect x="0" y="18" width="175" height="12" fill="#1a0a2e"/>
+    <text x="12" y="20" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#a78bfa">Quality Score</text>
+    <!-- Donut chart -->
+    <circle cx="138" cy="65" r="24" fill="none" stroke="#1e1e40" stroke-width="8"/>
+    <circle cx="138" cy="65" r="24" fill="none" stroke="#a78bfa" stroke-width="8" stroke-dasharray="134 17" stroke-dashoffset="42" stroke-linecap="round"/>
+    <text x="138" y="69" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#a78bfa" text-anchor="middle">98%</text>
+    <text x="16" y="50" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8">Pass Rate</text>
+    <text x="16" y="66" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#e2e8f0">97.8%</text>
+    <text x="16" y="82" font-family="Arial,sans-serif" font-size="8" fill="#34d399">↑ 3.2% this week</text>
+  </g>
+
+  <!-- ───── CONNECTING DATA LINES ───── -->
+  <!-- Animated-look dotted flow lines between cards and machine -->
+  <line x1="230" y1="165" x2="260" y2="370" stroke="#3d77be" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.5"/>
+  <line x1="370" y1="150" x2="320" y2="370" stroke="#34d399" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.5"/>
+  <line x1="130" y1="620" x2="215" y2="520" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.4"/>
+  <line x1="470" y1="622" x2="350" y2="520" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.4"/>
+
+  <!-- Data nodes on lines -->
+  <circle cx="245" cy="267" r="4" fill="#3d77be" filter="url(#glow)"/>
+  <circle cx="280" cy="310" r="3" fill="#3d77be" opacity="0.8"/>
+  <circle cx="345" cy="260" r="4" fill="#34d399" filter="url(#glow)"/>
+  <circle cx="335" cy="310" r="3" fill="#34d399" opacity="0.8"/>
+
+  <!-- ───── TOP HEADING BADGE ───── -->
+  <rect x="170" y="18" width="260" height="36" rx="18" fill="#1a3a72" stroke="#3d77be" stroke-width="1"/>
+  <text x="300" y="33" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#60a5fa" text-anchor="middle">Microsoft Dynamics 365</text>
+  <text x="300" y="46" font-family="Arial,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">ERP for Manufacturing</text>
+
+  <!-- Ambient glow orbs -->
+  <circle cx="130" cy="400" r="90" fill="#3d77be" opacity="0.04"/>
+  <circle cx="470" cy="440" r="70" fill="#60a5fa" opacity="0.05"/>
+  <circle cx="300" cy="620" r="120" fill="#1a3a72" opacity="0.3"/>
+
+  <!-- Bottom glow line -->
+  <rect x="100" y="746" width="400" height="3" fill="url(#glowBlue)" rx="2" opacity="0.7"/>
+</svg>

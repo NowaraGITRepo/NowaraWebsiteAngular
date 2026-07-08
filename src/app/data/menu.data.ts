@@ -25,7 +25,7 @@ export const headerData: HeaderItem[] = [
     href: '#',
     submenu: [
       {
-        label: 'Manufacturing', href: '#',
+        label: 'Manufacturing', href: '/dynamics-365-erp-software-for-manufacturing-industry',
         icon: 'solar:settings-bold', iconColor: 'text-blue-600',
         submenu: [
           { label: 'Discrete', href: '/manufacturing/discrete', icon: 'solar:settings-bold', iconColor: 'text-blue-600' },
@@ -41,7 +41,7 @@ export const headerData: HeaderItem[] = [
       { label: 'Corrugation',        href: '/corrugated-erp',                        icon: 'solar:box-bold',                       iconColor: 'text-amber-700'  },
       { label: 'Fashion ERP',        href: '/fashion-erp',                           icon: 'solar:t-shirt-bold',                   iconColor: 'text-pink-500'   },
       {
-        label: 'Retail', href: '#',
+        label: 'Retail', href: '/erp-for-retail-industry',
         icon: 'solar:cart-large-minimalistic-bold', iconColor: 'text-blue-600',
         submenu: [
           { label: 'E-commerce',   href: '/microsoft-dynamics-365-for-e-commerce', icon: 'solar:shop-bold',         iconColor: 'text-blue-500'   },
@@ -72,7 +72,6 @@ export const headerData: HeaderItem[] = [
         ],
       },
       { label: 'LS Central', href: '/ls-retail', customIcon: '<img src="/images/icons/LS-CEntral-Logo.jpg" width="20" height="20" style="object-fit:contain;display:block"/>' },
-      { label: 'SAP',        href: '/sap-web-service',  icon: 'logos:sap',              iconColor: ''                },
       {
         label: 'Reporting Analytics', href: '#',
         icon: 'solar:chart-2-bold', iconColor: 'text-orange-500',

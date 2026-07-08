@@ -65,6 +65,13 @@ export class HeaderComponent implements OnDestroy {
     return href !== '#' && href !== '/' && this.router.url.startsWith(href);
   }
 
+  navigateIfLink(href: string): void {
+    if (href && href !== '#') {
+      this.closeAllDropdowns();
+      this.router.navigate([href]);
+    }
+  }
+
   ngOnDestroy() {
     if (isPlatformBrowser(this.platformId)) {
       document.body.style.overflow = '';

@@ -26,7 +26,7 @@ export class WorkGrowComponent {
     { value: '50+', label: 'Global Clients' },
     { value: '4',   label: 'Regional Hubs' },
     { value: '30+', label: 'Years of Success' },
-    { value: '60+', label: 'Expert Engineers' },
+    { value: '60+', label: 'Expert Professionals' },
   ];
 
   techStack = [

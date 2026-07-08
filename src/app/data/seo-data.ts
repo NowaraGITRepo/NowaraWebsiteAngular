@@ -96,10 +96,6 @@ export const SEO = {
     title: 'LS Retail: The Ultimate Retail Management System For Success',
     description: 'Unlock retail success with LS Retail ERP: Streamline operations, optimize inventory, and enhance customer engagement. Explore LS Retail today.',
   },
-  sap: {
-    title: 'Get Dynamics 365 ERP software for the manufacturing industry',
-    description: 'Nowara Infotech excels as the premier Dynamics 365 ERP provider for manufacturing, enhancing communication and satisfaction seamlessly from sales to production.',
-  },
   powerBi: {
     title: 'Power BI: Transforming Data into Actionable Insights',
     description: 'Unlock the full potential of your data with Power BI. Create interactive reports and dashboards to drive informed decisions and gain valuable insights.',

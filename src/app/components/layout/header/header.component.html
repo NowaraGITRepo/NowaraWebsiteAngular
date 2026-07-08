@@ -31,6 +31,7 @@
                 [attr.aria-label]="item.label + ' menu'"
                 [attr.aria-expanded]="openDropdown === i"
                 [ngClass]="isActive(item.href) ? 'text-[#3D77BE]' : 'text-[#001529]'"
+                (click)="navigateIfLink(item.href)"
                 class="py-2 text-[15px] flex items-center font-bold transition-all duration-300 hover:text-[#3D77BE] whitespace-nowrap bg-transparent border-0 cursor-pointer">
                 {{ item.label }}
                 <iconify-icon
@@ -58,7 +59,8 @@
                         <div class="flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg transition-all duration-200 cursor-pointer select-none"
                           [ngClass]="openSubDropdown === sub.label
                             ? 'bg-blue-50 text-[#3D77BE]'
-                            : 'text-[#001529] hover:bg-blue-50 hover:text-[#3D77BE]'">
+                            : 'text-[#001529] hover:bg-blue-50 hover:text-[#3D77BE]'"
+                          (click)="navigateIfLink(sub.href)">
                           <div class="flex items-center gap-2.5">
                             <div class="w-5 h-5 flex items-center justify-center flex-shrink-0">
                               <span *ngIf="sub.customIcon" [innerHTML]="sub.customIcon | safeHtml"></span>
