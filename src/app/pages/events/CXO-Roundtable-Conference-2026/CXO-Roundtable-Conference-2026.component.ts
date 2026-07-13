@@ -301,51 +301,125 @@ export class Summit2026Component implements OnInit {
     fd.append('isHtml', 'true');
     const ticketId =
     `NOWARA-CXO-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+    const googleCalendarUrl =
+      'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+      `&text=${encodeURIComponent('Nowara CXO Roundtable Conference 2026')}` +
+      `&dates=20260807T190000/20260807T230000` +
+      `&ctz=Asia/Kolkata` +
+      `&details=${encodeURIComponent('Ticket ID: ' + ticketId + '\nGuest Name: ' + this.guestName + '\nCompany: ' + this.companyName)}` +
+      `&location=${encodeURIComponent('Hotel Lemon Tree Banjara Hills, Hyderabad, India')}`;
+const attendeeEmailHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration Confirmation</title>
+</head>
 
-    // const attendeeEmailHtml = `
-    // <div style="font-family:Arial,sans-serif;background:#f4f7fb;padding:30px;">
-    //   <div style="max-width:650px;margin:auto;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #e5e7eb;">
-        
-    //     <div style="background:#0b1530;color:white;padding:28px;text-align:center;">
-    //       <h2 style="margin:0;font-size:24px;">Nowara CXO Roundtable Conference 2026</h2>
-    //       <p style="margin:8px 0 0;color:#cbd5e1;">Registration Confirmation</p>
-    //     </div>
+<body style="margin:0;padding:0;background:#f3f6fb;font-family:Segoe UI,Arial,sans-serif;">
 
-    //     <div style="padding:30px;">
-    //       <h2 style="color:#0f172a;margin-top:0;">Thank you for registering, ${this.guestName}!</h2>
-    //       <p style="color:#475569;font-size:15px;line-height:1.6;">
-    //         We have received your registration for the Nowara CXO Roundtable Conference 2026.
-    //         Our team will review your request and confirm your participation shortly.
-    //       </p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f3f6fb;padding:40px 20px;">
+<tr>
+<td align="center">
 
-    //       <div style="border:2px dashed #2563eb;border-radius:16px;padding:22px;margin:25px 0;background:#eff6ff;">
-    //         <p style="margin:0 0 10px;color:#2563eb;font-weight:bold;letter-spacing:1px;">REGISTRATION TICKET</p>
-    //         <h3 style="margin:0 0 18px;color:#0f172a;">Ticket ID: ${ticketId}</h3>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="700" style="max-width:700px;background:#ffffff;border-radius:16px;overflow:hidden;">
 
-    //         <p><strong>Guest Name:</strong> ${this.guestName}</p>
-    //         <p><strong>Company:</strong> ${this.companyName}</p>
-    //         <p><strong>Email:</strong> ${this.businessEmail}</p>
-    //         <p><strong>Number of Guests:</strong> ${this.guestCount}</p>
-    //         <p><strong>Date:</strong> Friday, 7 August 2026</p>
-    //         <p><strong>Time:</strong> 07:00 PM – 11:00 PM</p>
-    //         <p><strong>Venue:</strong> Hotel Lemon Tree Banjara Hills, Hyderabad, India</p>
-    //       </div>
+<!-- Header -->
+<tr>
+<td align="center" style="background:#1D4ED8;padding:40px 30px;">
 
-    //       <p style="color:#475569;font-size:15px;line-height:1.6;">
-    //         We look forward to welcoming you for an evening of networking, enterprise technology discussions,
-    //         AI innovation, and meaningful business conversations.
-    //       </p>
+<img
+src="https://nowarainfotech.com/images/logo/nowara-logo-footer.svg"
+alt="Nowara Infotech"
+style="height:52px;display:block;margin:0 auto 18px auto;">
 
-    //       <h3 style="color:#0f172a;">See you soon in Hyderabad!</h3>
+<h1 style="margin:0;color:#ffffff;font-size:30px;font-weight:700;line-height:38px;">
+Nowara CXO Roundtable Conference 2026
+</h1>
 
-    //       <p style="color:#64748b;font-size:14px;">
-    //         Regards,<br/>
-    //         <strong>Nowara Infotech</strong>
-    //       </p>
-    //     </div>
-    //   </div>
-    // </div>
-    // `.trim();
+<p style="margin:12px 0 0;color:#dbeafe;font-size:16px;">
+Registration Confirmation
+</p>
+
+</td>
+</tr>
+
+<!-- Body -->
+<tr>
+<td style="padding:45px;">
+
+<p style="margin:0 0 20px;font-size:16px;color:#444;">
+Dear <strong>${this.guestName}</strong>,
+</p>
+
+<h2 style="margin:0 0 24px;color:#0B1530;font-size:30px;font-weight:700;">
+Registration Confirmed
+</h2>
+
+<p style="margin:0 0 18px;font-size:16px;line-height:30px;color:#555;">
+Thank you for registering for the
+<strong>Nowara CXO Roundtable Conference 2026.</strong>
+</p>
+
+<p style="margin:0 0 35px;font-size:16px;line-height:30px;color:#555;">
+We have successfully received your registration.
+We appreciate your interest in joining the conference and look forward to welcoming you.
+</p>
+<!-- Button -->
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" style="padding-bottom:40px;">
+
+<a href="${googleCalendarUrl}"
+style="
+background:#2563EB;
+color:#ffffff;
+text-decoration:none;
+padding:16px 34px;
+border-radius:8px;
+font-size:16px;
+font-weight:600;
+display:inline-block;
+">
+Add to Google Calendar
+</a>
+
+</td>
+</tr>
+</table>
+
+<hr style="border:none;border-top:1px solid #E5E7EB;margin:0 0 35px;">
+
+<!-- Closing -->
+<p style="margin:0;font-size:16px;color:#444;">
+Warm Regards,
+</p>
+
+<p style="margin:10px 0 0;font-size:18px;font-weight:700;color:#0B1530;">
+Nowara Infotech Team
+</p>
+
+</td>
+</tr>
+
+<!-- Footer -->
+<tr>
+<td align="center" style="background:#F8FAFC;padding:24px;font-size:13px;color:#6B7280;border-top:1px solid #E5E7EB;">
+
+© 2026 Nowara Infotech. All rights reserved.
+
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+`;
 
     this.ngZone.runOutsideAngular(() => {
       // Send Email
@@ -366,18 +440,18 @@ export class Summit2026Component implements OnInit {
         date: new Date().toLocaleDateString('en-IN'),
         time: new Date().toLocaleTimeString('en-IN')
       };
-      // const attendeeFd = new FormData();
-      // attendeeFd.append('to', this.businessEmail);
-      // // attendeeFd.append('cc', 'gopal@nowarainfotech.com');
-      // attendeeFd.append('subject', `Your Registration Ticket - ${ticketId}`);
-      // attendeeFd.append('body', attendeeEmailHtml);
-      // attendeeFd.append('isHtml', 'true');
+      const attendeeFd = new FormData();
+      attendeeFd.append('to', this.businessEmail);
+      // attendeeFd.append('cc', 'gopal@nowarainfotech.com');
+      attendeeFd.append('subject', `Your Registration Ticket - ${ticketId}`);
+      attendeeFd.append('body', attendeeEmailHtml);
+      attendeeFd.append('isHtml', 'true');
 
-      // fetch(this.emailApi, {
-      //   method: 'POST',
-      //   body: attendeeFd,
-      //   mode: 'no-cors'
-      // }).catch(err => console.error('Attendee Email Error:', err));
+      fetch(this.emailApi, {
+        method: 'POST',
+        body: attendeeFd,
+        mode: 'no-cors'
+      }).catch(err => console.error('Attendee Email Error:', err));
       fetch(this.powerAutomateUrl, {
         method: 'POST',
         headers: {
