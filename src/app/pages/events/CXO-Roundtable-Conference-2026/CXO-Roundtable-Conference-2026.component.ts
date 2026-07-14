@@ -365,6 +365,37 @@ Thank you for registering for the
 We have successfully received your registration.
 We appreciate your interest in joining the conference and look forward to welcoming you.
 </p>
+<!-- Event Details -->
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%"
+style="margin-bottom:35px;background:#F8FAFC;border:1px solid #E5E7EB;border-radius:10px;">
+
+<tr>
+<td style="padding:22px;">
+
+<h3 style="margin:0 0 18px;color:#0B1530;font-size:20px;">
+📅 Event Details
+</h3>
+
+<p style="margin:0 0 12px;font-size:15px;color:#444;">
+<strong>Business Email:</strong> ${this.businessEmail}
+</p>
+
+<p style="margin:0 0 12px;font-size:15px;color:#444;">
+<strong>Date:</strong> Friday, 7 August 2026
+</p>
+
+<p style="margin:0 0 12px;font-size:15px;color:#444;">
+<strong>Time:</strong> 07:00 PM – 11:00 PM (IST)
+</p>
+
+<p style="margin:0;font-size:15px;color:#444;">
+<strong>Venue:</strong> Hotel Lemon Tree, Banjara Hills, Hyderabad
+</p>
+
+</td>
+</tr>
+
+</table>
 <!-- Button -->
 <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
 <tr>

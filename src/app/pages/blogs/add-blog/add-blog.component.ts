@@ -3,11 +3,11 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
-
+import { EditorModule } from '@tinymce/tinymce-angular';
 @Component({
   selector: 'app-add-blog',
   standalone: true,
-  imports: [FormsModule, NgIf, NgFor],
+  imports: [FormsModule, NgIf, NgFor,EditorModule],
   styles: [`
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -385,17 +385,12 @@ import Swal from 'sweetalert2';
 
         <div class="fg full">
           <label>Description <span class="req">*</span></label>
-          <div class="editor-wrap">
-            <div class="toolbar">
-              <button type="button" class="tool-btn" (click)="format('bold')"><b>B</b></button>
-              <button type="button" class="tool-btn" (click)="format('italic')"><i>I</i></button>
-              <button type="button" class="tool-btn" (click)="format('underline')"><u>U</u></button>
-              <button type="button" class="tool-btn" (click)="format('insertUnorderedList')">List</button>
-              <button type="button" class="tool-btn" (click)="format('insertOrderedList')">1. List</button>
-            </div>
-            <div id="editor" class="editor-body" contenteditable="true"
-                 (input)="syncDescription()"></div>
-          </div>
+          <editor
+          apiKey="jhliclmp1oh6gk2oujt9ne6lfl07fcd8i3p0l1805dcq2bm4"
+            [(ngModel)]="blog.description"
+            name="description"
+            [init]="editorConfig">
+          </editor>
         </div>
 
       </div>
@@ -533,7 +528,37 @@ export class AddBlogComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() { this.loadBlogs(); }
+  editorConfig = {
+    height: 500,
+    menubar: true,
 
+    plugins: [
+      'advlist',
+      'autolink',
+      'lists',
+      'link',
+      'image',
+      'charmap',
+      'preview',
+      'anchor',
+      'searchreplace',
+      'visualblocks',
+      'code',
+      'fullscreen',
+      'insertdatetime',
+      'media',
+      'table',
+      'wordcount'
+    ],
+
+    toolbar:
+      'undo redo | formatselect | ' +
+      'bold italic underline forecolor backcolor | ' +
+      'alignleft aligncenter alignright alignjustify | ' +
+      'bullist numlist outdent indent | ' +
+      'link image media table | ' +
+      'removeformat code fullscreen preview'
+  };
   emptyBlog() {
     return {
       id: '',
@@ -573,15 +598,6 @@ export class AddBlogComponent implements OnInit {
 
   onFileSelect(event: any) { this.selectedImage = event.target.files[0]; }
 
-  format(command: string) {
-    document.execCommand(command, false);
-    this.syncDescription();
-  }
-
-  syncDescription() {
-    const editor = document.getElementById('editor');
-    this.blog.description = editor ? editor.innerHTML : '';
-  }
 
   editBlog(id: string) {
     this.http.get<any>(`${this.apiUrl}?action=get_by_id&id=${id}`).subscribe({
@@ -589,10 +605,6 @@ export class AddBlogComponent implements OnInit {
         if (res.status) {
           this.isEdit = true;
           this.blog = { ...this.emptyBlog(), ...res.data };
-          setTimeout(() => {
-            const editor = document.getElementById('editor');
-            if (editor) editor.innerHTML = this.blog.description || '';
-          }, 0);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           Swal.fire('Failed', res.message, 'error');
@@ -630,33 +642,81 @@ export class AddBlogComponent implements OnInit {
   }
 
   saveBlog() {
-    this.syncDescription();
     if (!this.blog.heading || !this.blog.page_name || !this.blog.description) {
       Swal.fire('Required', 'Heading, slug and description are required.', 'warning');
       return;
     }
+
     const wasEdit = this.isEdit;
+
     const fd = new FormData();
     fd.append('action', wasEdit ? 'update' : 'add');
-    Object.keys(this.blog).forEach(k => { if (k !== 'image') fd.append(k, this.blog[k] ?? ''); });
-    if (this.selectedImage) fd.append('image', this.selectedImage);
+
+    Object.keys(this.blog).forEach(key => {
+      if (key !== 'image') {
+        fd.append(key, this.blog[key] ?? '');
+      }
+    });
+
+    if (this.selectedImage) {
+      fd.append('image', this.selectedImage);
+    }
+
     this.saving = true;
+
     this.http.post<any>(this.apiUrl, fd).subscribe({
+
       next: (res) => {
         this.saving = false;
+
         if (res.status) {
           Swal.fire({
             icon: 'success',
             title: wasEdit ? 'Updated' : 'Published',
-            text: wasEdit ? 'Article updated successfully.' : 'Article published successfully.',
-            timer: 1400,
+            text: wasEdit
+              ? 'Article updated successfully.'
+              : 'Article published successfully.',
+            timer: 1500,
             showConfirmButton: false
-          }).then(() => { this.resetForm(); this.loadBlogs(); });
+          }).then(() => {
+            this.resetForm();
+            this.loadBlogs();
+          });
         } else {
-          Swal.fire('Failed', res.message, 'error');
+          Swal.fire({
+            icon: 'error',
+            title: 'Failed',
+            text: res.message || 'Unable to save blog.'
+          });
         }
       },
-      error: () => { this.saving = false; Swal.fire('Error', 'Save failed', 'error'); }
+
+      error: (err) => {
+        this.saving = false;
+
+        console.error('HTTP Error:', err);
+
+        let message = 'Something went wrong while saving the blog.';
+
+        if (err.error) {
+          if (typeof err.error === 'object' && err.error.message) {
+            // PHP returned JSON
+            message = err.error.message;
+          } else if (typeof err.error === 'string') {
+            // PHP returned plain text or HTML
+            message = err.error;
+          }
+        } else if (err.message) {
+          message = err.message;
+        }
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: message
+        });
+      }
+
     });
   }
 
@@ -664,7 +724,5 @@ export class AddBlogComponent implements OnInit {
     this.isEdit = false;
     this.selectedImage = null;
     this.blog = this.emptyBlog();
-    const editor = document.getElementById('editor');
-    if (editor) editor.innerHTML = '';
   }
 }
