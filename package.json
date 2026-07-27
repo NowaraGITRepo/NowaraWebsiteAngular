@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "build:prod": "ng build && node scripts/generate-sitemap.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:NowaraWebsiteAngular": "node dist/NowaraWebsiteAngular/server/server.mjs"

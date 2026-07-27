@@ -15,7 +15,6 @@
   <url><loc>https://nowarainfotech.com/ls-retail</loc>                                <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
   <url><loc>https://nowarainfotech.com/microsoft-azure-cloud-services-provider</loc>  <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
   <url><loc>https://nowarainfotech.com/aws-cloud-services-provider</loc>              <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
-  <url><loc>https://nowarainfotech.com/sap-web-service</loc>                          <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
   <url><loc>https://nowarainfotech.com/power-bi</loc>                                 <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
   <url><loc>https://nowarainfotech.com/google-looker</loc>                            <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
   <url><loc>https://nowarainfotech.com/tableau</loc>                                  <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
@@ -33,6 +32,8 @@
   <url><loc>https://nowarainfotech.com/fashion-erp</loc>                              <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
   <url><loc>https://nowarainfotech.com/microsoft-dynamics-365-for-e-commerce</loc>    <lastmod>2026-06-11</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
   <url><loc>https://nowarainfotech.com/supermarket-erp</loc>                          <lastmod>2026-06-11</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://nowarainfotech.com/dynamics-365-erp-software-for-manufacturing-industry</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://nowarainfotech.com/erp-for-retail-industry</loc>                  <lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
 
   <!-- Service Pages -->
   <url><loc>https://nowarainfotech.com/services/erp-crm-support</loc>                 <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.8</priority></url>
@@ -46,6 +47,59 @@
   <url><loc>https://nowarainfotech.com/blogs</loc>                                    <lastmod>2026-06-03</lastmod><changefreq>daily</changefreq>  <priority>0.8</priority></url>
   <url><loc>https://nowarainfotech.com/case-study</loc>                               <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
   <url><loc>https://nowarainfotech.com/event-page</loc>                               <lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/CXO-Roundtable-Conference-2026</loc>           <lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq> <priority>0.7</priority></url>
   <url><loc>https://nowarainfotech.com/gallery</loc>                                  <lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
+
+
+
+  <!-- Blog Pages (auto-generated) -->
+  <url><loc>https://nowarainfotech.com/blog/why-is-a-unified-solution-for-sales-marketing-and-finance-crucial-for-your-business</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/Ensuring-Quality-Control</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/enhancing-financial-processes-in-the-food-and-beverage-sector-with-erp</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/5-phases-of-crm-implementation-a-roadmap-by-nowara-infotech</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/streamlining-print-production-with-erp-from-order-management-to-delivery</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/choosing-the-right-erp-partner-what-businesses-should-consider</loc><lastmod>2026-06-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/why-cloud-erp-is-the-future-of-enterprise-management</loc><lastmod>2026-06-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-ai-is-transforming-modern-erp-systems</loc><lastmod>2026-06-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/top-10-benefits-of-dynamics-365-business-central</loc><lastmod>2026-06-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/enhancing-financial-process</loc><lastmod>2026-06-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/why-your-print-and-packaging-business-needs-a-cloud-based-erp-system</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/erp-software-for-supermarkets-transforming-retail-management-with-nowara-infotech</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/revolutionizing-cloud-accounting-and-financial-management-in-the-uae</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/streamlining-operations-with-dynamics-365-fando-in-south-africa</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-manufacturing-erp-software-transforms-the-packaging-industry-in-the-uae</loc><lastmod>2026-07-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/what-are-the-7-stages-of-erp-implementation-a-comprehensive-guide</loc><lastmod>2026-07-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/understanding-the-five-stages-of-supply-chain-management</loc><lastmod>2026-07-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/seamless-transition-how-to-upgrade-from-dynamics-nav-to-business-central</loc><lastmod>2026-07-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/what-are-the-pros-and-cons-of-microsoft-dynamics-365-erp</loc><lastmod>2026-07-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-inventory-erp-software-simplifies-complex-processes</loc><lastmod>2026-07-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/what-are-the-functions-of-finance-and-operations-in-dynamics-365-comprehensive-guide</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/the-best-erp-software-for-manufacturing-in-india-2024</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-point-of-sale-pos-systems-are-revolutionizing-manufacturing-industry</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/exploring-microsoft-dynamics-365-erp-solutions-for-restaurants-and-food-and-beverage-businesses</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/pos-based-erp-software-for-retail-industry-in-2024</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/your-expert-guide-to-erp-for-the-paper-and-packaging-industries</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-to-implement-microsoft-dynamics-crm</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/best-erp-software-for-construction-industry-in-india-2024</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/embrace-cloud-erp-for-a-more-efficient-agile-and-future-ready-food-and-beverage-enterprise</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/mastering-inventory-woes-erp-for-retail-industry-by-nowara-infotech</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/choosing-the-right-crm-for-you-operational-vs-analytical-vs-collaborative</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/5-key-features-of-ls-central-that-will-revolutionize-your-retail-operations</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/optimizing-your-business-operations-with-inventory-management-software-from-nowara-infotech</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/ls-central-transforming-retail-operations-with-nowara-infotech-s-game-changing-erp</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/unlocking-retail-success-harnessing-the-power-of-crm-for-personalized-marketing-strategies</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/revolutionizing-food-industries-through-ms-d365-business-central-erp</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/stay-ahead-of-the-competition-streamline-your-food-and-beverage-operations-with-cutting-edge-erp-solutions</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/the-future-of-retail-with-ls-central-erp-trends-and-predictions</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/streamline-your-operations-with-microsoft-dynamics-365-business-central-erp</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/top-10-reasons-why-ls-central-is-the-best-retail-pos-system-on-the-market</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/business-central-microsoft-s-1-erp-solution-with-advanced-retail-functionalities</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/nowara-infotech-fzco-receives-certificate-of-appreciation-from-mtc</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-ls-central-pos-system-can-help-businesses-streamline-operations-and-boost-sales</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/nowara-infotech-receives-certificate-of-appreciation-from-global-healthcare-company</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/how-hr-and-payroll-addon-can-improve-your-firms-operational-efficiency</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/with-ls-central-manage-all-your-retail-business</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/the-use-of-ai-in-dynamics-365-transforming-sales-operations</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nowarainfotech.com/blog/microsoft-dynamics-365-with-power-bi</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
