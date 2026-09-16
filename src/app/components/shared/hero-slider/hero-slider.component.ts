@@ -16,7 +16,7 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   isModalOpen = false;
   activeBrochure = '';
   activeTag = '';
-  showEventPopup = true;
+  showEventPopup = false;
   private swiper: any;
   private platformId = inject(PLATFORM_ID);
 
