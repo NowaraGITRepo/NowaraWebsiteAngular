@@ -1,104 +1,138 @@
-<section class="relative bg-white py-24">
+<section class="cp-section relative overflow-visible py-24">
 
-  <!-- Blobs in isolated overflow wrapper so pill is never clipped -->
-  <div class="pointer-events-none absolute inset-0 overflow-hidden">
-    <div class="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full bg-blue-100/50 blur-[120px]"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-indigo-100/40 blur-[100px]"></div>
+  <!-- Background: midnight base, aurora, dot grid, grain (isolated so the pill is never clipped) -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="cp-aurora cp-aurora-a absolute -top-48 right-[-8%] h-[640px] w-[640px] rounded-full bg-[#3D77BE]/40 blur-[140px]"></div>
+    <div class="cp-aurora cp-aurora-b absolute top-1/4 left-[-10%] h-[520px] w-[520px] rounded-full bg-violet-500/30 blur-[130px]"></div>
+    <div class="cp-aurora cp-aurora-a absolute bottom-[-10%] right-1/4 h-[460px] w-[460px] rounded-full bg-pink-500/20 blur-[130px]"></div>
+    <div class="cp-aurora cp-aurora-b absolute bottom-0 left-0 h-[380px] w-[380px] rounded-full bg-orange-400/15 blur-[120px]"></div>
+    <div class="cp-grid absolute inset-0"></div>
+    <div class="cp-grain absolute inset-0"></div>
+    <div class="cp-hairline absolute inset-x-0 top-0 h-px"></div>
   </div>
 
-  <!-- ── SECTION DIVIDER PILL — sits exactly on the hero/solutions boundary ── -->
+  <!-- Section divider pill — sits on the hero / solutions boundary -->
   <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);z-index:30">
-    <div style="display:inline-flex;align-items:center;gap:14px;
-      background:#ffffff;border:1.5px solid #e2e8f0;border-radius:9999px;
-      padding:10px 30px;box-shadow:0 4px 24px rgba(0,0,0,0.08);white-space:nowrap">
-      <div style="width:32px;height:1.5px;background:linear-gradient(to right,transparent,#94a3b8);border-radius:2px"></div>
-      <span style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:#64748b">
-        What We Offer
-      </span>
-      <div style="width:32px;height:1.5px;background:linear-gradient(to left,transparent,#94a3b8);border-radius:2px"></div>
+    <div class="cp-pill">
+      <svg class="cp-sparkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <linearGradient id="cpSpark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3D77BE" />
+            <stop offset="0.5" stop-color="#8B5CF6" />
+            <stop offset="1" stop-color="#F472B6" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#cpSpark)" d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zm7 11l.9 2.6 2.6.9-2.6.9L19 20l-.9-2.6-2.6-.9 2.6-.9L19 13z"/>
+      </svg>
+      <span class="text-[13px] font-semibold tracking-wide text-slate-600">What we offer</span>
     </div>
   </div>
 
   <!-- Section header -->
-  <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20 mb-14">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+  <div class="relative z-10 mx-auto mb-14 max-w-[1380px] px-6 lg:px-20">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <span class="inline-block mb-3 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600">What We Solve</span>
-        <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
-          Industry <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Solutions</span>
+        <span class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-slate-300 shadow-sm backdrop-blur">
+          <span class="cp-dot"></span>
+          What we solve
+        </span>
+        <h2 class="text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-5xl">
+          <span class="cp-gradient-text">Industry solutions</span>
         </h2>
       </div>
-      <p class="text-slate-400 max-w-sm text-sm leading-relaxed md:text-right">
+      <p class="max-w-sm text-sm leading-relaxed text-slate-400 md:text-right">
         Specialized ERP ecosystems that power digital transformation across every vertical.
       </p>
     </div>
   </div>
 
-  <!-- Cards grid -->
   <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20">
 
-    <!-- ERP Products label -->
-    <div class="flex items-center gap-3 mb-5">
-      <span class="text-xs font-black uppercase tracking-[0.2em] text-[#3D77BE]">Microsoft ERP Products</span>
-      <div class="flex-1 h-px bg-gradient-to-r from-blue-200 to-transparent"></div>
+    <!-- ── Microsoft ERP products ── -->
+    <div class="mb-6 flex items-center gap-3">
+      <span class="text-sm font-bold text-sky-300">Microsoft ERP products</span>
+      <div class="h-px flex-1 bg-gradient-to-r from-sky-400/50 via-violet-400/30 to-transparent"></div>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+      <a *ngFor="let item of featured; let i = index; trackBy: trackByTitle"
+         [routerLink]="item.href"
+         class="cp-card cp-card-featured no-underline"
+         [style.--i]="i"
+         (mousemove)="onMove($event)">
+        <div class="cp-card-inner group">
 
-      <!-- Divider after first 4 -->
-      <ng-container *ngFor="let item of services; let i = index">
+          <div class="relative h-44 overflow-hidden">
+            <img [src]="item.image" [alt]="item.title" loading="lazy" decoding="async" width="400" height="176"
+                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
 
-        <!-- Industry Solutions label between index 3 and 4 -->
-        <div *ngIf="i === 4" class="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-3 mt-4 mb-1">
-          <span class="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Industry Solutions</span>
-          <div class="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent"></div>
-        </div>
+            <div class="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-xl border border-white/70 bg-white/90 shadow-sm backdrop-blur">
+              <img [src]="item.icon" alt="" class="h-5 w-5 flex-shrink-0 object-contain" />
+            </div>
 
-      <a
-        [routerLink]="item.href"
-        [class]="item.highlight
-          ? 'group relative overflow-hidden rounded-3xl cursor-pointer bg-white border-2 border-[#3D77BE] shadow-[0_8px_32px_rgba(61,119,190,0.18)] hover:shadow-[0_14px_44px_rgba(61,119,190,0.28)] hover:-translate-y-1 transition-all duration-300 no-underline block'
-          : 'group relative overflow-hidden rounded-3xl cursor-pointer bg-white border-2 border-blue-200 shadow-[0_8px_32px_rgba(37,99,235,0.12)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.22)] hover:-translate-y-1 transition-all duration-300 no-underline block'">
-
-        <!-- Image area -->
-        <div class="relative h-44 overflow-hidden rounded-t-3xl">
-          <img [src]="item.image" [alt]="item.title"
-            loading="lazy" decoding="async" width="400" height="176"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-
-          <!-- Icon badge -->
-          <div class="absolute bottom-3 left-3 flex items-center gap-2 rounded-xl bg-white/90 backdrop-blur-sm border border-white/60 px-3 py-1.5 shadow-sm">
-            <img [src]="item.icon" [alt]="item.title" class="w-4 h-4 object-contain flex-shrink-0" />
-            <span class="font-bold text-[10px] uppercase tracking-wider leading-none"
-              [class]="item.highlight ? 'text-[#3D77BE]' : 'text-slate-700'">{{ item.title }}</span>
+            <div class="cp-featured-chip absolute right-3 top-3">Featured</div>
           </div>
 
-          <!-- Highlighted badge for ERP products -->
-          <div *ngIf="item.highlight" class="absolute top-3 right-3 bg-[#3D77BE] text-white text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full">
-            Featured
+          <div class="relative p-5">
+            <h3 class="text-[15px] font-bold leading-snug text-slate-900">{{ item.title }}</h3>
+            <p class="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-500">{{ item.desc }}</p>
+
+            <div class="cp-cta mt-4">
+              <span>Learn more</span>
+              <span class="cp-cta-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
           </div>
+
         </div>
-
-        <!-- Card body -->
-        <div class="p-5">
-          <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">{{ item.desc }}</p>
-
-          <!-- Always visible CTA -->
-          <div class="mt-4 flex items-center gap-1.5 text-xs font-bold group-hover:gap-2.5 transition-all duration-200"
-            [class]="item.highlight ? 'text-[#3D77BE]' : 'text-blue-600'">
-            Learn more
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
-            </svg>
-          </div>
-        </div>
-
       </a>
-
-      </ng-container>
-
     </div>
-  </div>
 
+    <!-- ── Industry solutions ── -->
+    <div class="mb-6 mt-14 flex items-center gap-3">
+      <span class="text-sm font-bold text-slate-400">Industry solutions</span>
+      <div class="h-px flex-1 bg-gradient-to-r from-white/25 to-transparent"></div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+      <a *ngFor="let item of industry; let i = index; trackBy: trackByTitle"
+         [routerLink]="item.href"
+         class="cp-card no-underline"
+         [style.--i]="i + featured.length"
+         (mousemove)="onMove($event)">
+        <div class="cp-card-inner group">
+
+          <div class="relative h-44 overflow-hidden">
+            <img [src]="item.image" [alt]="item.title" loading="lazy" decoding="async" width="400" height="176"
+                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+            <div class="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-xl border border-white/70 bg-white/90 shadow-sm backdrop-blur">
+              <img [src]="item.icon" alt="" class="h-5 w-5 flex-shrink-0 object-contain" />
+            </div>
+          </div>
+
+          <div class="relative p-5">
+            <h3 class="text-[15px] font-bold leading-snug text-slate-900">{{ item.title }}</h3>
+            <p class="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-500">{{ item.desc }}</p>
+
+            <div class="cp-cta mt-4">
+              <span>Learn more</span>
+              <span class="cp-cta-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </a>
+    </div>
+
+  </div>
 </section>

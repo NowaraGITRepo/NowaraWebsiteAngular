@@ -1,20 +1,24 @@
-<div class="relative w-full overflow-hidden bg-[#f8fafc]">
+<div class="nx-home relative w-full overflow-hidden">
 
-  <!-- Mesh gradient blobs -->
-  <div class="pointer-events-none absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-blue-200/30 blur-[140px]"></div>
-  <div class="pointer-events-none absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-indigo-200/25 blur-[120px]"></div>
+  <!-- Copilot wave wallpaper: soft layered waves in the Copilot colours -->
+  <div class="nx-bg" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="nxg1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#3D77BE"/><stop offset="0.5" stop-color="#7b6cf0"/><stop offset="1" stop-color="#3D77BE"/></linearGradient><linearGradient id="nxg2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#7b6cf0"/><stop offset="0.5" stop-color="#e879b9"/><stop offset="1" stop-color="#7b6cf0"/></linearGradient><linearGradient id="nxg3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#e879b9"/><stop offset="0.5" stop-color="#ffb27a"/><stop offset="1" stop-color="#e879b9"/></linearGradient><linearGradient id="nxg4" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#3D77BE"/><stop offset="0.5" stop-color="#4fd1c5"/><stop offset="1" stop-color="#3D77BE"/></linearGradient></defs></svg>
+    <div class="nx-waves">
+    <svg class="nx-wave nx-wave-a" viewBox="0 0 2880 900" preserveAspectRatio="none" aria-hidden="true"><path d="M0 430 C 180 335, 540 335, 720 430 C 900 525, 1260 525, 1440 430 C 1620 335, 1980 335, 2160 430 C 2340 525, 2700 525, 2880 430 L2880 900 L0 900 Z" fill="url(#nxg1)" fill-opacity="0.2"/></svg>
+    <svg class="nx-wave nx-wave-l1" viewBox="0 0 2880 900" preserveAspectRatio="none" aria-hidden="true"><path d="M0 500 C 180 415, 540 415, 720 500 C 900 585, 1260 585, 1440 500 C 1620 415, 1980 415, 2160 500 C 2340 585, 2700 585, 2880 500" fill="none" stroke="url(#nxg2)" stroke-opacity="0.55" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>
+    <svg class="nx-wave nx-wave-b" viewBox="0 0 2880 900" preserveAspectRatio="none" aria-hidden="true"><path d="M0 540 C 180 455, 540 455, 720 540 C 900 625, 1260 625, 1440 540 C 1620 455, 1980 455, 2160 540 C 2340 625, 2700 625, 2880 540 L2880 900 L0 900 Z" fill="url(#nxg2)" fill-opacity="0.22"/></svg>
+    <svg class="nx-wave nx-wave-l2" viewBox="0 0 2880 900" preserveAspectRatio="none" aria-hidden="true"><path d="M0 610 C 180 535, 540 535, 720 610 C 900 685, 1260 685, 1440 610 C 1620 535, 1980 535, 2160 610 C 2340 685, 2700 685, 2880 610" fill="none" stroke="url(#nxg3)" stroke-opacity="0.55" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>
+    <svg class="nx-wave nx-wave-c" viewBox="0 0 2880 900" preserveAspectRatio="none" aria-hidden="true"><path d="M0 650 C 180 575, 540 575, 720 650 C 900 725, 1260 725, 1440 650 C 1620 575, 1980 575, 2160 650 C 2340 725, 2700 725, 2880 650 L2880 900 L0 900 Z" fill="url(#nxg3)" fill-opacity="0.26"/></svg>
+    <svg class="nx-wave nx-wave-d" viewBox="0 0 2880 900" preserveAspectRatio="none" aria-hidden="true"><path d="M0 745 C 180 683, 540 683, 720 745 C 900 807, 1260 807, 1440 745 C 1620 683, 1980 683, 2160 745 C 2340 807, 2700 807, 2880 745 L2880 900 L0 900 Z" fill="url(#nxg4)" fill-opacity="0.2"/></svg>
+    </div>
+  </div>
 
   <!-- ── CARD SLIDER ───────────────────────────────────────── -->
   <div class="relative z-10 pt-10 w-full">
     <div class="relative px-12 md:px-16">
 
       <!-- Left arrow -->
-      <button (click)="slideLeft()" aria-label="Scroll left"
-        class="absolute left-1 md:left-2 top-[50%] -translate-y-1/2 z-20
-               w-9 h-9 md:w-11 md:h-11 bg-white border border-slate-200 rounded-full shadow-md
-               flex items-center justify-center
-               hover:bg-blue-50 hover:border-blue-400 hover:shadow-blue-100/60
-               active:scale-90 transition-all duration-200">
+      <button (click)="slideLeft()" aria-label="Scroll left" class="nx-arr left-1 md:left-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
@@ -22,12 +26,7 @@
       </button>
 
       <!-- Right arrow -->
-      <button (click)="slideRight()" aria-label="Scroll right"
-        class="absolute right-1 md:right-2 top-[50%] -translate-y-1/2 z-20
-               w-9 h-9 md:w-11 md:h-11 bg-white border border-slate-200 rounded-full shadow-md
-               flex items-center justify-center
-               hover:bg-blue-50 hover:border-blue-400 hover:shadow-blue-100/60
-               active:scale-90 transition-all duration-200">
+      <button (click)="slideRight()" aria-label="Scroll right" class="nx-arr right-1 md:right-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -35,51 +34,36 @@
       </button>
 
       <!-- Track -->
-      <div class="overflow-x-hidden pt-2 pb-3"
+      <div class="nx-track-wrap"
            (mouseenter)="pauseSlider()" (mouseleave)="resumeSlider()"
            (touchstart)="pauseSlider()" (touchend)="resumeSlider()">
-        <div #cardTrack class="flex gap-3" style="will-change:transform;">
+        <div #cardTrack class="flex gap-4" style="will-change:transform;">
           <a *ngFor="let card of sliderCards; let i = index"
-            [routerLink]="card.href"
-            class="inline-flex flex-shrink-0 w-[210px] h-[210px] flex-col whitespace-normal group
-                   rounded-2xl bg-white border border-slate-200
-                   shadow-[0_4px_20px_rgba(0,0,0,0.07)]
-                   hover:shadow-[0_10px_32px_rgba(61,119,190,0.18)] hover:border-blue-300 hover:-translate-y-2
-                   transition-all duration-300 overflow-hidden no-underline">
-            <!-- Top accent bar -->
-            <div class="h-[3px] w-full flex-shrink-0" [style.background]="card.badgeColor || '#3D77BE'"></div>
-            <div class="px-4 py-4 flex flex-col flex-1">
-              <!-- Logo + badge row -->
-              <div class="flex items-center justify-between mb-3">
-                <!-- Logo: SVG inline > image > iconify -->
-                <div class="w-9 h-9 flex items-center justify-center">
-                  <span *ngIf="card.svgIcon" [innerHTML]="card.svgIcon | safeHtml"></span>
-                  <img *ngIf="!card.svgIcon && card.imgSrc" [src]="card.imgSrc" alt="" class="w-8 h-8 object-contain" />
-                  <iconify-icon *ngIf="!card.svgIcon && !card.imgSrc && card.iconifyIcon"
-                    [attr.icon]="card.iconifyIcon" width="30" height="30"
-                    [style.color]="card.iconColor || '#3D77BE'"></iconify-icon>
-                </div>
-                <!-- Badge -->
-                <span class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
-                  [style.background]="(card.badgeColor || '#3D77BE') + '18'"
-                  [style.color]="card.badgeColor || '#3D77BE'">
-                  {{ card.badge }}
-                </span>
+             [routerLink]="card.href"
+             class="nx-card"
+             [style.--c]="card.badgeColor || '#3D77BE'"
+             [style.--i]="i % cards.length">
+
+            <div class="nx-card-top">
+              <div class="nx-icon">
+                <span *ngIf="card.svgIcon" [innerHTML]="card.svgIcon | safeHtml"></span>
+                <img *ngIf="!card.svgIcon && card.imgSrc" [src]="card.imgSrc" alt="" class="w-8 h-8 object-contain" />
+                <iconify-icon *ngIf="!card.svgIcon && !card.imgSrc && card.iconifyIcon"
+                  [attr.icon]="card.iconifyIcon" width="28" height="28"
+                  [style.color]="card.iconColor || '#3D77BE'"></iconify-icon>
               </div>
-              <!-- Title -->
-              <p class="text-slate-800 font-black text-[13.5px] leading-snug mb-1.5 group-hover:text-[#3D77BE] transition-colors duration-200">
-                {{ card.title }}
-              </p>
-              <!-- Desc -->
-              <p class="text-slate-600 text-[11px] leading-relaxed flex-1">{{ card.desc }}</p>
-              <!-- Bottom CTA -->
-              <div class="flex items-center gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="text-[11px] font-bold" [style.color]="card.badgeColor || '#3D77BE'">Learn more</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" stroke-width="3" [style.color]="card.badgeColor || '#3D77BE'">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
-                </svg>
-              </div>
+              <span class="nx-badge">{{ card.badge }}</span>
+            </div>
+
+            <p class="nx-card-title">{{ card.title }}</p>
+            <p class="nx-card-desc">{{ card.desc }}</p>
+
+            <div class="nx-card-cta">
+              <span>Learn more</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+              </svg>
             </div>
           </a>
         </div>
@@ -88,143 +72,115 @@
     </div>
   </div>
 
-  <!-- ── HERO CONTENT ──────────────────────────────────────────── -->
-  <section class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20 py-10 lg:py-20">
-    <div class="flex gap-6 lg:gap-10 items-stretch">
+  <!-- ── INTRO (hero content) ──────────────────────────────────── -->
+  <section class="nx-intro mx-auto max-w-[1280px] px-6 py-12 lg:px-16 lg:py-5">
+    <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
 
-      <!-- ── Vertical "MICROSOFT CERTIFIED" side text ── -->
-      <div class="hidden lg:flex flex-col items-center gap-3 flex-shrink-0 pt-2">
-
-        <span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;flex-shrink:0;animation:pulse 2s infinite"></span>
-        <div style="width:1px;height:28px;background:linear-gradient(to bottom,#3b82f6,#e2e8f0)"></div>
-
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <span class="vert-letter">M</span>
-          <span class="vert-letter">I</span>
-          <span class="vert-letter">C</span>
-          <span class="vert-letter">R</span>
-          <span class="vert-letter">O</span>
-          <span class="vert-letter">S</span>
-          <span class="vert-letter">O</span>
-          <span class="vert-letter">F</span>
-          <span class="vert-letter">T</span>
-          <span style="width:4px;height:4px;border-radius:50%;background:#cbd5e1;margin:4px 0"></span>
-          <span class="vert-letter">C</span>
-          <span class="vert-letter">E</span>
-          <span class="vert-letter">R</span>
-          <span class="vert-letter">T</span>
-          <span class="vert-letter">I</span>
-          <span class="vert-letter">F</span>
-          <span class="vert-letter">I</span>
-          <span class="vert-letter">E</span>
-          <span class="vert-letter">D</span>
-        </div>
-
-        <div style="width:1px;flex:1;background:linear-gradient(to bottom,#e2e8f0,transparent)"></div>
-      </div>
-
-      <!-- ── Main content + image ── -->
-      <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-      <!-- Left: Text -->
-      <div class="space-y-8">
-
-        <!-- CSS ticker badge -->
-        <div style="display:inline-flex;align-items:center;gap:10px;
-          border-radius:9999px;border:1.5px solid #fde68a;background:#fefce8;
-          padding:6px 18px;height:36px;overflow:hidden">
-          <span style="width:8px;height:8px;border-radius:50%;background:#facc15;
-            flex-shrink:0;animation:pulse 2s infinite"></span>
-          <div style="height:18px;overflow:hidden">
-            <div class="badge-scroll">
-              <div class="badge-item">Microsoft Certified Partner</div>
-              <div class="badge-item">Power BI Expert</div>
-              <div class="badge-item">Business Central</div>
-              <div class="badge-item">LS Central Ready</div>
-              <div class="badge-item">Cloud ERP Leader</div>
-              <div class="badge-item">Azure Solutions</div>
-              <div class="badge-item">Microsoft Certified Partner</div>
+      <!-- Left: message + prompt-style call to action -->
+      <div>
+        <div class="nx-eyebrow nx-rise" style="--d:0">
+          <div class="nx-eyebrow-in">
+            <span class="nx-eyebrow-dot"></span>
+            <div class="nx-roll">
+              <div class="nx-roll-list">
+                <div class="nx-roll-item">Microsoft Certified Partner</div>
+                <div class="nx-roll-item">Power BI Expert</div>
+                <div class="nx-roll-item">Business Central</div>
+                <div class="nx-roll-item">LS Central Ready</div>
+                <div class="nx-roll-item">Cloud ERP Leader</div>
+                <div class="nx-roll-item">Azure Solutions</div>
+                <div class="nx-roll-item">Microsoft Certified Partner</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <h1 class="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight text-slate-900">
-          We architect<br>
-          <span class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-            Digital Ecosystems
-          </span><br>
-          for modern enterprise.
+        <h1 class="nx-h1 nx-rise" style="--d:1">
+          We architect <span class="nx-grad">Digital Ecosystems</span> for modern enterprise.
         </h1>
 
-        <p class="max-w-md text-lg leading-relaxed text-slate-500">
-          Expertly deploying <strong class="text-slate-700">Business Central</strong>,
-          <strong class="text-slate-700">LS Central</strong>, and
-          <strong class="text-slate-700">Power BI</strong> to create seamless global operations.
+        <p class="nx-lead nx-rise" style="--d:2">
+          Expertly deploying <strong>Business Central</strong>, <strong>LS Central</strong> and
+          <strong>Power BI</strong> to create seamless global operations.
         </p>
 
-        <div class="flex flex-wrap gap-4">
-          <button (click)="openModal()"
-            class="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/30 transition-all duration-200 hover:bg-blue-700 active:scale-95">
-            Let's Connect
-            <svg class="transition-transform duration-200 group-hover:translate-x-1"
-              xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+        <!-- Prompt-bar style CTA: opens the contact form -->
+        <button type="button" class="nx-composer nx-rise" style="--d:3" (click)="openModal()"
+                aria-label="Start a conversation with Nowara">
+          <span class="nx-composer-ico">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+              <path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7L12 2z"/>
             </svg>
-          </button>
-          <div class="inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-sm">
-            <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500"></span>
-            <span class="text-sm font-semibold text-slate-600">Global Support 24 / 7</span>
-          </div>
+          </span>
+          <span class="nx-roll-lg">
+            <span class="nx-roll-list" style="display:block">
+              <span class="nx-roll-item" style="display:block">Plan my Business Central rollout</span>
+              <span class="nx-roll-item" style="display:block">Migrate from AX or NAV to the cloud</span>
+              <span class="nx-roll-item" style="display:block">Build live Power BI dashboards</span>
+              <span class="nx-roll-item" style="display:block">Set up LS Central for retail</span>
+              <span class="nx-roll-item" style="display:block">Move my ERP to Azure</span>
+              <span class="nx-roll-item" style="display:block">Plan my Business Central rollout</span>
+            </span>
+          </span>
+          <span class="nx-composer-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </span>
+        </button>
+
+        <div class="nx-chips nx-rise" style="--d:4">
+          <button type="button" class="nx-chip" (click)="openModal()">Business Central rollout</button>
+          <button type="button" class="nx-chip" (click)="openModal()">LS Central for retail</button>
+          <button type="button" class="nx-chip" (click)="openModal()">Power BI dashboards</button>
+          <button type="button" class="nx-chip" (click)="openModal()">AX / NAV migration</button>
         </div>
 
+        <div class="nx-stats nx-rise" style="--d:5">
+          <div class="nx-stat-i"><div class="nx-stat-v">30+</div><div class="nx-stat-l">years of ERP experience</div></div>
+          <div class="nx-stat-i"><div class="nx-stat-v">24/7</div><div class="nx-stat-l">global support</div></div>
+          <div class="nx-stat-i"><div class="nx-stat-v">Global</div><div class="nx-stat-l">deployment expertise</div></div>
+        </div>
       </div>
 
-      <!-- Right: Floating image -->
-      <div class="flex items-center justify-center">
-        <div class="hero-img-float relative group w-full max-w-[480px]">
+      <!-- Right: glowing frame with floating glass cards -->
+      <div class="nx-stage nx-rise" style="--d:3">
+        <div class="nx-stage-glow" aria-hidden="true"></div>
 
-          <!-- Glow behind image -->
-          <div class="absolute inset-0 rounded-3xl bg-blue-400/20 blur-[50px] scale-95"></div>
-
-          <!-- Image -->
-          <div style="position:relative; border-radius:1.5rem; overflow:hidden;
-            border:4px solid white; box-shadow:0 24px 64px rgba(37,99,235,0.18);
-            background:#dbeafe; transition:transform 0.5s ease"
-            class="group-hover:scale-[1.02]">
-
+        <div class="nx-frame">
+          <div class="nx-frame-in">
             <img [src]="serviceImages[currentImgIndex].src"
-              [alt]="serviceImages[currentImgIndex].label"
-              loading="lazy" decoding="async" width="480" height="340"
-              style="width:100%; height:340px; object-fit:cover; display:block; transition:opacity 0.7s ease;"
-              [style.opacity]="fading ? 0 : 1" />
-
-            <!-- Label -->
-            <div style="position:absolute; bottom:0; left:0; right:0;
-              background:linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-              padding:16px 20px; display:flex; align-items:center; gap:8px">
-              <span style="width:8px;height:8px;border-radius:50%;background:#60a5fa;
-                flex-shrink:0;animation:pulse 2s infinite"></span>
-              <span style="color:white;font-size:14px;font-weight:600;letter-spacing:0.03em">
-                {{ serviceImages[currentImgIndex].label }}
-              </span>
+                 [alt]="serviceImages[currentImgIndex].label"
+                 loading="lazy" decoding="async" width="500" height="400"
+                 [style.opacity]="fading ? 0 : 1" />
+            <div class="nx-frame-shade"></div>
+            <div class="nx-frame-label">
+              <span class="nx-pulse"></span>
+              <span>{{ serviceImages[currentImgIndex].label }}</span>
             </div>
           </div>
+        </div>
 
-          <!-- Dots -->
-          <div style="display:flex;justify-content:center;gap:6px;margin-top:16px">
-            <span *ngFor="let img of serviceImages; let i = index"
-              style="height:6px; border-radius:9999px; cursor:pointer; transition: all 0.3s ease"
-              [style.width]="i === currentImgIndex ? '24px' : '6px'"
-              [style.background]="i === currentImgIndex ? '#3b82f6' : '#cbd5e1'"
-              (click)="selectImage(i)">
-            </span>
-          </div>
+        <div class="nx-float nx-float-a">
+          <span class="nx-float-ico" style="background:linear-gradient(135deg,#3D77BE,#7b6cf0 55%,#e879b9)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7L12 2z"/></svg>
+          </span>
+          <span><div class="nx-float-t">Copilot-ready ERP</div><div class="nx-float-s">AI inside your workflows</div></span>
+        </div>
 
+        <div class="nx-float nx-float-b">
+          <span class="nx-float-ico" style="background:linear-gradient(135deg,#10b981,#059669)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          </span>
+          <span><div class="nx-float-t">Microsoft Certified</div><div class="nx-float-s">Dynamics 365 partner</div></span>
+        </div>
+
+        <div class="nx-dots">
+          <button *ngFor="let img of serviceImages; let i = index" type="button" class="nx-dot2"
+                  [class.is-on]="i === currentImgIndex" [attr.aria-label]="'Show ' + img.label"
+                  (click)="selectImage(i)"></button>
         </div>
       </div>
 
-    </div><!-- end lg:col-span-2 inner grid -->
-    </div><!-- end outer grid -->
+    </div>
   </section>
 
   <!-- Contact modal -->

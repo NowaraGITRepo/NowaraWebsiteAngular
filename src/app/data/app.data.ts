@@ -39,56 +39,81 @@ export interface HeroSlide {
   brochure: string;
   href?: string;
   align?: string;
+  accent: [string, string];
+  stat: { value: string; label: string ;color?:string };
+  aiPoints: string[];
 }
 
 export const heroSlides: HeroSlide[] = [
   {
     src: '/images/Swiper/slider-image.webp',
-    tag: 'MICROSOFT DYNAMICS 365',
-    title: "<span class='text-blue-400'>Business Central</span> – All-in-One ERP for Modern Enterprises",
-    desc: 'Unify finance, sales, purchasing and operations on a single cloud platform. Go live faster with Nowara\'s certified Business Central team.',
+    tag: 'Microsoft Dynamics 365',
+    title: 'Business Central: the all-in-one ERP for modern enterprises',
+    desc: "Unify finance, sales, purchasing and operations on a single cloud platform. Go live faster with Nowara's certified Business Central team.",
     brochure: '/brochures/enterprise-solutions.pdf',
     href: '/microsoft-dynamic-365-business-central',
+    accent: ['#38bdf8', '#6366f1'],
+    stat: {
+      value: '30+',
+      label: 'years of ERP experience behind every rollout',
+      color: 'rgba(30, 100, 221, 0.75)'
+    },
+    aiPoints: ['Copilot answers and drafts inside your workflows', 'Cash-flow forecasting from live ledger data', 'Smarter sales and purchasing suggestions'],
   },
   {
     src: '/images/Swiper/people-analyzing-checking-finance-graphs-office.webp',
-    tag: 'DYNAMICS 365 CRM',
-    title: "Transform Customer Relationships with <span class='text-cyan-400'>D365 CRM</span>",
-    desc: 'Close deals faster, retain more customers and drive growth with Microsoft Dynamics 365 Sales & Customer Service — fully integrated with your ERP.',
+    tag: 'Dynamics 365 CRM',
+    title: 'Turn every customer conversation into a closed deal with D365 CRM',
+    desc: 'Close deals faster, retain more customers and drive growth with Microsoft Dynamics 365 Sales & Customer Service, fully integrated with your ERP.',
     brochure: '/brochures/cloud-services.pdf',
     href: '/erp-crm-implementations',
+    accent: ['#22d3ee', '#3b82f6'],
+    stat: { value: '360°', label: 'customer view, linked to orders and invoices', },
+    aiPoints: ['Lead and opportunity scoring', 'Meeting and email summaries for your sales team', 'Service case suggestions for faster resolution'],
   },
   {
     src: '/images/Swiper/pexels-photo-590022.webp',
-    tag: 'DYNAMICS 365 F&O',
-    title: "Enterprise <span class='text-orange-400'>Finance & Operations</span> at Scale",
-    desc: 'Manage complex global financials, supply chains and manufacturing with Dynamics 365 F&O — built for large enterprise and multi-entity organisations.',
+    tag: 'Dynamics 365 Finance & Operations',
+    title: 'Run global finance and operations on one enterprise platform',
+    desc: 'Manage complex global financials, supply chains and manufacturing with Dynamics 365 F&O, built for large and multi-entity organisations.',
     brochure: '/brochures/data-analytics.pdf',
     href: '/msd-365-finance-and-operations',
+    accent: ['#fb923c', '#f43f5e'],
+    stat: { value: 'Multi-entity', label: 'finance, supply chain and manufacturing together' },
+    aiPoints: ['Demand and supply planning insights', 'Anomaly flags on budgets and cash flow', 'Compliance checks across regions'],
   },
   {
     src: '/images/Swiper/pexels-photo-3183153.webp',
-    tag: 'ERP IMPLEMENTATION',
-    title: "Certified <span class='text-blue-400'>Microsoft Partner</span> for ERP Consulting",
-    desc: 'From discovery to go-live — Nowara Infotech delivers end-to-end Dynamics 365 implementation, configuration, training and 24/7 post-live support.',
+    tag: 'ERP implementation',
+    title: 'A certified Microsoft partner, from discovery to go-live',
+    desc: 'Nowara Infotech delivers end-to-end Dynamics 365 implementation, configuration, training and 24/7 post-live support.',
     brochure: '/brochures/software-engineering.pdf',
     href: '/services/erp-crm-support',
+    accent: ['#60a5fa', '#8b5cf6'],
+    stat: { value: '24/7', label: 'support after you go live' },
+    aiPoints: ['AI-assisted requirement and gap analysis', 'Faster test-case and training content creation', 'Proactive issue detection after go-live'],
   },
   {
     src: '/images/Swiper/pexels-photo-3861964.webp',
-    tag: 'POWER BI & ANALYTICS',
-    title: "Real-Time <span class='text-cyan-400'>Power BI</span> Dashboards for D365",
+    tag: 'Power BI & analytics',
+    title: 'Real-time Power BI dashboards on your Dynamics 365 data',
     desc: 'Turn your Business Central and F&O data into actionable insights with embedded Power BI dashboards and advanced analytics reports.',
     brochure: '/brochures/power-bi-advanced.pdf',
     href: '/power-bi',
+    accent: ['#facc15', '#f97316'],
+    stat: { value: 'Live', label: 'dashboards fed straight from your ERP' },
+    aiPoints: ['Ask questions of your data in plain language', 'Automatic trend and outlier detection', 'Forecasts built into the reports'],
   },
   {
     src: '/images/Swiper/pexels-photo-669615.webp',
-    tag: 'UPGRADE & MIGRATION',
-    title: "Migrate from <span class='text-orange-400'>AX / NAV</span> to Dynamics 365 Cloud",
-    desc: 'Nowara\'s proven migration methodology ensures zero data loss and minimal downtime when upgrading legacy Microsoft ERP systems to the D365 cloud.',
+    tag: 'Upgrade & migration',
+    title: 'Move from AX or NAV to Dynamics 365 in the cloud',
+    desc: "Nowara's proven migration methodology ensures zero data loss and minimal downtime when upgrading legacy Microsoft ERP systems to the D365 cloud.",
     brochure: '/brochures/power-bi-insights.pdf',
     href: '/services/upgrade-and-migration',
+    accent: ['#2dd4bf', '#0ea5e9'],
+    stat: { value: 'Zero', label: 'data loss with our migration method' },
+    aiPoints: ['Automated data profiling and cleansing', 'Smart mapping from legacy to new structures', 'Reconciliation checks before cutover'],
   },
 ];
 

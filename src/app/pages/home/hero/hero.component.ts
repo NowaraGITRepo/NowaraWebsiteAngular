@@ -1,6 +1,6 @@
 import {
   Component, OnInit, OnDestroy, AfterViewInit,
-  ChangeDetectorRef, NgZone, ElementRef, ViewChild,
+  ChangeDetectorRef, NgZone, ElementRef, ViewChild, ViewEncapsulation,
   inject, PLATFORM_ID, CUSTOM_ELEMENTS_SCHEMA
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
@@ -15,6 +15,8 @@ import { homeCards } from '../../../data/app.data';
   imports: [CommonModule, ContactFormComponent, RouterLink, SafeHtmlPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './hero.component.html',
+  styleUrls: ['./hero.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
@@ -40,13 +42,14 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   fading          = false;
 
   private timer?: ReturnType<typeof setInterval>;
+  private cleanupPointer?: () => void;
 
   // ── Slider state ──────────────────────────────────────────
   private sliderX     = 0;
   private rafId       = 0;
   private sliderActive = false;
   private readonly SPEED  = 1.8;   // px per frame (~108 px/s at 60 fps)
-  private readonly CARD_W = 222;   // 210px card + 12px gap (gap-3 = 12px)
+  private readonly CARD_W = 252;   // 236px card + 16px gap (gap-4 = 16px) — keep in sync with the CSS
 
   // ── Image rotator ─────────────────────────────────────────
   ngOnInit() {
@@ -57,7 +60,10 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.ngZone.runOutsideAngular(() => this.runSlider());
+      this.ngZone.runOutsideAngular(() => {
+        this.runSlider();
+        this.initCardLight();
+      });
     }
   }
 
@@ -66,7 +72,23 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sliderActive = false;
     if (isPlatformBrowser(this.platformId)) {
       cancelAnimationFrame(this.rafId);
+      this.cleanupPointer?.();
     }
+  }
+
+  /** Feeds the pointer position to the hovered card (--mx / --my) for its soft light. */
+  private initCardLight() {
+    const track = this.cardTrack?.nativeElement;
+    if (!track) return;
+    const onMove = (e: PointerEvent) => {
+      const card = (e.target as HTMLElement).closest?.('.nx-card') as HTMLElement | null;
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    };
+    track.addEventListener('pointermove', onMove, { passive: true });
+    this.cleanupPointer = () => track.removeEventListener('pointermove', onMove);
   }
 
   // ── Auto-scroll loop ──────────────────────────────────────

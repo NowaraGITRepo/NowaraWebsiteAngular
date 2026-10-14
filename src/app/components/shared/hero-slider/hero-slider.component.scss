@@ -1,0 +1,204 @@
+/* Add to index.html <head> for the two typefaces:
+   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Sora:wght@500;600&display=swap" rel="stylesheet"> */
+
+.nx-hero {
+  /* per-slide accents, used only by the AI card */
+  --a1: #38bdf8; --a2: #6366f1;
+  /* beige base with Nowara blue accents */
+  --paper-1: #f8f3ea; --paper-2: #f0e8da; --paper-3: #dfe7f1;
+  --ink: #0f2447; --muted: #4a5a73;
+  --gold: #3D77BE; --gold-light: #7fb0e8; --gold-deep: #1f4f94;
+}
+
+.nx-hero.nx-paper, .nx-hero .nx-paper {
+  background: linear-gradient(115deg, var(--paper-1) 0%, var(--paper-2) 52%, var(--paper-3) 100%);
+}
+.nx-hero { border-bottom: 1px solid rgba(31, 79, 148, .22); }
+
+.nx-hero .nx-warmglow {
+  background: radial-gradient(circle, rgba(127, 176, 232, .38), transparent 65%);
+  filter: blur(24px);
+}
+.nx-hero .nx-bignum {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 250px; line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(160deg, #3D77BE, #7b6cf0 50%, #e879b9);
+  -webkit-background-clip: text; background-clip: text; color: transparent; opacity: .13;
+}
+
+
+/* ---------- Copilot-style aurora behind the copy ----------
+   Soft mesh of blue, violet, pink and peach. Drifts slowly, and shifts a little with the mouse.
+   Only the active slide animates, to keep it light. */
+.nx-hero .nx-aurora-in {
+  position: absolute; inset: -22%;
+  background:
+    radial-gradient(38% 46% at 14% 24%, rgba(123, 108, 240, .40), transparent 70%),
+    radial-gradient(34% 44% at 34% 88%, rgba(61, 119, 190, .42), transparent 70%),
+    radial-gradient(30% 40% at 46% 14%, rgba(232, 121, 185, .30), transparent 70%),
+    radial-gradient(28% 38% at 4% 74%, rgba(255, 178, 122, .42), transparent 70%),
+    radial-gradient(26% 34% at 58% 56%, rgba(79, 209, 197, .20), transparent 70%);
+  translate: calc(var(--px, 0) * 22px) calc(var(--py, 0) * 14px);
+  animation: nxAurora 16s ease-in-out infinite alternate;
+  animation-play-state: paused;
+  will-change: transform;
+}
+.nx-hero .swiper-slide-active .nx-aurora-in { animation-play-state: running; }
+@keyframes nxAurora {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(5deg) scale(1.08) translate3d(2%, -2%, 0); }
+  100% { transform: rotate(-4deg) scale(1.04) translate3d(-2%, 2%, 0); }
+}
+
+/* ---------- type ---------- */
+.nx-hero .nx-title {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 500; color: var(--ink);
+  letter-spacing: -0.015em; line-height: 1.12; text-wrap: balance;
+}
+.nx-hero .nx-desc { color: var(--muted); }
+
+.nx-hero .nx-pill {
+  color: var(--gold-deep);
+  background: rgba(61, 119, 190, .10);
+  border: 1px solid rgba(61, 119, 190, .38);
+}
+.nx-hero .nx-spark { background: linear-gradient(135deg, #3D77BE, #7b6cf0 55%, #e879b9); }
+
+/* ---------- photo frame ---------- */
+.nx-hero .nx-kenburns { transform: scale(1.06); }
+.nx-hero .swiper-slide-active .nx-kenburns { animation: nxKen 10s ease-out forwards; }
+@keyframes nxKen { to { transform: scale(1.14) translate3d(-1%, -.7%, 0); } }
+
+.nx-hero .nx-bgshift {
+  transform: translate3d(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px), 0);
+  will-change: transform;
+}
+@media (min-width: 1024px) {
+  /* thin inner keyline following the arch */
+  .nx-hero .nx-arch::after {
+    content: ''; position: absolute; inset: 14px 0 14px 14px; pointer-events: none;
+    border: 1px solid rgba(248, 232, 200, .38); border-right: 0;
+    border-radius: 274px 0 0 274px;
+  }
+}
+
+/* ---------- entrance (visible by default; animation only runs from hidden) ---------- */
+.nx-hero .swiper-slide-active .nx-reveal {
+  animation: nxReveal .85s cubic-bezier(.2, .8, .2, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 100ms + 300ms);
+}
+@keyframes nxReveal { from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(5px); } }
+
+/* ---------- buttons ---------- */
+.nx-hero .nx-cta {
+  color: #fff; background: linear-gradient(135deg, #3D77BE, #1f4f94);
+  box-shadow: 0 14px 28px -14px rgba(31, 79, 148, .55);
+  transition: background .3s, transform .3s, box-shadow .3s;
+}
+.nx-hero .nx-cta-arrow {
+  color: #1f4f94; background: #fff;
+  transition: transform .3s;
+}
+.nx-hero .nx-cta:hover { background: linear-gradient(135deg, #4a86cf, #2459a6); transform: translateY(-2px); box-shadow: 0 18px 30px -14px rgba(31, 79, 148, .65); }
+.nx-hero .nx-cta:hover .nx-cta-arrow { transform: translateX(3px); }
+.nx-hero .nx-cta:active { transform: scale(.97); }
+
+.nx-hero .nx-link {
+  color: var(--ink); padding-bottom: 3px;
+  background: linear-gradient(var(--gold), var(--gold)) left bottom / 100% 1px no-repeat;
+  transition: background-size .35s ease, color .3s;
+}
+.nx-hero .nx-link:hover { color: var(--gold-deep); background-size: 100% 2px; }
+
+/* ---------- warm mouse spotlight (sits under the AI card) ---------- */
+.nx-hero .nx-spot {
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(127, 176, 232, .32), transparent 65%);
+  opacity: 0; transition: opacity .5s;
+}
+.nx-hero.is-pointer .nx-spot { opacity: 1; }
+
+/* ---------- AI card — unchanged ---------- */
+@property --nx-ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+.nx-hero .nx-glass {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(150deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .03));
+  border: 1px solid rgba(255, 255, 255, .14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 26px 50px -20px rgba(0, 0, 0, .6);
+  transform: perspective(900px) rotateY(calc(var(--px, 0) * 7deg)) rotateX(calc(var(--py, 0) * -6deg));
+  animation: nxFloat 7s ease-in-out infinite;
+}
+@keyframes nxFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+
+.nx-hero .nx-glass::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: conic-gradient(from var(--nx-ang), transparent 0 62%, var(--a1) 80%, var(--a2) 90%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: nxSpin 6s linear infinite;
+}
+@keyframes nxSpin { to { --nx-ang: 360deg; } }
+
+.nx-hero .nx-glass::after {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; pointer-events: none;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .1), transparent);
+  transform: skewX(-12deg);
+  animation: nxSheen 7s ease-in-out infinite;
+}
+@keyframes nxSheen { 0%, 55% { left: -60%; } 100% { left: 140%; } }
+
+.nx-hero .nx-stat {
+  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #fff, var(--a1));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.nx-hero .nx-tick { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.nx-hero .swiper-slide-active .nx-li {
+  animation: nxLi .6s ease backwards;
+  animation-delay: calc(var(--k, 0) * 110ms + 1000ms);
+}
+.nx-hero .swiper-slide-active .nx-tick {
+  animation: nxTick .55s ease-out backwards;
+  animation-delay: calc(var(--k, 0) * 110ms + 1150ms);
+}
+@keyframes nxLi { from { opacity: 0; transform: translateX(-10px); } }
+@keyframes nxTick { from { stroke-dashoffset: 1; } }
+
+/* ---------- controls ---------- */
+.nx-hero .nx-count { color: var(--ink); }
+.nx-hero .nx-count-dim { color: rgba(15, 36, 71, .4); }
+
+.nx-hero .nx-dot {
+  position: relative; height: 5px; width: 5px; overflow: hidden; border-radius: 999px;
+  background: rgba(15, 36, 71, .25); transition: width .4s ease, background .3s;
+}
+.nx-hero .nx-dot:hover { background: rgba(15, 36, 71, .5); }
+.nx-hero .nx-dot.is-active { width: 38px; background: rgba(15, 36, 71, .14); }
+.nx-hero .nx-fill {
+  position: absolute; inset: 0; transform-origin: left; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-light));
+  animation: nxFill linear forwards;
+}
+@keyframes nxFill { to { transform: scaleX(1); } }
+
+.nx-hero .nx-arrow {
+  display: inline-flex; height: 36px; width: 36px; align-items: center; justify-content: center;
+  border-radius: 999px; color: var(--ink); border: 1px solid rgba(15, 36, 71, .28);
+  transition: background .25s, color .25s, border-color .25s;
+}
+.nx-hero .nx-arrow:hover { background: var(--ink); color: var(--paper-1); border-color: var(--ink); }
+
+.nx-hero button:focus-visible, .nx-hero a:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .nx-hero .nx-kenburns, .nx-hero .nx-aurora-in, .nx-hero .nx-fill, .nx-hero .nx-glass, .nx-hero .nx-glass::before, .nx-hero .nx-glass::after,
+  .nx-hero .swiper-slide-active .nx-reveal, .nx-hero .swiper-slide-active .nx-li,
+  .nx-hero .swiper-slide-active .nx-tick { animation: none !important; }
+}

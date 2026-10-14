@@ -1,115 +1,144 @@
-<section class="relative bg-[#f8fafc] py-24">
+<section class="fq-section relative py-28">
 
-  <!-- Blobs in isolated overflow wrapper so pill is never clipped -->
-  <div class="pointer-events-none absolute inset-0 overflow-hidden">
-    <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-blue-100/40 blur-[120px]"></div>
-    <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-indigo-100/30 blur-[100px]"></div>
+  <!-- Copilot background: drifting colour glows + dot grid -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="fq-aurora absolute -top-40 right-[-6%] h-[560px] w-[560px] rounded-full bg-[#3D77BE]/20 blur-[130px]"></div>
+    <div class="fq-aurora fq-aurora-b absolute top-1/3 left-[-8%] h-[460px] w-[460px] rounded-full bg-violet-400/20 blur-[120px]"></div>
+    <div class="fq-aurora absolute bottom-[-8%] right-1/4 h-[420px] w-[420px] rounded-full bg-pink-300/25 blur-[120px]"></div>
+    <div class="fq-aurora fq-aurora-b absolute bottom-0 left-0 h-[340px] w-[340px] rounded-full bg-orange-300/20 blur-[110px]"></div>
+    <div class="fq-grid absolute inset-0"></div>
   </div>
 
-  <!-- ── SECTION DIVIDER PILL — sits exactly on the blue/white boundary ── -->
+  <!-- Boundary pill -->
   <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);z-index:30">
-    <div style="display:inline-flex;align-items:center;gap:14px;
-      background:#ffffff;border:1.5px solid #e2e8f0;border-radius:9999px;
-      padding:10px 30px;box-shadow:0 4px 24px rgba(0,0,0,0.08);white-space:nowrap">
-      <div style="width:32px;height:1.5px;background:linear-gradient(to right,transparent,#94a3b8);border-radius:2px"></div>
-      <span style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:#64748b">
-        Expert Answers
-      </span>
-      <div style="width:32px;height:1.5px;background:linear-gradient(to left,transparent,#94a3b8);border-radius:2px"></div>
+    <div class="fq-pill">
+      <svg class="fq-twinkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <linearGradient id="fqSpark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3D77BE"/><stop offset=".5" stop-color="#8B5CF6"/><stop offset="1" stop-color="#F472B6"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#fqSpark)" d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zm7 11l.9 2.6 2.6.9-2.6.9L19 20l-.9-2.6-2.6-.9 2.6-.9L19 13z"/>
+      </svg>
+      <span>Expert answers</span>
     </div>
   </div>
 
   <div class="relative z-10 mx-auto max-w-[1380px] px-6 lg:px-20">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
+    <div class="grid grid-cols-1 items-start gap-14 lg:grid-cols-[1fr_1.45fr] lg:gap-16">
 
-      <!-- Left: heading + CTA card -->
-      <div class="lg:sticky lg:top-28 space-y-8">
+      <!-- ── Left: heading, contact card, stats ── -->
+      <div class="space-y-9 lg:sticky lg:top-28">
         <div>
-          <span class="inline-block mb-4 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600">Got Questions?</span>
-          <h2 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight mb-5">
+          <h2 class="fq-title">
             Frequently<br>
-            <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Asked Questions</span>
+            <span class="fq-gradient-text">asked questions</span>
           </h2>
-          <p class="text-slate-400 text-base leading-relaxed max-w-sm">
-            Everything you need to know about our ERP and CRM solutions. Can't find what you're looking for?
+          <p class="mt-5 max-w-sm text-[15px] leading-relaxed text-[#5a6577]">
+            Everything you need to know about our ERP and CRM solutions. Can't find what you're looking for? Ask our team directly.
           </p>
         </div>
 
-        <!-- Contact card -->
-        <a routerLink="/contact-us"
-          class="group flex items-center gap-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 shadow-lg shadow-blue-500/25">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+        <a routerLink="/contact-us" class="fq-contact group no-underline">
+          <span class="fq-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
             </svg>
-          </div>
-          <div class="flex-1">
-            <p class="font-bold text-slate-900 text-sm">Still have questions?</p>
-            <p class="text-slate-400 text-xs mt-0.5">Contact our support team →</p>
-          </div>
-          <svg class="text-slate-300 transition-transform duration-200 group-hover:translate-x-1"
-            xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
-          </svg>
+          </span>
+          <span class="flex-1">
+            <span class="block text-[15px] font-bold text-[#14233d]">Still have questions?</span>
+            <span class="mt-0.5 block text-[13px] text-[#5a6577]">Contact our support team</span>
+          </span>
+          <span class="fq-contact-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+            </svg>
+          </span>
         </a>
 
-        <!-- Decorative stat -->
-        <div class="flex gap-6">
-          <div class="flex flex-col">
-            <span class="text-3xl font-black text-slate-900">50+</span>
-            <span class="text-xs font-bold uppercase tracking-widest text-blue-500 mt-0.5">Global Clients</span>
+        <dl class="flex gap-6">
+          <div>
+            <dd class="fq-stat-num">50+</dd>
+            <dt class="fq-stat-label">Global clients</dt>
           </div>
-          <div class="w-px bg-slate-200"></div>
-          <div class="flex flex-col">
-            <span class="text-3xl font-black text-slate-900">10+</span>
-            <span class="text-xs font-bold uppercase tracking-widest text-blue-500 mt-0.5">Years Experience</span>
+          <span class="fq-stat-sep" aria-hidden="true"></span>
+          <div>
+            <dd class="fq-stat-num">10+</dd>
+            <dt class="fq-stat-label">Years experience</dt>
           </div>
-          <div class="w-px bg-slate-200"></div>
-          <div class="flex flex-col">
-            <span class="text-3xl font-black text-slate-900">24/7</span>
-            <span class="text-xs font-bold uppercase tracking-widest text-blue-500 mt-0.5">Support</span>
+          <span class="fq-stat-sep" aria-hidden="true"></span>
+          <div>
+            <dd class="fq-stat-num">24/7</dd>
+            <dt class="fq-stat-label">Support</dt>
           </div>
-        </div>
+        </dl>
       </div>
 
-      <!-- Right: Accordion -->
-      <div class="space-y-3">
-        <div *ngFor="let item of items; let i = index"
-          class="group rounded-2xl border transition-all duration-300 overflow-hidden"
-          [class.border-blue-200]="activeIndex === i"
-          [class.bg-white]="activeIndex === i"
-          [class.shadow-lg]="activeIndex === i"
-          [class.shadow-blue-500/8]="activeIndex === i"
-          [class.border-slate-200]="activeIndex !== i"
-          [class.bg-white]="activeIndex !== i">
+      <!-- ── Right: search + answers ── -->
+      <div>
 
-          <!-- Question -->
-          <button (click)="toggle(i)"
-            class="flex w-full items-center justify-between gap-4 px-7 py-6 text-left transition-colors duration-200">
-            <span class="font-bold text-slate-900 text-sm leading-snug pr-2">{{ item.title }}</span>
-            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl transition-all duration-300"
-              [class.bg-blue-600]="activeIndex === i"
-              [class.bg-slate-100]="activeIndex !== i"
-              [class.rotate-180]="activeIndex === i">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-                [attr.stroke]="activeIndex === i ? 'white' : '#64748b'">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </div>
+        <!-- Search composer -->
+        <div class="fq-composer">
+          <svg class="fq-composer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M20 20l-3.5-3.5"/>
+          </svg>
+          <input type="search" class="fq-input" placeholder="Search a question…" aria-label="Search questions"
+                 [value]="query" (input)="onSearch($any($event.target).value)" />
+          <button *ngIf="query" type="button" class="fq-clear" aria-label="Clear search" (click)="onSearch('')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
           </button>
+          <span class="fq-count" aria-live="polite">{{ visible.length }} {{ visible.length === 1 ? 'question' : 'questions' }}</span>
+        </div>
 
-          <!-- Answer -->
-          <div class="overflow-hidden transition-all duration-400"
-            [style.max-height]="activeIndex === i ? '400px' : '0'"
-            [style.opacity]="activeIndex === i ? '1' : '0'">
-            <div class="px-7 pb-6">
-              <div class="h-px w-full bg-blue-100 mb-4"></div>
-              <p class="text-slate-500 text-sm leading-relaxed">{{ item.content }}</p>
+        <!-- Questions -->
+        <div class="mt-5 flex flex-col gap-3">
+          <div *ngFor="let q of visible; let i = index; trackBy: trackById"
+               class="fq-item" [class.is-open]="activeId === q.id" [style.--i]="i">
+
+            <h3 class="m-0">
+              <button type="button" class="fq-q"
+                      [id]="'fq-q-' + q.id"
+                      [attr.aria-expanded]="activeId === q.id"
+                      [attr.aria-controls]="'fq-a-' + q.id"
+                      (click)="toggle(q.id)">
+                <span class="fq-mark" aria-hidden="true">
+                  <span class="fq-mark-q">?</span>
+                  <svg class="fq-mark-spark" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zm7 11l.9 2.6 2.6.9-2.6.9L19 20l-.9-2.6-2.6-.9 2.6-.9L19 13z"/></svg>
+                </span>
+                <span class="fq-q-text">{{ q.title }}</span>
+                <span class="fq-chev" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+                </span>
+              </button>
+            </h3>
+
+            <div class="fq-a" [id]="'fq-a-' + q.id" role="region" [attr.aria-labelledby]="'fq-q-' + q.id">
+              <div class="fq-a-clip">
+                <div class="fq-a-body">
+                  <span class="fq-avatar" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zm7 11l.9 2.6 2.6.9-2.6.9L19 20l-.9-2.6-2.6-.9 2.6-.9L19 13z"/></svg>
+                  </span>
+                  <div class="min-w-0">
+                    <p class="fq-a-text">{{ q.content }}</p>
+                    <a routerLink="/contact-us" class="fq-more no-underline">Need more detail? Talk to our team</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty state -->
+          <div *ngIf="visible.length === 0" class="fq-empty">
+            <p class="text-[15px] font-semibold text-[#14233d]">No questions match “{{ query }}”</p>
+            <p class="mt-1 text-[13px] text-[#5a6577]">Try different words, or ask our team directly.</p>
+            <div class="mt-4 flex flex-wrap justify-center gap-3">
+              <button type="button" class="fq-btn-ghost" (click)="onSearch('')">Clear search</button>
+              <a routerLink="/contact-us" class="fq-btn-solid no-underline">Contact us</a>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </section>

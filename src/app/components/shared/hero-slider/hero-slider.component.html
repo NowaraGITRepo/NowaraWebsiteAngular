@@ -1,154 +1,166 @@
-<section id="swipe" class="w-full overflow-hidden relative bg-black h-[420px] md:h-[540px] lg:h-[620px]">
+<section #hero id="swipe" class="nx-hero nx-paper relative h-[460px] w-full overflow-hidden md:h-[520px] lg:h-[576px]"
+         [style.--a1]="slides[activeIndex].accent[0]" [style.--a2]="slides[activeIndex].accent[1]">
 
-  <div class="swiper nowara-hero-swiper h-full w-full">
+  <div class="swiper nx-hero-swiper h-full w-full">
     <div class="swiper-wrapper">
 
-      <div *ngFor="let slide of slides; let i = index" class="swiper-slide relative overflow-hidden">
+      <div *ngFor="let slide of slides; let i = index"
+           class="swiper-slide nx-paper relative overflow-hidden"
+           [style.--a1]="slide.accent[0]" [style.--a2]="slide.accent[1]">
 
-        <!-- BG Image with parallax depth only -->
-        <div class="absolute inset-0" data-swiper-parallax="25%">
-          <img [src]="slide.src" [alt]="slide.tag"
-            class="w-full h-full object-cover scale-110"
-            [attr.loading]="i === 0 ? 'eager' : 'lazy'"
-            [attr.fetchpriority]="i === 0 ? 'high' : 'auto'"
-            decoding="async" width="1920" height="620" />
-          <div class="absolute inset-0 bg-black/45"></div>
+        <!-- Copilot-style aurora + oversized slide number, both quiet and behind the copy -->
+        <div class="nx-aurora pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true"><div class="nx-aurora-in"></div></div>
+        <span class="nx-bignum pointer-events-none absolute bottom-[-46px] left-[3%] hidden select-none md:block" aria-hidden="true">{{ i + 1 | number:'2.0-0' }}</span>
+        <div class="nx-spot pointer-events-none absolute inset-0 z-10" aria-hidden="true"></div>
+
+        <!-- Photo: faint wash on small screens, a tall arched frame from lg up -->
+        <div class="nx-arch absolute inset-0 overflow-hidden opacity-20 lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[48%] lg:rounded-l-[288px] lg:opacity-100 xl:w-[52%]">
+          <div class="nx-bgshift absolute -inset-6">
+            <img [src]="slide.src" [alt]="slide.tag"
+                 class="nx-kenburns h-full w-full object-cover"
+                 [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+                 [attr.fetchpriority]="i === 0 ? 'high' : 'auto'"
+                 decoding="async" width="1920" height="720" />
+          </div>
+          <div class="absolute inset-0 hidden bg-gradient-to-br from-[#0d1020]/60 via-[#0d1020]/35 to-[#0d1020]/55 lg:block"></div>
         </div>
 
         <!-- Content -->
-        <div class="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-20 lg:px-32"
-          [class.items-end]="slide['align'] === 'right'"
-          [class.items-start]="slide['align'] !== 'right'">
+        <div class="absolute inset-0 z-20 mx-auto flex max-w-[1200px] items-center justify-between gap-10 px-5 pb-16 pt-6 md:px-12 lg:px-20">
 
-          <div [class.max-w-2xl]="slide['align'] === 'right'"
-               [class.text-right]="slide['align'] === 'right'"
-               [class.items-end]="slide['align'] === 'right'"
-               [class.max-w-4xl]="slide['align'] !== 'right'"
-               [class.text-left]="slide['align'] !== 'right'"
-               class="flex flex-col">
+          <div class="flex max-w-[520px] flex-col items-start lg:max-w-[440px] xl:max-w-[520px]">
 
-            <!-- Tag badge -->
-            <div class="hero-tag inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mt-10 backdrop-blur-md self-start"
-              [class.self-end]="slide['align'] === 'right'">
-              <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-              <span class="text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">{{ slide.tag }}</span>
+            <div class="nx-reveal nx-pill mb-5 inline-flex items-center gap-2 rounded-full py-1 pl-1.5 pr-3.5" style="--i:0">
+              <span class="nx-spark inline-flex h-5 w-5 items-center justify-center rounded-full">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                  <path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7L12 2z"/>
+                </svg>
+              </span>
+              <span class="text-xs font-medium tracking-wide">{{ slide.tag }}</span>
             </div>
 
-            <!-- Title (h2 — page h1 is the main hero headline below) -->
-            <h2 class="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
-              [innerHTML]="slide.title"></h2>
+            <h2 class="nx-reveal nx-title mb-4 text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.85rem]" style="--i:1">
+              {{ slide.title }}
+            </h2>
 
-            <!-- Description -->
-            <p class="hero-desc text-gray-100 text-lg md:text-xl leading-relaxed mb-10 max-w-xl opacity-90">
+            <p class="nx-reveal nx-desc mb-7 max-w-[460px] text-sm leading-relaxed md:text-[15px]" style="--i:2">
               {{ slide.desc }}
             </p>
 
-            <!-- Button -->
-            <div class="hero-btn">
+            <div class="nx-reveal flex flex-wrap items-center gap-x-6 gap-y-3" style="--i:3">
               <button (click)="openModal(slide.brochure, slide.tag)" aria-label="Book a Free Demo"
-                class="relative overflow-hidden bg-[#3D77BE] hover:bg-white text-white hover:text-[#3D77BE] font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-xl active:scale-95">
-                Book a Free Demo
+                class="nx-cta inline-flex items-center gap-3 rounded-full py-2 pl-6 pr-2 text-sm font-semibold">
+                Book a free demo
+                <span class="nx-cta-arrow inline-flex h-8 w-8 items-center justify-center rounded-full">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
               </button>
+              <a *ngIf="slide.href" [routerLink]="slide.href" class="nx-link text-sm font-medium">
+                Explore the solution
+              </a>
             </div>
-
           </div>
+
+          <!-- AI insight card (desktop) — unchanged. Outer = entrance, inner = float + mouse tilt -->
+          <aside class="nx-reveal hidden w-[272px] shrink-0 lg:block" style="--i:4"
+                 [attr.aria-label]="slide.tag + ' highlights'">
+            <div class="nx-glass rounded-2xl p-5">
+            <div class="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+              <span
+                class="nx-stat text-3xl font-semibold"
+                [style.color]="slide.stat.color || 'rgba(17, 24, 39, 0.75)'"
+              >
+                {{ slide.stat.value }}
+              </span>
+
+              <span class="text-xs leading-snug text-slate-300">
+                {{ slide.stat.label }}
+              </span>
+            </div>
+              <div class="my-4 h-px bg-white/15"></div>
+              <p class="mb-2.5 text-xs font-medium text-white/80">Where AI helps</p>
+              <ul class="space-y-2.5">
+                <li *ngFor="let p of slide.aiPoints; let k = index"
+                    class="nx-li flex items-start gap-2.5 text-[13px] leading-snug text-slate-200" [style.--k]="k">
+                  <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="11" [attr.stroke]="slide.accent[0]" stroke-opacity=".6"/>
+                    <path class="nx-tick" pathLength="1" d="M7.5 12.5l3 3 6-6.5" [attr.stroke]="slide.accent[0]"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {{ p }}
+                </li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
 
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
-  <!--Summit page -->
-<!-- EVENT POPUP -->
-<div *ngIf="showEventPopup" style="
-  position:absolute;
-  top:95px;
-  right:90px;
-  z-index:40;
-  width:300px;
-  max-width:calc(100% - 40px);
-  background:linear-gradient(145deg,#071633,#0b2a66);
-  color:#fff;
-  border:1px solid #2563eb;
-  border-radius:16px;
-  padding:16px;
-  box-shadow:0 20px 45px rgba(37,99,235,.35);
-">
-
-  <button type="button" (click)="closeEventPopup()" style="
-    position:absolute;
-    top:8px;
-    right:12px;
-    background:transparent;
-    border:none;
-    color:#fff;
-    font-size:22px;
-    line-height:1;
-    cursor:pointer;
-  ">
-    ×
-  </button>
-
-  <div style="width:34px;height:34px;background:#2563eb;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:16px;">
-    📅
   </div>
 
-  <div style="font-size:10px;font-weight:800;color:#facc15;letter-spacing:1px;margin-bottom:7px;">
-    UPCOMING EVENT
+  <!-- Controls, kept on the cream side -->
+  <div class="absolute inset-x-0 bottom-0 z-30 mx-auto flex max-w-[1200px] items-center gap-8 px-5 pb-5 md:px-12 lg:px-20">
+    <span class="nx-count text-xs tabular-nums">
+      {{ activeIndex + 1 | number:'2.0-0' }} <span class="nx-count-dim">/ {{ slides.length | number:'2.0-0' }}</span>
+    </span>
+
+    <div class="flex items-center gap-2" role="tablist" aria-label="Choose slide">
+      <button *ngFor="let s of slides; let i = index" type="button" role="tab"
+              class="nx-dot" [class.is-active]="i === activeIndex"
+              [attr.aria-selected]="i === activeIndex" [attr.aria-label]="'Go to ' + s.tag"
+              (click)="goTo(i)">
+        <span *ngFor="let k of (i === activeIndex ? [progressKey] : [])"
+              class="nx-fill" [style.animation-duration.ms]="autoplayDelay"></span>
+      </button>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button type="button" (click)="prev()" aria-label="Previous slide" class="nx-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" (click)="next()" aria-label="Next slide" class="nx-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
   </div>
 
-  <h3 style="font-size:20px;font-weight:900;line-height:1.25;margin:0 0 12px;padding-right:18px;">
-   Nowara CXO Roundtable Conference 2026
-  </h3>
+  <!-- EVENT POPUP (unchanged behaviour) -->
+  <!-- <div *ngIf="showEventPopup" style="
+    position:absolute;top:95px;right:90px;z-index:40;width:300px;max-width:calc(100% - 40px);
+    background:linear-gradient(145deg,#071633,#0b2a66);color:#fff;border:1px solid #2563eb;
+    border-radius:16px;padding:16px;box-shadow:0 20px 45px rgba(37,99,235,.35);">
+    <button type="button" (click)="closeEventPopup()" aria-label="Close event popup" style="
+      position:absolute;top:8px;right:12px;background:transparent;border:none;color:#fff;
+      font-size:22px;line-height:1;cursor:pointer;">×</button>
+    <div style="width:34px;height:34px;background:#2563eb;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:16px;">📅</div>
+    <div style="font-size:10px;font-weight:800;color:#facc15;letter-spacing:1px;margin-bottom:7px;">UPCOMING EVENT</div>
+    <h3 style="font-size:20px;font-weight:900;line-height:1.25;margin:0 0 12px;padding-right:18px;">Nowara CXO Roundtable Conference 2026</h3>
+    <div style="height:1px;background:rgba(255,255,255,.18);margin:12px 0;"></div>
+    <p style="font-size:12px;margin:0 0 7px;color:#e5e7eb;">📅 Friday, 7 August 2026</p>
+    <p style="font-size:12px;margin:0 0 10px;color:#e5e7eb;line-height:1.4;">📍 Hotel Lemon Tree Banjara Hills,<br>Hyderabad, India</p>
+    <a routerLink="/CXO-Roundtable-Conference-2026" style="
+      display:block;text-align:center;background:#fff;color:#0b1530;padding:10px;border-radius:9px;
+      font-size:13px;font-weight:800;text-decoration:none;margin-top:12px;">View Details →</a>
+  </div> -->
 
-  <div style="height:1px;background:rgba(255,255,255,.18);margin:12px 0;"></div>
-
-  <p style="font-size:12px;margin:0 0 7px;color:#e5e7eb;">
-    📅 Friday, 7 August 2026
-  </p>
-
-  <p style="font-size:12px;margin:0 0 10px;color:#e5e7eb;line-height:1.4;">
-    📍 Hotel Lemon Tree Banjara Hills,<br>
-    Hyderabad, India
-  </p>
-
-  <a routerLink="/CXO-Roundtable-Conference-2026" style="
-    display:block;
-    text-align:center;
-    background:#fff;
-    color:#0b1530;
-    padding:10px;
-    border-radius:9px;
-    font-size:13px;
-    font-weight:800;
-    text-decoration:none;
-    margin-top:12px;
-  ">
-    View Details →
-  </a>
-
-</div>
-  <!-- MODAL -->
+  <!-- MODAL (unchanged) -->
   <div *ngIf="isModalOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
     <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-md" (click)="closeModal()"></div>
-
-    <div class="relative w-full max-w-2xl z-10 animate-fade-in">
-      <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-white/20">
-
-        <div class="bg-slate-50 px-4 py-4 md:px-8 md:py-6 border-b border-slate-100 flex justify-between items-center">
+    <div class="relative z-10 w-full max-w-2xl animate-fade-in">
+      <div class="overflow-hidden rounded-[2rem] border border-white/20 bg-white shadow-2xl">
+        <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-4 py-4 md:px-8 md:py-6">
           <div>
             <h3 class="text-xl font-bold text-slate-800">Request Brochure</h3>
             <p class="text-sm text-slate-500">Fill in your details to receive the {{ activeTag }} guide.</p>
           </div>
           <button (click)="closeModal()" aria-label="Close modal"
-            class="p-2 hover:bg-slate-200 rounded-full text-slate-400 hover:text-slate-600 transition-all">
+            class="rounded-full p-2 text-slate-400 transition-all hover:bg-slate-200 hover:text-slate-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
         </div>
-
-        <div class="p-4 md:p-8 lg:p-10 bg-white">
+        <div class="bg-white p-4 md:p-8 lg:p-10">
           <app-contact-form [isModal]="true" (success)="closeModal()"></app-contact-form>
         </div>
       </div>
